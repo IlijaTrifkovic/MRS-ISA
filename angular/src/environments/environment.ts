@@ -4,7 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  baseUrl: 'http://localhost:8080/',
+  baseUrl: 'http://localhost:8080',
   httpOptions: {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   },

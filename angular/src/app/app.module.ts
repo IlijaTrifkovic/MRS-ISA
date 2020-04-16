@@ -10,12 +10,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './pages/basic-ui/footer/footer.component';
 import { NavigationComponent } from './pages/basic-ui/navigation/navigation.component';
+import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
+    RegistrationPageComponent,
     FooterComponent,
     NavigationComponent,
   ],

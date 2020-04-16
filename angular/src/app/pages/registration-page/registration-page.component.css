@@ -1,0 +1,108 @@
+div.main-container{
+    min-height: 660px;
+}
+
+.registration-page{
+    position: absolute;
+    display: block;
+    width: 450px; 
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.85);
+    color:rgb(43, 43, 43);
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+h2{
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+    margin: 0;
+    color: rgb(15, 146, 113);
+    font-size: 22px;
+}
+
+.status-message{
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: rgb(43, 43, 43);
+}
+
+.registration-form{
+    position: relative;
+    display: block;
+    padding:10px;
+    padding-top: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+.reg-form-table{
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    border:none;
+}
+
+.reg-form-table tr td{
+    padding: 6px
+}
+
+.reg-form-table input{
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 35px;
+    padding: 10px;
+    color: rgb(45,45,45);
+    background-color: white;
+}
+
+.reg-form-table input::placeholder{
+    color: rgb(135, 135, 135);
+}
+
+.reg-form-table .btn-submit{
+    color: white;
+    background-color: rgb(15, 146, 113);
+    transition: 0.3s;
+}
+
+.reg-form-table .btn-submit:hover{
+    background-color: rgb(23, 158, 133);
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+    p:hover{
+        background-color: rgba(148, 150, 149, 0.7);
+        width: 150px;
+    }
+    .registration-page{
+        width: 100%;
+    }
+    .registration-form{
+        width: 100%;
+        padding: 0;
+    }
+    .reg-form-table{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .registration-page{
+        width: 100%; 
+        background-color: rgba(255, 255, 255, 0.85);
+    }    
+}
