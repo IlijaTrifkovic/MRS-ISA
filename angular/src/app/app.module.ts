@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './pages/basic-ui/footer/footer.component';
 import { NavigationComponent } from './pages/basic-ui/navigation/navigation.component';
 import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { RegistrationPageComponent } from './pages/registration-page/registratio
     AppComponent,
     LoginPageComponent,
     RegistrationPageComponent,
+    HomePageComponent,
     FooterComponent,
     NavigationComponent,
   ],
