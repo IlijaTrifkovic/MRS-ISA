@@ -1,0 +1,25 @@
+<div class="main-container">
+  <div class="login-page">
+
+    <p class="reg-log-btn noselect" routerLink="/signup" routerLinkActive="active">Registruj se</p>
+    <h2 class="noselect"><span style="color: rgba(66, 66, 66, 0.85);">Prijavi </span>se</h2>
+    <hr style="border: none; outline: none; height: 2px; width: 85%; background-color: rgba(66, 66, 66, 0.2);">
+    
+    <!--Login form-->
+    <form class="login-form" (ngSubmit) = "onLogin()" [formGroup]="loginForm">
+      <div class="input-container">
+        <div class="input-ico noselect"><img src="assets/png/mail.png" alt="email" srcset=""></div>
+        <input type="text" formControlName="email" name="email" id="email" class="input" placeholder="email"/>
+      </div>
+      <div class="input-container">
+        <div class="input-ico noselect"><img src="assets/png/pass.png" alt="pas" srcset=""></div>
+        <input type="password" formControlName="password" name="password" id="password" class="input" placeholder="lozinka"/>
+      </div>
+        <input type="submit" class="btn-submit" name="login" value="Prijavi se" *ngIf="!loginStat">
+        <div class="loader" *ngIf="loginStat"></div>
+    </form>
+
+    <p class="status-message" *ngIf="mesStat">{{statusMessage}}</p>
+
+  </div>
+</div>

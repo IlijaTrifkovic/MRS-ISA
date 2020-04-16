@@ -1,0 +1,130 @@
+.main-container{
+    min-height: 360px;
+}
+
+.login-page{
+    position: absolute;
+    display: block;
+    width: 400px; 
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.85);
+    color:rgb(43, 43, 43);
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+h2{
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+    margin: 0;
+    color: rgb(15, 146, 113);
+    font-size: 22px;
+}
+
+.status-message{
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: rgb(43, 43, 43);
+}
+
+.login-form{
+    position: relative;
+    display: block;
+    padding:10px;
+    padding-top: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+.input-container{
+    position: relative;
+    display: block;
+    margin:15px auto 0 auto;
+    width:80%;
+    height: 35px;
+    overflow: hidden;
+}
+
+.input-ico{
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    background-color: rgb(15, 146, 113);
+}
+
+.input-ico > img{
+    position: relative;
+    display: block;
+    margin: 0 auto 0 auto;
+    width: 20%;
+    height: auto;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.input{
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    padding:10px;
+    border: none;
+    outline:none;
+    box-sizing: border-box;
+    right: 0;
+    top:0;
+    background-color: white;
+    color: rgb(87, 87, 87);
+}
+.input::placeholder{
+    color: rgb(115, 115, 115);
+}
+
+.btn-submit{
+    position: relative;
+    display: block;
+    width: 80%;
+    height: 34px;
+    margin:20px auto 0 auto;
+    outline: none;
+    border: none;
+    color: white;
+    background-color: rgb(15, 146, 113);
+    transition: 0.3s;
+}
+
+.btn-submit:hover{
+    background-color: rgb(23, 158, 133);
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 450px) {
+    p:hover{
+        background-color: rgba(148, 150, 149, 0.7);
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .login-page{
+        width: 100%; 
+    }
+    .input-container, .btn-submit{
+        width: 94%;
+    }
+    .btn-submit:hover{
+        background-color: rgb(15, 146, 113);
+    }
+}
