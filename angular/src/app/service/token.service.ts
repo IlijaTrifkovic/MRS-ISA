@@ -19,7 +19,7 @@ export class TokenService {
   }
 
   public saveToken(token: string) {
-    window.sessionStorage.setItem(EMAIL_KEY, token);
+    window.sessionStorage.setItem(TOKEN_KEY, token);
     const tokenPayload: TokenPayload = decode(token);
     this.saveEmail(tokenPayload.sub);
   }
@@ -27,7 +27,6 @@ export class TokenService {
   signOut() {
     window.sessionStorage.clear();
     this.emailEmitChange(null);
-    this.router.navigate(['']);
   }
 
   public checkIsLoggedIn(): boolean {

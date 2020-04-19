@@ -20,4 +20,8 @@ export class AuthService {
   signup(signupInfo): Observable<any>{
     return this.http.post(this.url + this.signupUrl, signupInfo, environment.httpOptions);
   }
+
+  helloTest(): Observable<any>{
+    return this.http.get(this.url+"/hello");
+  }
 }

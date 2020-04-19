@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 
 @Injectable()
-export class TokenInterceptor implements HttpInterceptor {
+export class JwtInterceptor implements HttpInterceptor {
  
     constructor(private tokenService: TokenService) { }
 

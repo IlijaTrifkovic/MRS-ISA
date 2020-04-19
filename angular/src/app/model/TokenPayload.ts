@@ -11,6 +11,7 @@ export class TokenPayload {
         this.audience = audience;
         this.created = created;
         this.exp = exp;
+        console.log("TUS:"+roles);
     }
   }
   
