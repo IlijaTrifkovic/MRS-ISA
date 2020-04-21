@@ -7,7 +7,7 @@ import { LoginPageComponent } from './pages/login/login.component';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './interceptor/jwt-interceptor';
-import { ResponseErrorInterceptor } from "./interceptor/resonpse-error-interceptor";
+import { ResponseErrorInterceptor } from './interceptor/resonpse-error-interceptor';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';

@@ -20,15 +20,15 @@ export class HomePageComponent implements OnInit {
 
 
   text="";
-  marss: mars= new mars();
+  m: Message= new Message();
   hello(){
     this.authService.helloTest().subscribe(
-      da => {this.marss=da;
-      this.text=this.marss.mars});
+      da => {this.m=da;
+      this.text=this.m.message});
   }
 
 }
 
-export class mars{
-  mars:string;
+export class Message{
+  message:string;
 }

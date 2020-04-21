@@ -12,13 +12,13 @@ public class TestController {
 
 	@RequestMapping(value = "/public/hello", method = RequestMethod.GET)
 	public ResponseEntity<String> response() {
-		return ResponseEntity.ok("{'mars':'mars1'}");
+		return ResponseEntity.ok("{\"message\":\"hello\"}");
 	}
 	
-	@PreAuthorize("hasAnyRole('NURSE')")
+	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(value="/hello", method = RequestMethod.GET)
 	public ResponseEntity<String> response2(){
-		return ResponseEntity.ok("{\"mars\":\"mars2\"}");
+		return ResponseEntity.ok("{\"message\":\"hello\"}");
 	}
 	
 }

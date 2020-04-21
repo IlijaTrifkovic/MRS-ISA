@@ -55,9 +55,9 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(BadCredentialsException.class)
 	public ResponseEntity<Object> badCredentials(BadCredentialsException ex) {
 		List<String> details = new ArrayList<>();
-		details.add("Password or username are incorrect.");
+		details.add("Pogrešan password - email.");
 		ErrorResponse response = new ErrorResponse("Bad credentials", details);
 		return new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
-	}	
+	}
 
 }

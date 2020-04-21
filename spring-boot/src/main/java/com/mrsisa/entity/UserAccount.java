@@ -40,7 +40,7 @@ public abstract class UserAccount {
 	protected String password;
 
 	@Column(nullable = false, name="active")
-	protected Boolean active = true;
+	protected Boolean active = false;
 
 	@JsonIgnore
 	@Column(name="last_password_change_date")
