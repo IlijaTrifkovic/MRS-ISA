@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-navigation',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-
-  constructor() { }
+  email:String="";
+  constructor(private tokenService: TokenService) { 
+    this.email= tokenService.getEmail();
+    this.tokenService.emailEmitter.subscribe(email => this.email = email);
+  }  
 
   ngOnInit() {
+
   }
 
 }

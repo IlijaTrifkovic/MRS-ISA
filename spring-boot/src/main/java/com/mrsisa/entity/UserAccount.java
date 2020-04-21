@@ -11,40 +11,29 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.InheritanceType;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-public class UserAccount {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
+public abstract class UserAccount {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "nurse_id_generator")
-	@SequenceGenerator(name = "nurse_id_generator", sequenceName = "nurse_id_generator_seq")
-    private Long id;
-
-	@Column(nullable = false, name="first_name")
-	protected String firstName;
-	
-	@Column(nullable = false, name="last_name")
-	protected String lastName;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_generator")
+	@SequenceGenerator(name = "user_id_generator", sequenceName = "user_id_generator_seq")
+    protected Long id;
 	
 	@Column(unique = true, nullable = false, name="email")
 	protected String email;
-	
-	@Column(unique = true, nullable = false, length = 11, name="lbo")
-	protected String lbo;
-	
-	@Column(nullable = false, name="address")
-	protected String address;
-	
-	@Column(nullable = false, name="city")
-	protected String city;
-	
-	@Column(nullable = false, name="country")
-	protected String country;
 	
 	@JsonIgnore
 	@Column(nullable = false, name="password")
@@ -113,54 +102,6 @@ public class UserAccount {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getLbo() {
-		return lbo;
-	}
-
-	public void setLbo(String lbo) {
-		this.lbo = lbo;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
 	public void setLastPasswordChangeDate(Timestamp lastPasswordChangeDate) {
 		this.lastPasswordChangeDate = lastPasswordChangeDate;
 	}
@@ -168,7 +109,6 @@ public class UserAccount {
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
 	}
-
 	
 	@JsonIgnore
 	public Set<Authority> getUserAuthorities() {

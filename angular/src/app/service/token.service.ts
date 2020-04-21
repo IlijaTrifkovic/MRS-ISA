@@ -14,7 +14,7 @@ export class TokenService {
   private email = new Subject<String>();
   public emailEmitter = this.email.asObservable();
 
-  constructor(public router: Router) {
+  constructor(public router: Router,) {
     // window.sessionStorage.clear();
   }
 
@@ -27,10 +27,11 @@ export class TokenService {
   signOut() {
     window.sessionStorage.clear();
     this.emailEmitChange(null);
+    this.router.navigate(["/login"]);
   }
 
   public checkIsLoggedIn(): boolean {
-    if (sessionStorage.getItem(TOKEN_KEY)) 
+    if (sessionStorage.getItem(TOKEN_KEY))
       return true; 
     return false;
   }

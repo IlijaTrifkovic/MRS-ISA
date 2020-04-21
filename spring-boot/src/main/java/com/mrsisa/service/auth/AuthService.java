@@ -33,6 +33,7 @@ public class AuthService {
 		return this.tokenUtils.generateToken(customUserDetailsService.loadUserByUsername(email), device);
 	}
 	
+	
 	public String generateToken(UserAccount account, HttpServletRequest request) {
 		Device device = deviceProvider.getCurrentDevice(request);
 		return this.tokenUtils.generateToken(new CustomUserDetails(account), device);

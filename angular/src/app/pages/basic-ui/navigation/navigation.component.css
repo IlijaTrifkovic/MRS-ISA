@@ -1,17 +1,73 @@
 nav{
     position: relative;
     width: 100%;
-    height: 40px;
-    background-color: white;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.9);
     display: block;
+    box-shadow: 2px 2px 5px 2px rgba(122, 122, 122, 0.7);
 }
 
-p{
+.title{
     position: absolute;
     left: 20px;
     height: 20px;
-    padding-top: 10px;
+    margin-top: 12px;
     font-size: 16px;
     cursor: pointer;
     font-weight: bold;
+    border: none;
+    outline: none;
+}
+
+.menu-container{
+    position: absolute;
+    height: 42px;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.menu-container:hover .cls-1{
+    fill:rgb(48, 48, 48);
+}
+
+.email{
+    position: relative;
+    float: right;
+    font-size: 14px;
+    padding-top: 8px;
+    padding-right: 4px;
+    padding-left: 4px;
+    box-sizing: border-box;
+}
+
+.menu{
+    position: relative;
+    height:30px;
+    width: 35px;
+    float: right;
+    background-color: rgb(15, 146, 113);
+}
+
+.arrow{
+    position: relative;
+    float: right;
+    height: 4px;
+    width: 100%;
+    background-color: rgb(15, 146, 113);
+    color: white;
+}
+
+svg{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width:12px;
+    height:15px;
+}
+
+.cls-1{
+    fill:white;
 }

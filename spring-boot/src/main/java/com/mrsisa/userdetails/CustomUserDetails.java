@@ -18,18 +18,12 @@ public class CustomUserDetails extends UserAccount implements UserDetails {
 	
 	public CustomUserDetails(UserAccount account) {
 		super();
-		//this. = account.getId();
+		this.id=account.getId();
 		this.email = account.getEmail();
 		this.active = account.getActive();
 		this.password = account.getPassword();
 		this.lastPasswordChangeDate = account.getLastPasswordChangeDate();
 		this.registrationDate = account.getRegistrationDate();
-		this.firstName=account.getFirstName();
-		this.lastName=account.getLastName();
-		this.address=account.getAddress();
-		this.city=account.getCity();
-		this.country=account.getCountry();
-		this.lbo=account.getLbo();
 		this.authorities=account.getUserAuthorities();
 	}
 	

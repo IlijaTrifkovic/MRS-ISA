@@ -1,8 +1,8 @@
 -- Lozinke su hesovane pomocu BCrypt algoritma https://www.dailycred.com/article/bcrypt-calculator
 -- Lozinka za oba user-a je 123
    
-INSERT INTO user_account(id, first_name, last_name, email, lbo, address, city, country, password, active, last_password_change_date, registration_date)
-SELECT nextval('nurse_id_generator_seq'), 'Nikola', 'Nikolic', 'mail@mail.com', '12345678912', 'address 1', 'city1', 'country1', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07'
+INSERT INTO user_account(type, id, first_name, last_name, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date)
+SELECT 'patient', nextval('user_id_generator_seq'), 'Nikola', 'Nikolic', 'mail@mail.com', '1231231231234', '12345678912', '12345678912', 'address 1', 'city1', 'country1', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07'
 WHERE 
 NOT EXISTS (
     SELECT 1 FROM user_account WHERE email = 'mail@mail.com'

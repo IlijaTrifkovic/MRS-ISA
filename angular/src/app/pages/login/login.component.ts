@@ -15,7 +15,7 @@ export class LoginPageComponent implements OnInit {
   statusMessage:string=''; 
   loginStat:boolean=false;
   mesStat:boolean=false;
-
+  
   constructor(private formBuilder: FormBuilder, private authHttpService: AuthService,
     private tokenService: TokenService ,public router: Router,) {
       this.loginForm = formBuilder.group({

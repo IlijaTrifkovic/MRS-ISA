@@ -1,4 +1,4 @@
-package com.mrsisa.service.auth;
+package com.mrsisa.crud;
 
 import java.util.Optional;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.mrsisa.entity.Authority;
 import com.mrsisa.repository.AuthorityRepository;
+
 
 @Service
 public class AuthorityService extends CRUDService<Authority, Integer>{

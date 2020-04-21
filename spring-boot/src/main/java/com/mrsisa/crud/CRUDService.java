@@ -1,4 +1,4 @@
-package com.mrsisa.service.auth;
+package com.mrsisa.crud;
 
 import java.io.Serializable;
 import java.util.Optional;
