@@ -26,11 +26,11 @@ public class PatientDTO {
 	private String jmbg;
 	
 	@NotBlank(message = "Jmbg je obavezno polje")
-	@Length(min = 11, max = 11, message = "Licni broj osiguranika treba da ima 11 cifara.")
+	@Length(min = 11, max = 11, message = "LBO treba da ima 11 cifara.")
 	private String lbo;
 	
 	@NotBlank(message = "ZK je obavezno polje")
-	@Length(min = 11, max = 11, message = "Broj zdravstvene kartice treba da ima 11 cifara.")
+	@Length(min = 11, max = 11, message = "Broj ZK treba da ima 11 cifara.")
 	private String zk;
 	
 	@NotBlank(message = "Adresa je obavezno polje.")

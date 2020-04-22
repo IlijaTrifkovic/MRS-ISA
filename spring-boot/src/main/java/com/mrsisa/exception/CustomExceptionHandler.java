@@ -59,5 +59,18 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 		ErrorResponse response = new ErrorResponse("Bad credentials", details);
 		return new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
 	}
-
+	
+	/**
+	 * Handles errors triggered by bad data.
+	 * @param ex
+	 * @return custom error response
+	 */
+	@ExceptionHandler(NotUniqueException.class)
+	public ResponseEntity<Object> notUniqueException(NotUniqueException ex) {
+		List<String> details = new ArrayList<>();
+		details.add(ex.getMessage());
+		ErrorResponse response = new ErrorResponse("Not unique", details);
+		return new ResponseEntity<Object>(response, HttpStatus.BAD_REQUEST);
+	}
+	
 }

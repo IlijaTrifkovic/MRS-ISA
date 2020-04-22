@@ -17,6 +17,8 @@ import com.mrsisa.auth.AuthenticationRequest;
 import com.mrsisa.auth.AuthenticationResponse;
 import com.mrsisa.dto.PatientDTO;
 import com.mrsisa.entity.Patient;
+import com.mrsisa.exception.ResourceNotFoundException;
+import com.mrsisa.exception.NotUniqueException;
 import com.mrsisa.service.auth.AuthService;
 import com.mrsisa.service.patient.PatientService;
 
@@ -37,10 +39,12 @@ public class AuthController {
 	}
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.PUT)
-	public ResponseEntity<Patient> signup(@RequestBody @Valid PatientDTO patientDTO){
-		Patient patient=patientDTO.getPatient();
+	public ResponseEntity<Patient> signup(@RequestBody @Valid PatientDTO patientDTO) 
+	throws NotUniqueException, ResourceNotFoundException{
+		Patient patient=patientDTO.getPatient();	
+		patientService.isUnique(patient);
 		Patient createdPatient = patientService.save(patient);
-		return ResponseEntity.ok(createdPatient);
+		return new ResponseEntity<Patient>(createdPatient, HttpStatus.OK);
 	}
 	
 }

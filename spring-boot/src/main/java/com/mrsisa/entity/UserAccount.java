@@ -114,7 +114,6 @@ public abstract class UserAccount {
 	public Set<Authority> getUserAuthorities() {
 		if (authorities == null) {
 			authorities = new HashSet<>();
-			System.out.println("BRATE KAKO NULL!");
 		}
 		return authorities;
 	}
