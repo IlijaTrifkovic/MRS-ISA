@@ -17,4 +17,8 @@ export class PatientRestService {
     return this.http.get(this.url + this.patientProfileUrl);
   }
 
+  updateProfile(loginInfo): Observable<any> {
+    return this.http.post(this.url + this.patientProfileUrl, loginInfo, environment.httpOptions);
+  }
+
 }

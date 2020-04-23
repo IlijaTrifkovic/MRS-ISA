@@ -16,7 +16,7 @@ export class RegistrationPageComponent implements OnInit {
   signupForm: FormGroup;
   statusMessage:string=''; 
   submit:boolean=false;
-  mesStat:boolean=false;
+  mesInfo:boolean=false;
   
   constructor(private formBuilder: FormBuilder, private authHttpService: AuthService,
     private tokenService: TokenService ,public router: Router,) {
@@ -42,19 +42,19 @@ export class RegistrationPageComponent implements OnInit {
   
     if(!this.signupForm.valid || !this.isPasswordValid()){
       this.statusMessage="Unesite validne podatke!"
-      this.mesStat=true;
+      this.mesInfo=true;
       return;
     }
     
     this.submit=true;
     this.statusMessage="Slanje zahtjeva za registraciju..."
-    this.mesStat=true;
+    this.mesInfo=true;
     const loginInfo = this.signupForm.value;
     
     this.authHttpService.signup(loginInfo).subscribe(
       (data) => {
         this.submit = false;
-        this.mesStat=false;        
+        this.mesInfo=false;        
         alert("Zahtjev za registraciju je poslat.\nObavještenje će biti dostavljeno na email: "+
         this.signupForm.controls['email'].value+".");    
         this.router.navigate(['/login']);
