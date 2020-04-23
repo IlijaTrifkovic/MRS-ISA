@@ -1,18 +1,29 @@
 <div class="main-container">
   <div class="registration-page">
-    <p class="reg-log-btn noselect" routerLink="/login" routerLinkActive="active">Prijavi se</p>
-    <h2 class="noselect"><span style="color: rgba(66, 66, 66, 0.85);">Registruj</span> se</h2>
+    <p class="reg-log-btn noselect" routerLink="/home" routerLinkActive="active">Zatvori</p>
+    <h2 class="noselect"><span style="color: rgba(66, 66, 66, 0.85);">Lični</span> podaci</h2>
     <hr style="border: none; outline: none; height: 2px; width: 85%; background-color: rgba(66, 66, 66, 0.2);">
     
     <!--Registration form-->
-    <form action="" class="registration-form" (ngSubmit) = "onSubmit()" [formGroup]="signupForm">
+    <form action="" class="registration-form" (ngSubmit) = "onSubmit()" [formGroup]="profileUpdateForm">
       <table class="reg-form-table">
+        <tr class="text">
+          <td><p>Ime</p></td>
+          <td><p>Prezime</p></td>
+        </tr>
         <tr>
           <td><input type="text" formControlName="firstName" name="firstname" id="firstname" placeholder="Ime" [style.border]="isFieldValid('firstName')? 'none':'solid orange 1px'"></td>
           <td><input type="text" formControlName="lastName" name="lastname" id="lastname" placeholder="Prezime" [style.border]="isFieldValid('lastName')? 'none':'solid orange 1px'"></td>
         </tr>
+        <tr class="text">
+          <td colspan="2"><p>Email</p></td>
+        </tr>
         <tr>
           <td colspan="2"><input type="text" formControlName="email" name="email" id="email" placeholder="Email" [style.border]="isFieldValid('email')? 'none':'solid orange 1px'"></td>
+        </tr>
+        <tr class="text">
+          <td><p>JMBG</p></td>
+          <td><p>Broj telefona:</p></td>
         </tr>
         <tr>
           <td><input type="text" formControlName="jmbg" name="jmbg" id="jmbg" placeholder="JMBG" [style.border]="isFieldValid('jmbg')? 'none':'solid orange 1px'"></td>
@@ -21,8 +32,14 @@
         <tr>
           <td colspan="2" style="padding: 0px;"><hr style="border: none; outline: none; height: 2px; width: 95%; background-color: rgba(66, 66, 66, 0.2);"></td>
         </tr>
+        <tr class="text">
+          <td colspan="2"><p>LBO</p></td>
+        </tr>
         <tr>
           <td colspan="2"><input type="text" formControlName="lbo" name="lbo" id="lbo" placeholder="Lični broj osiguranika" [style.border]="isFieldValid('lbo')? 'none':'solid orange 1px'"></td>
+        </tr>
+        <tr class="text">
+          <td colspan="2"><p>ZK</p></td>
         </tr>
         <tr>
           <td colspan="2"><input type="text" formControlName="zk" name="zk" id="zk" placeholder="Broj zdravstvene kartice" [style.border]="isFieldValid('zk')? 'none':'solid orange 1px'"></td>
@@ -30,8 +47,15 @@
         <tr>
           <td colspan="2" style="padding: 0px;"><hr style="border: none; outline: none; height: 2px; width: 95%; background-color: rgba(66, 66, 66, 0.2);"></td>
         </tr>
+        <tr class="text">
+          <td colspan="2"><p>Adresa</p></td>
+        </tr>
         <tr>
           <td colspan="2"><input type="text" formControlName="address" name="address" id="address" placeholder="Adresa" [style.border]="isFieldValid('address')? 'none':'solid orange 1px'"></td>
+        </tr>
+        <tr class="text">
+          <td><p>Grad</p></td>
+          <td><p>Država</p></td>
         </tr>
         <tr>
           <td><input type="text" formControlName="city" name="city" id="city" placeholder="Grad" [style.border]="isFieldValid('city')? 'none':'solid orange 1px'"></td>
@@ -41,14 +65,8 @@
           <td colspan="2" style="padding: 0px;"><hr style="border: none; outline: none; height: 2px; width: 95%; background-color: rgba(66, 66, 66, 0.2);"></td>
         </tr>
         <tr>
-          <td colspan="2"><input formControlName="password" type="password" name="password" id="password" placeholder="Lozinka" [style.border]="isFieldValid('password')? 'none':'solid orange 1px'"></td>
-        </tr>
-        <tr>
-          <td colspan="2"><input formControlName="password2" type="password" name="password2" id="password2" placeholder="Ponovite lozinku" [style.border]="isPasswordValid()? 'none':'solid orange 1px'"></td>
-        </tr>
-        <tr>
           <td colspan="2">
-            <input *ngIf="!submit" type="submit" name="registration" value="Registruj se" class="btn-submit">
+            <input *ngIf="!edit" type="button" name="registration" value="Uredi profil" class="btn-submit">
             <div class="loader" *ngIf="submit"></div>
           </td>
         </tr>

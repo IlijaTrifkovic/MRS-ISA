@@ -3,6 +3,7 @@ import { TokenService } from './../../service/token.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService} from './../../authentication/auth.service'; 
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -45,11 +46,11 @@ export class LoginPageComponent implements OnInit {
         this.mesStat=false;
         this.router.navigate(['']);
       },
-      (error) => {
+      (error:HttpErrorResponse) => {
         console.log(error);
         this.loginStat = false;
-        if(error.details)
-          this.statusMessage = error.details;
+        if(error.error.details)
+          this.statusMessage = error.error.details;
         else
           this.statusMessage="Greška, pokušajte ponovo!";
       }

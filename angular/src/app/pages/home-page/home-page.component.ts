@@ -14,11 +14,6 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
   }
 
-  signOut(){
-    this.tokenService.signOut();
-  }
-
-
   text="";
   m: Message= new Message();
   hello(){

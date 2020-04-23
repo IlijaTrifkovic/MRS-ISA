@@ -16,6 +16,7 @@ import { FooterComponent } from './pages/basic-ui/footer/footer.component';
 import { NavigationComponent } from './pages/basic-ui/navigation/navigation.component';
 import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { ProfilePageComponent } from './pages/home-page/profile-page/profile-page.component';
 
 
 @NgModule({
@@ -26,6 +27,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     HomePageComponent,
     FooterComponent,
     NavigationComponent,
+    ProfilePageComponent,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,

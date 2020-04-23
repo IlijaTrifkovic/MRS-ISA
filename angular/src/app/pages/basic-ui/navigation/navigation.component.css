@@ -24,11 +24,7 @@ nav{
     height: 42px;
     right: 20px;
     top: 15px;
-    cursor: pointer;
-}
-
-.menu-container:hover .cls-1{
-    fill:rgb(48, 48, 48);
+    z-index: 100;
 }
 
 .email{
@@ -44,13 +40,64 @@ nav{
 .menu{
     position: relative;
     height:30px;
+    cursor: pointer;
+    display: block;
+    min-width: 140px;
+}
+
+.menu:hover .cls-1{
+    fill:rgb(48, 48, 48);
+}
+
+.menu-svg{
+    position: relative;
+    height:30px;
     width: 35px;
     float: right;
     background-color: rgb(15, 146, 113);
 }
 
+.menu-p{
+    position: relative;
+    height: 30px;
+    min-width: 50px;
+    float: right;
+    overflow: hidden;
+}
+
+
+.menuItem{
+    position: relative;
+    display: block;
+    background-color: rgb(15, 146, 113);
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.4s;
+    border-right: solid rgb(15, 146, 113) 4px;
+}
+
+.menuItem:nth-child(2){
+    border-top: solid rgb(15, 146, 113) 4px;
+}
+
+.menuItem p{
+    text-align: center;
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: white;
+}
+
+.menuItem:hover{
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.menuItem:hover p{
+    color: black;
+}
 .arrow{
     position: relative;
+    display: block;
     float: right;
     height: 4px;
     width: 100%;
@@ -70,4 +117,13 @@ svg{
 
 .cls-1{
     fill:white;
+}
+
+@media only screen and (max-width: 450px) {
+    .title{
+        left:5px;
+    }
+    .menu-container{
+        right: 5px;
+    }
 }

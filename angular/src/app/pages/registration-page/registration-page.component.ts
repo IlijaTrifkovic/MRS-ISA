@@ -3,6 +3,8 @@ import { TokenService } from './../../service/token.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService} from './../../authentication/auth.service'; 
+import { HttpErrorResponse } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-registration-page',
@@ -15,13 +17,14 @@ export class RegistrationPageComponent implements OnInit {
   statusMessage:string=''; 
   submit:boolean=false;
   mesStat:boolean=false;
-
+  
   constructor(private formBuilder: FormBuilder, private authHttpService: AuthService,
     private tokenService: TokenService ,public router: Router,) {
       this.signupForm = formBuilder.group({
-        firstname: ['',[Validators.required, Validators.minLength(1),Validators.maxLength(20)]],
-        lastname: ['',[Validators.required, Validators.minLength(1),Validators.maxLength(20)]],
+        firstName: ['',[Validators.required, Validators.minLength(1),Validators.maxLength(20)]],
+        lastName: ['',[Validators.required, Validators.minLength(1),Validators.maxLength(20)]],
         email: ['',[Validators.required, Validators.email]],
+        phoneNumber: ['',[Validators.required, Validators.pattern("^[0-9]{3,20}$")]],
         jmbg: ['',[Validators.required, Validators.pattern("^[0-9]{13}$")]],
         lbo: ['',[Validators.required, Validators.pattern("^[0-9]{11}$")]],
         zk: ['',[Validators.required, Validators.pattern("^[0-9]{11}$")]],
@@ -50,20 +53,18 @@ export class RegistrationPageComponent implements OnInit {
     
     this.authHttpService.signup(loginInfo).subscribe(
       (data) => {
-        this.tokenService.saveToken(data.token);
         this.submit = false;
         this.mesStat=false;        
         alert("Zahtjev za registraciju je poslat.\nObavještenje će biti dostavljeno na email: "+
         this.signupForm.controls['email'].value+".");    
         this.router.navigate(['/login']);
       },
-      (error) => {
-        console.log(error);
-        this.submit = false;
-        if(error.details)
-          this.statusMessage = error.details;
-        else
+      (error:HttpErrorResponse) => { 
+        this.submit=false;
+        if(!error.error.details)
           this.statusMessage="Greška, pokušajte ponovo!";
+        else
+          this.statusMessage=error.error.details;
       }
     );
   }
@@ -76,3 +77,4 @@ export class RegistrationPageComponent implements OnInit {
     return this.signupForm.controls['password'].value===this.signupForm.controls['password2'].value;
   }
 }
+
