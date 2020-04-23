@@ -8,15 +8,7 @@ import org.hibernate.validator.constraints.Length;
 import com.mrsisa.entity.Patient;
 
 
-public class PatientDTO {
-	@NotBlank(message = "Ime je obavezno polje.")
-	@Length(min = 1, max = 20, message = "Ime treba da ima izmedju 1 i 20 karaktera.")
-	private String firstName;
-	
-	@NotBlank(message = "Prezime je obavezno polje.")
-	@Length(min = 1, max = 20, message = "Prezime treba da ima izmedju 1 i 20 karaktera.")
-	private String lastName;
-	
+public class PatientDTO extends PatientUpdateDTO{	
 	@NotBlank(message = "Email je obavezno polje.")
 	@Email(message = "Email treba da ima format example@mail.com.")
 	private String email;
@@ -25,22 +17,13 @@ public class PatientDTO {
 	@Length(min = 13, max = 13, message = "JMBG treba da ima 13 cifara.")
 	private String jmbg;
 	
-	@NotBlank(message = "Jmbg je obavezno polje")
+	@NotBlank(message = "LBO je obavezno polje")
 	@Length(min = 11, max = 11, message = "LBO treba da ima 11 cifara.")
 	private String lbo;
 	
 	@NotBlank(message = "ZK je obavezno polje")
 	@Length(min = 11, max = 11, message = "Broj ZK treba da ima 11 cifara.")
 	private String zk;
-	
-	@NotBlank(message = "Adresa je obavezno polje.")
-	private String address;
-	
-	@NotBlank(message = "Grad je obavezno polje.")
-	private String city;
-	
-	@NotBlank(message = "Drzava je obavezno polje.")
-	private String country;
 	
 	@NotBlank(message="Lozinka je obavezno polje.")
 	@Length(min = 8, max = 25, message = "Lozinka treba da ima izmedju 8 i 25 karaktera.")
@@ -50,6 +33,7 @@ public class PatientDTO {
 		Patient pat=new Patient();
 		pat.setFirstName(firstName);
 		pat.setLastName(lastName);
+		pat.setPhoneNumber(phoneNumber);
 		pat.setEmail(email);
 		pat.setJmbg(jmbg);
 		pat.setLbo(lbo);
@@ -62,22 +46,6 @@ public class PatientDTO {
 		return pat;
 	}
 	
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -110,30 +78,6 @@ public class PatientDTO {
 		this.zk = zk;
 	}
 
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -142,6 +86,4 @@ public class PatientDTO {
 		this.password = password;
 	}
 
-	
-	
 }
