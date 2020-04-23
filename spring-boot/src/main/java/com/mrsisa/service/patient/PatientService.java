@@ -1,17 +1,21 @@
 package com.mrsisa.service.patient;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.mrsisa.crud.AuthorityService;
 import com.mrsisa.crud.CRUDService;
+import com.mrsisa.dto.PatientUpdateDTO;
 import com.mrsisa.entity.Authority;
 import com.mrsisa.entity.Patient;
+import com.mrsisa.entity.UserAccount;
 import com.mrsisa.exception.ResourceNotFoundException;
 import com.mrsisa.exception.NotUniqueException;
 import com.mrsisa.repository.PatientRepository;
-
+import com.mrsisa.repository.UserAccountRepository;
 
 import java.util.Optional;
 
@@ -22,38 +26,22 @@ public class PatientService extends CRUDService<Patient, Integer> {
 	@Autowired
 	private AuthorityService authorityService;
 	@Autowired
+	private PasswordEncoder passwordEncoder;
+	@Autowired
+	private UserAccountRepository userAccountRepository;
+	@Autowired
 	
 	public PatientService(PatientRepository repo) {
 		super(repo);
 	}
 	
-	private boolean isJmbgUnique(String jmbg)  {
-		Optional<Patient> optionalPatient=((PatientRepository) repo).findByJmbg(jmbg);
-		if (optionalPatient.isPresent()) 
-			return false;
-		return true;
-	}
+	private boolean isJmbgUnique(String jmbg)  {return !(((PatientRepository) repo).findByJmbg(jmbg).isPresent());}
 	
-	private boolean isZkUnique(String zk){
-		Optional<Patient> optionalPatient=((PatientRepository) repo).findByZk(zk);
-		if (optionalPatient.isPresent()) 
-			return false;
-		return true;
-	}
+	private boolean isZkUnique(String zk){return !(((PatientRepository) repo).findByZk(zk).isPresent());}
 	
-	private boolean isLboUnique(String lbo){
-		Optional<Patient> optionalPatient=((PatientRepository) repo).findByLbo(lbo);
-		if (optionalPatient.isPresent())
-			return false;
-		return true;
-	}
+	private boolean isLboUnique(String lbo){return !(((PatientRepository) repo).findByLbo(lbo).isPresent());}
 	
-	private boolean isEmailUnique(String email){
-		Optional<Patient> optionalPatient=((PatientRepository) repo).findByEmail(email);
-		if (optionalPatient.isPresent())
-			return false;
-		return true;
-	}
+	private boolean isEmailUnique(String email){return !(((PatientRepository) repo).findByEmail(email).isPresent());}
 	
 	public Patient findByEmail(String email) throws ResourceNotFoundException {
 		Optional<Patient> optionalPatient=((PatientRepository) repo).findByEmail(email);
@@ -75,7 +63,33 @@ public class PatientService extends CRUDService<Patient, Integer> {
 		if(!isJmbgUnique(p.getJmbg())) throw new NotUniqueException("JMBG");
 		if(!isLboUnique(p.getLbo())) throw new NotUniqueException("LBO");
 		if(!isZkUnique(p.getZk())) throw new NotUniqueException("ZK");
-		if(!isEmailUnique(p.getEmail())) throw new NotUniqueException("Email");
+		if(!isEmailUnique(p.getEmail())) throw new NotUniqueException("EMAIL");
 		return true;
+	}
+	
+	public Patient updatePatient(PatientUpdateDTO patientDTO) throws ResourceNotFoundException{
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String email=auth.getName();
+		Patient p=findByEmail(email);
+		p.setFirstName(patientDTO.getFirstName());
+		p.setLastName(patientDTO.getLastName());
+		p.setPhoneNumber(patientDTO.getPhoneNumber());
+		p.setAddress(patientDTO.getAddress());
+		p.setCity(patientDTO.getCity());
+		p.setCountry(patientDTO.getCountry());
+		
+		return super.save(p);
+	}
+	
+	/*
+	 * 
+	 * */
+	public UserAccount changePassword(String email, String oldPassword, String newPassword) throws ResourceNotFoundException {
+		UserAccount user = findByEmail(email);
+		if (!passwordEncoder.matches(oldPassword, user.getPassword()))
+			return null;
+		user.setPassword(passwordEncoder.encode(newPassword));
+		userAccountRepository.save(user);
+		return user;
 	}
 }

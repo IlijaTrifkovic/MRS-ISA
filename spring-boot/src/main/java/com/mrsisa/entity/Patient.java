@@ -14,6 +14,9 @@ public class Patient extends UserAccount{
 	@Column(nullable = false, name="last_name")
 	protected String lastName;
 	
+	@Column(nullable = true, name="phone_number")
+	protected String phoneNumber;
+	
 	@Column(nullable = false, name="address")
 	protected String address;
 	
@@ -94,6 +97,14 @@ public class Patient extends UserAccount{
 
 	public void setZk(String zk) {
 		this.zk = zk;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 	
 	

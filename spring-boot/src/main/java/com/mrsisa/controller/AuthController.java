@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +37,7 @@ public class AuthController {
 		return ResponseEntity.ok(response);
 	}
 	
-	@RequestMapping(value = "/signup", method = RequestMethod.PUT)
+	@RequestMapping(value = "/signup", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Patient> signup(@RequestBody @Valid PatientDTO patientDTO) 
 	throws NotUniqueException, ResourceNotFoundException{
 		Patient patient=patientDTO.getPatient();	
