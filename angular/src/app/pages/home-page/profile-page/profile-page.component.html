@@ -4,7 +4,7 @@
     <h2 class="noselect"><span style="color: rgba(66, 66, 66, 0.85);">Lični</span> podaci</h2>
     <hr style="border: none; outline: none; height: 2px; width: 85%; background-color: rgba(66, 66, 66, 0.2);">
     
-    <!--Registration form-->
+    <!--Profile-update-form-->
     <form action="" class="registration-form" (ngSubmit) = "onSubmit()" [formGroup]="profileUpdateForm">
       <table class="reg-form-table">
         <tr class="text">
@@ -66,11 +66,11 @@
         </tr>
         <tr>
           <td colspan="2">
-            <input *ngIf="!edit" type="button" name="registration" value="Uredi profil" class="btn-submit">
+            <input *ngIf="!edit" type="submit" name="registration" value="Uredi profil" class="btn-submit">
             <div class="loader" *ngIf="submit"></div>
           </td>
         </tr>
-        <tr *ngIf="mesStat">
+        <tr *ngIf="mesInfo">
           <td colspan="2">
             <p class="status-message">{{statusMessage}}</p>
           </td>

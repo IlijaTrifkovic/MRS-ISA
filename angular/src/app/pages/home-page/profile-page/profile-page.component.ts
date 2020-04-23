@@ -16,6 +16,7 @@ export class ProfilePageComponent implements OnInit {
   profileUpdateForm: FormGroup;
   statusMessage:string=''; 
   edit:boolean=false;
+  mesInfo:boolean=false;
   profile:PatientProfile=new PatientProfile();
 
   constructor(private formBuilder: FormBuilder, private patientService: PatientRestService,
@@ -32,7 +33,13 @@ export class ProfilePageComponent implements OnInit {
         city: ['',[Validators.required, Validators.minLength(1), Validators. maxLength(20)]],
         country: ['',[Validators.required, Validators.minLength(1), Validators. maxLength(20)]],
       });
+
+      this.profileUpdateForm.controls.email.disable();
+      this.profileUpdateForm.controls.lbo.disable();
+      this.profileUpdateForm.controls.zk.disable();
+      this.profileUpdateForm.controls.jmbg.disable();
   }
+
   ngOnInit() {
     this.patientService.getProfile().subscribe(
       profile => {
@@ -47,6 +54,31 @@ export class ProfilePageComponent implements OnInit {
         this.profileUpdateForm.controls.address.setValue(profile.address);
         this.profileUpdateForm.controls.city.setValue(profile.city);
         this.profileUpdateForm.controls.country.setValue(profile.country);
+      }
+    );
+  }
+
+  onSubmit() {
+  
+    if(!this.profileUpdateForm.valid){
+      this.statusMessage="Unesite validne podatke!"
+      this.mesInfo=true;
+      return;
+    }
+
+    this.statusMessage="Ažuriranje profila...";
+    this.mesInfo=true;
+    const updateInfo = this.profileUpdateForm.value;
+
+    this.patientService.updateProfile(updateInfo).subscribe(
+      (data) => {      
+        this.mesInfo=false;
+      },
+      (error:HttpErrorResponse) => { 
+        if(!error.error.details)
+          this.statusMessage="Greška, pokušajte ponovo!";
+        else
+          this.statusMessage=error.error.details;
       }
     );
   }
