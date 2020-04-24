@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenService } from 'src/app/service/token.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService} from 'src/app/authentication/auth.service'; 
 import { HttpErrorResponse } from '@angular/common/http';
 import { PatientRestService } from 'src/app/service/patient-rest.service';
 import { PatientProfile } from 'src/app/model/PatientProfile';
@@ -18,6 +16,7 @@ export class ProfilePageComponent implements OnInit {
   edit:boolean=false;
   mesInfo:boolean=false;
   profile:PatientProfile=new PatientProfile();
+  submit:boolean=false;
 
   constructor(private formBuilder: FormBuilder, private patientService: PatientRestService,
     public router: Router,) {
@@ -40,22 +39,51 @@ export class ProfilePageComponent implements OnInit {
       this.profileUpdateForm.controls.jmbg.disable();
   }
 
+
   ngOnInit() {
+    this.disableForm();
     this.patientService.getProfile().subscribe(
       profile => {
         this.profile = profile;
-        this.profileUpdateForm.controls.firstName.setValue(profile.firstName);
-        this.profileUpdateForm.controls.lastName.setValue(profile.lastName)
-        this.profileUpdateForm.controls.email.setValue(profile.email)
-        this.profileUpdateForm.controls.phoneNumber.setValue(profile.phoneNumber);
-        this.profileUpdateForm.controls.jmbg.setValue(profile.jmbg);
-        this.profileUpdateForm.controls.lbo.setValue(profile.lbo);
-        this.profileUpdateForm.controls.zk.setValue(profile.zk);
-        this.profileUpdateForm.controls.address.setValue(profile.address);
-        this.profileUpdateForm.controls.city.setValue(profile.city);
-        this.profileUpdateForm.controls.country.setValue(profile.country);
+        this.updateFormField(this.profile);
       }
     );
+  }
+
+  disableForm(){
+    for (const field in this.profileUpdateForm.controls) { 
+      this.profileUpdateForm.get(field).disable();
+    }
+  }
+  enableForm(){
+    for (const field in this.profileUpdateForm.controls) { 
+      if(field!="jmbg" && field!="lbo" && field!="zk" && field!="email")
+      this.profileUpdateForm.get(field).enable(); 
+    }
+  }
+
+  editProfile(){
+    this.edit=!this.edit;
+    if(!this.edit){
+      this.updateFormField(this.profile);
+      this.disableForm();
+      this.mesInfo=false;
+    }else{
+      this.enableForm();
+    }
+  }
+
+  updateFormField(profile: PatientProfile){
+    this.profileUpdateForm.controls.firstName.setValue(profile.firstName);
+    this.profileUpdateForm.controls.lastName.setValue(profile.lastName)
+    this.profileUpdateForm.controls.email.setValue(profile.email)
+    this.profileUpdateForm.controls.phoneNumber.setValue(profile.phoneNumber);
+    this.profileUpdateForm.controls.jmbg.setValue(profile.jmbg);
+    this.profileUpdateForm.controls.lbo.setValue(profile.lbo);
+    this.profileUpdateForm.controls.zk.setValue(profile.zk);
+    this.profileUpdateForm.controls.address.setValue(profile.address);
+    this.profileUpdateForm.controls.city.setValue(profile.city);
+    this.profileUpdateForm.controls.country.setValue(profile.country);
   }
 
   onSubmit() {
@@ -66,19 +94,23 @@ export class ProfilePageComponent implements OnInit {
       return;
     }
 
+    this.submit=true;
     this.statusMessage="Ažuriranje profila...";
     this.mesInfo=true;
     const updateInfo = this.profileUpdateForm.value;
 
     this.patientService.updateProfile(updateInfo).subscribe(
-      (data) => {      
-        this.mesInfo=false;
+      (data) => {       
+        this.submit=false;
+        this.profile=data;
+        this.editProfile();     
       },
       (error:HttpErrorResponse) => { 
         if(!error.error.details)
           this.statusMessage="Greška, pokušajte ponovo!";
         else
           this.statusMessage=error.error.details;
+        this.submit=false;
       }
     );
   }
@@ -87,8 +119,8 @@ export class ProfilePageComponent implements OnInit {
     return !(this.profileUpdateForm.controls[name].invalid && (this.profileUpdateForm.controls[name].dirty || this.profileUpdateForm.controls[name].touched));
   }
 
-  isPasswordValid(){
-    return this.profileUpdateForm.controls['oldPassword'].value===this.profileUpdateForm.controls['oldPassword2'].value;
+  changePassword(){
+    this.router.navigate(['/home/changePassword']);
   }
 
 }

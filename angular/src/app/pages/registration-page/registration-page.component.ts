@@ -24,7 +24,7 @@ export class RegistrationPageComponent implements OnInit {
         firstName: ['',[Validators.required, Validators.minLength(1),Validators.maxLength(20)]],
         lastName: ['',[Validators.required, Validators.minLength(1),Validators.maxLength(20)]],
         email: ['',[Validators.required, Validators.email]],
-        phoneNumber: ['',[Validators.required, Validators.pattern("^[0-9]{3,20}$")]],
+        phoneNumber: ['',[Validators.pattern("^[0-9]{0,20}$")]],
         jmbg: ['',[Validators.required, Validators.pattern("^[0-9]{13}$")]],
         lbo: ['',[Validators.required, Validators.pattern("^[0-9]{11}$")]],
         zk: ['',[Validators.required, Validators.pattern("^[0-9]{11}$")]],

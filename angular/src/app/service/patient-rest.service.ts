@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 export class PatientRestService {
   url = environment.baseUrl;
   patientProfileUrl = '/patient/profile';
+  changePasswordUrl= '/changePassword';
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +20,10 @@ export class PatientRestService {
 
   updateProfile(loginInfo): Observable<any> {
     return this.http.post(this.url + this.patientProfileUrl, loginInfo, environment.httpOptions);
+  }
+  
+  changePassword(passwordInfo): Observable<any> {
+    return this.http.post(this.url+this.changePasswordUrl, passwordInfo, environment.httpOptions);
   }
 
 }

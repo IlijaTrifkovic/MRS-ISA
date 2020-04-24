@@ -17,6 +17,7 @@ import { NavigationComponent } from './pages/basic-ui/navigation/navigation.comp
 import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProfilePageComponent } from './pages/home-page/profile-page/profile-page.component';
+import { ChangePasswordPageComponent } from './pages/home-page/change-password-page/change-password-page.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ProfilePageComponent } from './pages/home-page/profile-page/profile-pag
     NavigationComponent,
     ProfilePageComponent,
     ProfilePageComponent,
+    ChangePasswordPageComponent,
   ],
   imports: [
     BrowserModule,

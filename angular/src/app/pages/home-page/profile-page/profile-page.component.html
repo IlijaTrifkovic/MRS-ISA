@@ -1,6 +1,20 @@
 <div class="main-container">
   <div class="registration-page">
-    <p class="reg-log-btn noselect" routerLink="/home" routerLinkActive="active">Zatvori</p>
+    <p class="reg-log-btn noselect" routerLink="" routerLinkActive="active">Zatvori</p>
+    
+    <!--edit btn-->
+    <div class="edit-btn noselect" (click)="editProfile()">
+      <p>Uredi</p>
+      <div class="svg-edit">
+        <svg viewBox="0 0 47.6 47.76" preserveAspectRatio="none">
+          <rect [style.fill]="edit? 'orange' : 'rgb(15, 146, 113)'" class="svg-edit-cl" x="18.67" y="10.1" width="27" height="10.68" transform="translate(-1.49 27.27) rotate(-45)"/>
+          <polygon class="svg-edit-cl" points="17.43 22.62 16.73 23.33 14.14 33.47 24.28 30.88 24.98 30.17 17.43 22.62"/>
+          <path class="svg-edit-cl" d="M40,2.62h7a2,2,0,0,1,2,2v1a0,0,0,0,1,0,0H38a0,0,0,0,1,0,0v-1A2,2,0,0,1,40,2.62Z" transform="translate(15.65 -29.54) rotate(45)"/>
+          <path class="svg-edit-cl" d="M41.5,16.94V42.26H5.5v-36H30.88l5.5-5.5H3a3,3,0,0,0-3,3v41a3,3,0,0,0,3,3H44a3,3,0,0,0,3-3V11.44Z"/>
+        </svg>
+      </div>
+    </div>
+
     <h2 class="noselect"><span style="color: rgba(66, 66, 66, 0.85);">Lični</span> podaci</h2>
     <hr style="border: none; outline: none; height: 2px; width: 85%; background-color: rgba(66, 66, 66, 0.2);">
     
@@ -66,7 +80,7 @@
         </tr>
         <tr>
           <td colspan="2">
-            <input *ngIf="!edit" type="submit" name="registration" value="Uredi profil" class="btn-submit">
+            <input *ngIf="edit && !submit" type="submit" name="profile-btn" value="Sačuvaj izmene" class="btn-submit">
             <div class="loader" *ngIf="submit"></div>
           </td>
         </tr>
@@ -77,8 +91,10 @@
         </tr>
       </table>
     </form>
-  </div>
-</div>
 
-<!--email adrese, lozinke, imena, prezimena, adrese prebivališta, grada, države,
-broja telefona i jedinstveni broj osiguranika-->
+    <!--change password btn-->
+    <p *ngIf="!edit" class="password-btn" (click)="changePassword()">Promeni lozinku</p>
+  
+  </div>
+
+</div>
