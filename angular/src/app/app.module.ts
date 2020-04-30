@@ -18,6 +18,8 @@ import { RegistrationPageComponent } from './pages/registration-page/registratio
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ProfilePageComponent } from './pages/home-page/profile-page/profile-page.component';
 import { ChangePasswordPageComponent } from './pages/home-page/change-password-page/change-password-page.component';
+import { ListOfClinicsComponent } from './pages/home-page/list-of-clinics/list-of-clinics.component';
+import { ClinicProfileComponent } from './pages/home-page/clinic-profile/clinic-profile.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { ChangePasswordPageComponent } from './pages/home-page/change-password-p
     ProfilePageComponent,
     ProfilePageComponent,
     ChangePasswordPageComponent,
+    ListOfClinicsComponent,
+    ClinicProfileComponent,
   ],
   imports: [
     BrowserModule,

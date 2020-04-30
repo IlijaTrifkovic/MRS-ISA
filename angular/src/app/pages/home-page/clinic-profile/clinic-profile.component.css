@@ -1,0 +1,70 @@
+.menu-active{
+    background-color: rgba(255, 255, 255, 0.85);
+    color: rgba(43, 43, 43, 0.952);
+}
+
+.div-clinic-title{
+    position: relative;
+    text-align: center;
+    display: block;
+    width: 90%;
+    height: 55px;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(15, 146, 113);
+    color: white;
+    box-sizing: border-box;
+}
+
+.div-clinic-info{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.div-clinic-grade{
+    position: absolute;
+    right: 10px;
+    top:0px;
+}
+
+.div-clinic-grade p{
+    padding: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    background-color: rebeccapurple;
+}
+
+.address{
+    position: relative;
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+}
+
+h3{
+    padding: 15px;
+    margin: 0;
+}
+
+.description{
+    position: relative;
+    display: block;
+    width: 80%;
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .clinic-title{
+        width: 100%;
+    }
+    .div-clinic-info{
+        width: 100%;
+    }
+}

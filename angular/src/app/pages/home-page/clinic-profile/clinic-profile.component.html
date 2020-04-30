@@ -1,0 +1,28 @@
+<div class="main-container">
+  <div class="home-container">
+    <div class="home-menu-container">
+      <ul class="noselect">
+        <li class="menu-active" routerLink="/home" routerLinkActive="active">Lista klinika</li>
+        <li>Zdravstveni karton</li>
+        <li>Istorija pregleda</li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="div-clinic-title">
+        <h3>{{clinicProfile.name}}</h3>
+        <div class="div-clinic-grade noselect">
+          <p><b>{{clinicProfile.grade}}</b></p>
+        </div>
+      </div>
+      <p class="description">{{clinicProfile.description}}</p>
+      <div class="div-clinic-info">
+        <ul class="address">
+          <li><b>Adresa:</b> {{clinicProfile.address}}</li>
+          <li><b>Grad:</b> {{clinicProfile.city}}</li>
+          <li><b>Drzava:</b> {{clinicProfile.country}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

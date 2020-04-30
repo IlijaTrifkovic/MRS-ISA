@@ -1,0 +1,36 @@
+<div class="main-container">
+  <div class="home-container">
+    <div class="home-menu-container">
+      <ul class="noselect">
+        <li class="menu-active" routerLink="/home" routerLinkActive="active">Lista klinika</li>
+        <li>Zdravstveni karton</li>
+        <li>Istorija pregleda</li>
+      </ul>
+    </div>
+    <div class="content">
+      <table class="table-clinic">
+        <caption style="background-color: rgb(15, 146, 113);">
+          <h3 style="color: white;">Lista klinika</h3>
+        </caption>
+        <tr>
+          <th>Naziv</th>
+          <th>Adresa</th>
+          <th>Grad</th>
+          <th>Drzava</th>
+          <!-- <th>Opis</th> -->
+          <th>Ocjena</th>
+        </tr>
+        <tr *ngFor="let clinic of clinicPage.content; let i = index" 
+          [style.background-color]="(i%2==0)? 'transparent':'white'" (click)="showClinicProfile(clinic)">
+          <td>{{clinic.name}}</td>
+          <td>{{clinic.address}}</td>
+          <td>{{clinic.city}}</td>
+          <td>{{clinic.country}}</td>
+          <!-- <td>{{clinic.description}}</td> -->
+          <td>{{clinic.grade}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
