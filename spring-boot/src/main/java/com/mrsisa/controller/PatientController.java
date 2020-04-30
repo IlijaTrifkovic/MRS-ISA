@@ -60,4 +60,6 @@ public class PatientController {
 		} else 
 		return new ResponseEntity<String>("Vaša stara lozinka nije tačna.", HttpStatus.BAD_REQUEST);
 	}
+	
+	
 }

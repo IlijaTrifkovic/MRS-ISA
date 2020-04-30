@@ -35,4 +35,6 @@ public class ClinicController {
 		return new ResponseEntity<Clinic>(clinicService.findOne(id), HttpStatus.OK);
 	}
 	
+	
+	
 }

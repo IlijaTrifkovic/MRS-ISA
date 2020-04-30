@@ -3,6 +3,9 @@ package com.mrsisa.entity;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 @DiscriminatorValue("patient")
@@ -34,7 +37,11 @@ public class Patient extends UserAccount{
 	
 	@Column(unique = true, nullable = false, length = 11, name="zk")
 	protected String zk;
-
+	
+	@OneToOne(optional = false, fetch = FetchType.EAGER)
+	@JoinColumn
+	protected MedicalRecord medicalRecord;
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -105,6 +112,14 @@ public class Patient extends UserAccount{
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public MedicalRecord getMedicalRecord() {
+		return medicalRecord;
+	}
+
+	public void setMedicalRecord(MedicalRecord medicalRecord) {
+		this.medicalRecord = medicalRecord;
 	}
 	
 	
