@@ -58,6 +58,6 @@ public class PatientController {
 			String token = authService.generateToken(user, request);
 			return new ResponseEntity<AuthenticationResponse>(new AuthenticationResponse(token), HttpStatus.OK);
 		} else 
-		return new ResponseEntity<String>("Vaša stara lozinka nije tačna.", HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<String>("{\"details\":\"Pogresna lozinka.\"}", HttpStatus.BAD_REQUEST);
 	}
 }
