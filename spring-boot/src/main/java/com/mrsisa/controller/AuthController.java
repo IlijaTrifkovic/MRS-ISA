@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mrsisa.auth.AuthenticationRequest;
 import com.mrsisa.auth.AuthenticationResponse;
+import com.mrsisa.config.HtmlResponse;
 import com.mrsisa.dto.PatientDTO;
 import com.mrsisa.entity.Patient;
 import com.mrsisa.exception.ResourceNotFoundException;
@@ -64,11 +65,10 @@ public class AuthController {
     public ResponseEntity<?> confirmRegistration(@RequestParam("token") final String token) throws UnsupportedEncodingException {
         final String result = userService.validateVerificationToken(token);
         if (result.equals("valid")) {
-            return ResponseEntity.ok("Vas nalog je aktiviran");
+            return ResponseEntity.ok(HtmlResponse.HTML_RESPONSE("Vaš nalog je aktiviran."));
         }
-        return ResponseEntity.ok("Greska: token-"+result);
+        return ResponseEntity.ok(HtmlResponse.HTML_RESPONSE(result));
     }
-	
 	
 	private String getAppUrl(HttpServletRequest request) {
         return "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
