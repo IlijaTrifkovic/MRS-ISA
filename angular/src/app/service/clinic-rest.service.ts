@@ -9,15 +9,20 @@ import { Observable } from 'rxjs';
 export class ClinicRestService {
   url = environment.baseUrl;
   clinicUrl= '/clinic';
+  medicalRecordUrl= "/medical-record"
 
   constructor(private http: HttpClient) { }
-
-  getClinic(pageNumber,pageSize): Observable<any> {
-    return this.http.get(this.url + this.clinicUrl+"?page="+pageNumber+"&size="+pageSize);
+  getClinic(pageNumber,pageSize,sortBy,sortType): Observable<any> {
+    return this.http.get(this.url + this.clinicUrl+"?page="+pageNumber+"&size="+pageSize+
+    "&sort="+sortBy+","+sortType);
   }
 
   getClinicById(id):Observable<any>{
     return this.http.get(this.url + this.clinicUrl+"/"+id);
+  }
+
+  getMedicalRecord(id):Observable<any>{
+    return this.http.get(this.url + this.medicalRecordUrl+"/"+id);
   }
 
 }

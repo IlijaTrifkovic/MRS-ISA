@@ -3,7 +3,7 @@
     <div class="home-menu-container">
       <ul class="noselect">
         <li class="menu-active" routerLink="/home" routerLinkActive="active">Lista klinika</li>
-        <li>Zdravstveni karton</li>
+        <li routerLink="/home/medical-record" routerLinkActive="active">Zdravstveni karton</li>
         <li>Istorija pregleda</li>
       </ul>
     </div>
@@ -13,12 +13,12 @@
           <h3 style="color: white;">Lista klinika</h3>
         </caption>
         <tr>
-          <th>Naziv</th>
-          <th>Adresa</th>
-          <th>Grad</th>
-          <th>Drzava</th>
+          <th (click)="sortDataBy('name')">Naziv</th>
+          <th (click)="sortDataBy('address')">Adresa</th>
+          <th (click)="sortDataBy('city')">Grad</th>
+          <th (click)="sortDataBy('country')">Drzava</th>
           <!-- <th>Opis</th> -->
-          <th>Ocjena</th>
+          <th (click)="sortDataBy('grade')">Ocjena</th>
         </tr>
         <tr *ngFor="let clinic of clinicPage.content; let i = index" 
           [style.background-color]="(i%2==0)? 'transparent':'white'" (click)="showClinicProfile(clinic)">
@@ -30,6 +30,15 @@
           <td>{{clinic.grade}}</td>
         </tr>
       </table>
+      <p class="page-number">
+        <span style="color: rgb(15, 146, 113); font-weight: bold;">(</span> 
+        {{currentPage+1}} - {{this.clinicPage.totalPages}} 
+        <span style="color: rgb(15, 146, 113); font-weight: bold;">)</span>
+      </p>
+      <div class="page-btn">
+        <p class="btn" (click)="prevPage()" [style.background-color]="(currentPage>0)? 'rgb(15, 146, 113)' : 'rgb(167, 167, 167)'">Prethodna strana</p>
+        <p class="btn"(click)="nextPage()" [style.background-color]="(currentPage!=this.clinicPage.totalPages-1)? 'rgb(15, 146, 113)' : 'rgb(167, 167, 167)'">Sledeća strana</p>
+      </div>
     </div>
   </div>
 </div>

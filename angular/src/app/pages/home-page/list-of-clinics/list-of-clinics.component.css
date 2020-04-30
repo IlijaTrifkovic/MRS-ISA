@@ -31,6 +31,41 @@
    background-color: white;
    cursor:pointer;
 }
+.page-btn{
+    position: relative;
+    display: block;
+    width: 90%;
+    height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btn{
+    position: relative;
+    display: inline-block;
+    font-size: 13px;
+    width: 50%;
+    text-align: center;
+    padding: 3px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: rgb(15, 146, 113);
+    color: white;
+}
+.btn:last-child{
+    border-left: solid white 2px;
+}
+
+.btn-disable{
+    background-color: rgb(167, 167, 167);
+}
+
+.page-number{
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
 
 @media only screen and (max-width: 600px) {
     .table-clinic{

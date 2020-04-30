@@ -1,0 +1,40 @@
+.menu-active{
+    background-color: rgba(255, 255, 255, 0.85);
+    color: rgba(43, 43, 43, 0.952);
+}
+
+.div-clinic-title{
+    position: relative;
+    text-align: center;
+    display: block;
+    width: 90%;
+    height: 55px;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(43, 43, 43, 0.952);
+    box-sizing: border-box;
+}
+
+.div-clinic-info{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+h3{
+    padding: 15px;
+    margin: 0;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .clinic-title{
+        width: 100%;
+    }
+    .div-clinic-info{
+        width: 100%;
+    }
+}
