@@ -12,7 +12,35 @@
         <h3>Zdravstveni karton</h3>
       </div>
       <div class="div-clinic-info">
-        <p>podaci o pacijentu</p>
+        <table *ngIf="medicalRecord!=null">
+          <tr>
+            <td><p><b>Ime: </b></p></td>
+            <td><p>{{medicalRecord.patient.firstName}}</p></td>
+            <td><p><b>Prezime: </b></p></td>
+            <td><p>{{medicalRecord.patient.lastName}}</p></td>
+          </tr>
+          <tr>
+            <td><p><b>JMBG: </b></p></td>
+            <td><p>{{medicalRecord.patient.jmbg}}</p></td>
+            <td><p><b>Datum rođenja: </b></p></td>
+            <td><p>{{medicalRecord.dateOfBirth}}</p></td>
+          </tr>
+          <tr>
+            <td><p><b>Krvna grupa: </b></p></td>
+            <td><p>{{medicalRecord.bloodType}}</p></td>
+            <td><p><b>Pol: </b></p></td>
+            <td><p>{{medicalRecord.gender==null? "nepoznato" : medicalRecord.gender==="MALE"? "Muški":"Ženski"}}</p></td>
+          </tr>
+          <tr>
+            <td><p><b>Visina: </b></p></td>
+            <td><p>{{medicalRecord.height}} cm</p></td>
+            <td><p><b>Težina: </b></p></td>
+            <td><p>{{medicalRecord.weight}} kg</p></td>
+          </tr>
+        </table>
+        <h4 *ngIf="medicalRecord==null">
+          Vaš zdravstveni karton nije kreiran.
+        </h4>
       </div>
     </div>
   </div>

@@ -23,7 +23,4 @@ export class ClinicProfileComponent implements OnInit {
       }
     );
   }
-
-  findC
-
 }

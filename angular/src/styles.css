@@ -115,10 +115,7 @@ p{
     height: 30px;
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 1px;
-    border:solid rgb(15, 146, 113) 3px;
-    border-bottom:none;
-    border-left: none;
+    padding-top: 4px;
   }
 
   .home-menu-container ul li:focus{

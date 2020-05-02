@@ -3,6 +3,7 @@
     color: rgba(43, 43, 43, 0.952);
 }
 
+
 .div-clinic-title{
     position: relative;
     text-align: center;
@@ -12,8 +13,9 @@
     margin: 0;
     margin-left: auto;
     margin-right: auto;
-    color: rgba(43, 43, 43, 0.952);
+    color: white;
     box-sizing: border-box;
+    background-color: rgb(15, 146, 113);
 }
 
 .div-clinic-info{
@@ -29,6 +31,30 @@ h3{
     margin: 0;
 }
 
+h4{
+    padding: 15px;
+    margin: 0;
+    display: block;
+    text-align: center;
+}
+
+table{
+    position: relative;
+    padding: 10px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table p{
+    margin-right: 30px;
+    padding: 6px;
+}
+
+tr td:last-child p{
+    margin-right: 0;
+}
+
 
 @media only screen and (max-width: 600px) {
     .clinic-title{
@@ -36,5 +62,8 @@ h3{
     }
     .div-clinic-info{
         width: 100%;
+    }
+    table p{
+        margin-right: 0;
     }
 }

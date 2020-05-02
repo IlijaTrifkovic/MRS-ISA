@@ -21,8 +21,4 @@ export class ClinicRestService {
     return this.http.get(this.url + this.clinicUrl+"/"+id);
   }
 
-  getMedicalRecord(id):Observable<any>{
-    return this.http.get(this.url + this.medicalRecordUrl+"/"+id);
-  }
-
 }

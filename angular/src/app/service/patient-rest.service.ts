@@ -11,6 +11,7 @@ export class PatientRestService {
   url = environment.baseUrl;
   patientProfileUrl = '/patient/profile';
   changePasswordUrl= '/changePassword';
+  medicalRecordUrl='/medical-record';
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +25,10 @@ export class PatientRestService {
   
   changePassword(passwordInfo): Observable<any> {
     return this.http.post(this.url+this.changePasswordUrl, passwordInfo, environment.httpOptions);
+  }
+  
+  getMedicalRecord(): Observable<any>{
+    return this.http.get(this.url + this.medicalRecordUrl);
   }
 
 }
