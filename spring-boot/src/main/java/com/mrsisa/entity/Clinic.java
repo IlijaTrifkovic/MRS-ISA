@@ -16,7 +16,7 @@ public class Clinic {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "clinic_generator")
 	@SequenceGenerator(name = "clinic_generator", sequenceName = "clinic_seq")
-	private Integer id;
+	private Long id;
 	
 	@Column(nullable = false, name="name")
 	protected String name;
@@ -55,11 +55,11 @@ public class Clinic {
 		this.registrationDate = registrationDate;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -3,37 +3,54 @@ package com.mrsisa.entity;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @DiscriminatorValue("patient")
 public class Patient extends UserAccount{
 	
 	@Column(nullable = false, name="first_name")
-	protected String firstName;
+	private String firstName;
 	
 	@Column(nullable = false, name="last_name")
-	protected String lastName;
+	private String lastName;
 	
 	@Column(nullable = true, name="phone_number")
-	protected String phoneNumber;
+	private String phoneNumber;
 	
 	@Column(nullable = false, name="address")
-	protected String address;
+	private String address;
 	
 	@Column(nullable = false, name="city")
-	protected String city;
+	private String city;
 	
 	@Column(nullable = false, name="country")
-	protected String country;
+	private String country;
 	
 	@Column(unique = true, nullable = false, length = 13, name="jmbg")
-	protected String jmbg;
+	private String jmbg;
 	
 	@Column(unique = true, nullable = false, length = 11, name="lbo")
-	protected String lbo;
+	private String lbo;
 	
 	@Column(unique = true, nullable = false, length = 11, name="zk")
-	protected String zk;
+	private String zk;
+
+	@OneToOne
+    @JoinColumn(name = "medical_record_id", referencedColumnName = "id", unique = true)
+	private MedicalRecord medicalRecord;	
+	
+	@JsonBackReference
+	public MedicalRecord getMedicalRecord() {
+		return medicalRecord;
+	}
+	
+	public void setMedicalRecord(MedicalRecord medicalRecord) {
+		this.medicalRecord = medicalRecord;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -106,6 +123,5 @@ public class Patient extends UserAccount{
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	
 	
 }

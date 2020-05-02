@@ -33,8 +33,9 @@ export class ListOfClinicsComponent implements OnInit {
         this.clinicPage=data;  
       }
     );
-    if(this.clinicPage.totalPages<this.currentPage){
+    if((this.clinicPage.totalPages-1)<this.currentPage){
       this.currentPage=this.clinicPage.totalPages;
+      this.sortData();
     }
   }
 

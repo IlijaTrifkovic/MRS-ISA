@@ -60,4 +60,6 @@ public class PatientController {
 		} else 
 		return new ResponseEntity<String>("{\"details\":\"Pogresna lozinka.\"}", HttpStatus.BAD_REQUEST);
 	}
+	
+	
 }
