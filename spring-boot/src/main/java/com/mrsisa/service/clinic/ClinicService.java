@@ -7,10 +7,10 @@ import com.mrsisa.entity.Clinic;
 import com.mrsisa.repository.ClinicRepository;
 
 @Service
-public class ClinicService extends CRUDService<Clinic, Integer>{
+public class ClinicService extends CRUDService<Clinic, Long>{
 
 	public ClinicService(ClinicRepository repo) {
 		super(repo);
 	}
-
+	
 }

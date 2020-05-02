@@ -10,6 +10,7 @@ import com.mrsisa.crud.AuthorityService;
 import com.mrsisa.crud.CRUDService;
 import com.mrsisa.dto.PatientUpdateDTO;
 import com.mrsisa.entity.Authority;
+import com.mrsisa.entity.MedicalRecord;
 import com.mrsisa.entity.Patient;
 import com.mrsisa.entity.UserAccount;
 import com.mrsisa.exception.ResourceNotFoundException;
@@ -20,7 +21,7 @@ import com.mrsisa.repository.UserAccountRepository;
 import java.util.Optional;
 
 @Service
-public class PatientService extends CRUDService<Patient, Integer> {
+public class PatientService extends CRUDService<Patient, Long> {
 	@Autowired
 	private PasswordEncoder encoder;
 	@Autowired
@@ -91,5 +92,15 @@ public class PatientService extends CRUDService<Patient, Integer> {
 		user.setPassword(passwordEncoder.encode(newPassword));
 		userAccountRepository.save(user);
 		return user;
+	}
+	
+	public MedicalRecord getMedicalRecord(long id) throws ResourceNotFoundException{
+		MedicalRecord medicalRecord=findOne(id).getMedicalRecord();
+		return medicalRecord;
+	}
+	
+	public MedicalRecord getMedicalRecordByEmail(String email) throws ResourceNotFoundException{
+		MedicalRecord medicalRecord=findByEmail(email).getMedicalRecord();
+		return medicalRecord;
 	}
 }

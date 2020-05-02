@@ -9,6 +9,7 @@ import com.mrsisa.repository.MedicalRecordRepository;
 @Service
 public class MedicalRecordService extends CRUDService<MedicalRecord, Integer> {
 	
+
 	public MedicalRecordService(MedicalRecordRepository repo) {
 		super(repo);
 	}

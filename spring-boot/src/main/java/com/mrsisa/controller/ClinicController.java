@@ -31,7 +31,7 @@ public class ClinicController {
 	
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET) 
-	public ResponseEntity<Clinic> getOne(@PathVariable Integer id) throws ResourceNotFoundException{		
+	public ResponseEntity<Clinic> getOne(@PathVariable Long id) throws ResourceNotFoundException{		
 		return new ResponseEntity<Clinic>(clinicService.findOne(id), HttpStatus.OK);
 	}
 	
