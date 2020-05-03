@@ -103,4 +103,10 @@ public class PatientService extends CRUDService<Patient, Long> {
 		MedicalRecord medicalRecord=findByEmail(email).getMedicalRecord();
 		return medicalRecord;
 	}
+	
+	public void setMedicalRecord(long id,MedicalRecord medicalRecord) throws ResourceNotFoundException{
+		Patient patient=findOne(id);
+		patient.setMedicalRecord(medicalRecord);
+		super.save(patient);
+	}
 }

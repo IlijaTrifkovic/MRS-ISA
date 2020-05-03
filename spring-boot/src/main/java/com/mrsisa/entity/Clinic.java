@@ -21,7 +21,7 @@ public class Clinic {
 	@Column(nullable = false, name="name")
 	protected String name;
 	
-	@Column(nullable = false, name="description")
+	@Column(name="description", columnDefinition="text")
 	protected String description;
 	
 	@Column(nullable = false, name="address")

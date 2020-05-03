@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
@@ -32,6 +33,7 @@ public class MedicalRecord {
 	@Column
 	private Gender gender;
 	
+	@JsonFormat(pattern = "dd.MM.yyyy", timezone = "Europe/Belgrade")
 	@Column
 	private Date dateOfBirth;
 	
@@ -42,18 +44,9 @@ public class MedicalRecord {
 	public Patient getPatient() {
 		return Patient;
 	}
-	
-	
-	public Date getDateofBirth() {
-		return dateOfBirth;
-	}
 
 	public void setPatient(Patient patient) {
 		Patient = patient;
-	}
-
-	public void setDateofBirth(Date dateofBirth) {
-		this.dateOfBirth = dateofBirth;
 	}
 
 	public Gender getGender() {

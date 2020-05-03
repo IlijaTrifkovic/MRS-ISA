@@ -1,5 +1,6 @@
 package com.mrsisa.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -39,7 +40,7 @@ public class Patient extends UserAccount{
 	@Column(unique = true, nullable = false, length = 11, name="zk")
 	private String zk;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "medical_record_id", referencedColumnName = "id", unique = true)
 	private MedicalRecord medicalRecord;	
 	
@@ -49,7 +50,13 @@ public class Patient extends UserAccount{
 	}
 	
 	public void setMedicalRecord(MedicalRecord medicalRecord) {
-		this.medicalRecord = medicalRecord;
+		if(this.medicalRecord==null)
+			this.medicalRecord=new MedicalRecord();
+		this.medicalRecord.setBloodType(medicalRecord.getBloodType());
+		this.medicalRecord.setHeight(medicalRecord.getHeight());
+		this.medicalRecord.setWeight(medicalRecord.getWeight());
+		this.medicalRecord.setGender(medicalRecord.getGender());
+		this.medicalRecord.setDateOfBirth(medicalRecord.getDateOfBirth());
 	}
 
 	public String getFirstName() {
