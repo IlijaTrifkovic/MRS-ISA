@@ -1,0 +1,48 @@
+<div class="main-container">
+  <div class="home-container">
+    <div class="home-menu-container">
+      <ul class="noselect">
+        <li routerLink="/home" routerLinkActive="active">Lista klinika</li>
+        <li routerLink="/home/medical-record" routerLinkActive="active">Zdravstveni karton</li>
+        <li class="menu-active" routerLink="/home/patient/examination" routerLinkActive="active">Istorija pregleda</li>
+      </ul>
+    </div>
+    <div class="content">
+      <table class="table-clinic">
+        <caption style="background-color: rgb(15, 146, 113);">
+          <h3 style="color: white;">Lista pregleda-operacija</h3>
+        </caption>
+        <tr>
+          <th (click)="sortDataBy('date_time')">Datum i vreme</th>
+          <th (click)="sortDataBy('duration')">Trajanje</th>
+          <th (click)="sortDataBy('doctor_id')">Doktor</th>
+          <th (click)="sortDataBy('examination_type_id')">Tip pregleda</th>
+          <th (click)="sortDataBy('room_id')">Prostorija</th>
+          <th (click)="sortDataBy('price')">Cijena</th>
+          <th (click)="sortDataBy('discount')">Popust</th>
+        </tr>
+        <tr *ngFor="let m of medicalExamination; let i = index" [style.background-color]="(i%2==0)? 'transparent':'white'"
+        (click)="reserve(m.id)">
+          <td>{{m.dateTime}}</td>
+          <td>{{m.duration}} min</td>
+          <td>{{m.doctor.firstName}} {{m.doctor.lastName}}</td>
+          <td>{{m.examinationType.name}}</td>
+          <td>{{m.room.name}}</td>
+          <td>{{m.price}} din</td>
+          <td>{{m.discount}} din</td>
+        </tr>
+      </table>
+      
+      <p class="page-number">
+        <span style="color: rgb(15, 146, 113); font-weight: bold;">(</span> 
+        {{currentPage+1}} - {{this.pageable.totalPages}} 
+        <span style="color: rgb(15, 146, 113); font-weight: bold;">)</span>
+      </p>
+      <div class="page-btn">
+        <p class="btn" (click)="prevPage()" [style.background-color]="(currentPage>0)? 'rgb(15, 146, 113)' : 'rgb(167, 167, 167)'">Prethodna strana</p>
+        <p class="btn"(click)="nextPage()" [style.background-color]="(currentPage!=this.clinicPage.totalPages-1)? 'rgb(15, 146, 113)' : 'rgb(167, 167, 167)'">Sledeća strana</p>
+      </div>
+    </div>
+  </div>
+</div>
+
