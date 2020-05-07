@@ -243,11 +243,11 @@ VALUES (3, 0, '10-05-2020 13:12', 20, 51, 351, null, 3, 8, 3000.0, 550.0);
 
 INSERT INTO medical_examination (id, medical_examination_status, date_time, duration, clinic_id, doctor_id, patient_id,
 examination_type_id, room_id, price, discount)
-VALUES (4, 0, '10-05-2020 13:15', 20, 51, 351, null, 4, 9, 2000.0, 300.0);
+VALUES (4, 0, '10-05-2020 13:15', 20, 51, 151, null, 4, 9, 2000.0, 300.0);
 
 INSERT INTO medical_examination (id, medical_examination_status, date_time, duration, clinic_id, doctor_id, patient_id,
 examination_type_id, room_id, price, discount)
-VALUES (5, 2, '10-04-2020 13:10', 20, 51, 351, 1, 4, 9, 2000.0, 300.0);
+VALUES (5, 2, '10-04-2020 13:10', 20, 51, 251, 1, 4, 9, 2000.0, 300.0);
 
 
 --test - infektilna -datum je prosao
@@ -262,6 +262,31 @@ VALUES (7, 0, '05-05-2020 12:12', 20, 1, 101, null, 1, 1, 1400.0, 200.0);
 INSERT INTO medical_examination (id, medical_examination_status, date_time, duration, clinic_id, doctor_id, patient_id,
 examination_type_id, room_id, price, discount)
 VALUES (8, 0, '08-05-2020 12:55', 20, 1, 101, null, 1, 1, 1400.0, 200.0);
+
+
+
+
+INSERT INTO medical_examination (id, medical_examination_status, date_time, duration, clinic_id, doctor_id, patient_id,
+examination_type_id, room_id, price, discount)
+VALUES (9, 2, '10-04-2019 15:10', 24, 51, 251, 1, 4, 9, 2000.0, 300.0);
+
+INSERT INTO medical_examination (id, medical_examination_status, date_time, duration, clinic_id, doctor_id, patient_id,
+examination_type_id, room_id, price, discount)
+VALUES (10, 2, '14-04-2020 13:10', 22, 51, 251, 1, 4, 9, 2000.0, 300.0);
+
+INSERT INTO medical_examination (id, medical_examination_status, date_time, duration, clinic_id, doctor_id, patient_id,
+examination_type_id, room_id, price, discount)
+VALUES (11, 2, '12-04-2020 13:10', 40, 51, 251, 1, 4, 9, 2000.0, 300.0);
+
+INSERT INTO medical_examination (id, medical_examination_status, date_time, duration, clinic_id, doctor_id, patient_id,
+examination_type_id, room_id, price, discount)
+VALUES (12, 2, '13-04-2020 13:10', 30, 51, 251, 1, 4, 9, 2000.0, 300.0);
+
+
+
+
+
+
 
 
 
