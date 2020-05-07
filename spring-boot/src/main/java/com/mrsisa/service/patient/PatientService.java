@@ -12,10 +12,12 @@ import com.mrsisa.dto.PatientUpdateDTO;
 import com.mrsisa.entity.Authority;
 import com.mrsisa.entity.Patient;
 import com.mrsisa.entity.UserAccount;
+import com.mrsisa.entity.examination.MedicalExamination;
 import com.mrsisa.exception.ResourceNotFoundException;
 import com.mrsisa.exception.NotUniqueException;
 import com.mrsisa.repository.PatientRepository;
 import com.mrsisa.repository.UserAccountRepository;
+import com.mrsisa.service.clinic.MedicalExaminationService;
 
 import java.util.Optional;
 
@@ -29,6 +31,9 @@ public class PatientService extends CRUDService<Patient, Long> {
 	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private UserAccountRepository userAccountRepository;
+	@Autowired
+	private MedicalExaminationService medicalExaminationService;
+	
 	@Autowired
 	
 	public PatientService(PatientRepository repo) {
@@ -92,6 +97,14 @@ public class PatientService extends CRUDService<Patient, Long> {
 	
 	public void saveMedicalRecord(Patient patient) {
 		super.save(patient);
+	}
+	
+	public MedicalExamination reserveMedicalExamination(Long examinationId) throws ResourceNotFoundException {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String email=auth.getName();
+		Patient patient=findByEmail(email);
+		MedicalExamination medicalEx = medicalExaminationService.reserveMedicalExamination(examinationId, patient);
+		return medicalEx;
 	}
 	
 }

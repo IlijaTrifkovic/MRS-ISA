@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +20,7 @@ import com.mrsisa.dto.PatientUpdateDTO;
 import com.mrsisa.dto.auth.AuthenticationResponse;
 import com.mrsisa.entity.Patient;
 import com.mrsisa.entity.UserAccount;
+import com.mrsisa.entity.examination.MedicalExamination;
 import com.mrsisa.exception.ResourceNotFoundException;
 import com.mrsisa.service.auth.AuthService;
 import com.mrsisa.service.patient.PatientService;
@@ -61,5 +63,11 @@ public class PatientController {
 		return new ResponseEntity<String>("{\"details\":\"Pogresna lozinka.\"}", HttpStatus.BAD_REQUEST);
 	}
 	
+	@PreAuthorize("hasAnyRole('PATIENT')")
+	@RequestMapping(value = "/patient/examination/{id}", method = RequestMethod.GET)
+	public ResponseEntity<MedicalExamination> reserveMedicalExamination(@PathVariable Long id) throws ResourceNotFoundException{
+		MedicalExamination medicalExamination = patientService.reserveMedicalExamination(id);
+		return new ResponseEntity<MedicalExamination>(medicalExamination, HttpStatus.OK);
+	}
 	
 }

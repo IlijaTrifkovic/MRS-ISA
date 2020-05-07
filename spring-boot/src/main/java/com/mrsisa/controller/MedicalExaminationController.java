@@ -37,6 +37,5 @@ public class MedicalExaminationController {
 		Page<MedicalExamination> page=medicalExaminationService.getFreeMedicalExaminationByClinicId(pageable, id);
 		return new ResponseEntity<Page<MedicalExamination>>(page, HttpStatus.OK);
 	}
-	
 
 }
