@@ -1,10 +1,19 @@
+<div class="message-dialog-box" *ngIf="submitReservatinForm">
+  <div class="message-dialog">
+    <div class="dialog-btn-close" (click)="closeDialog()"><p>X</p></div>
+    <br><br>
+    <h4 style="color:rgb(77, 77, 77);">Da li želite zakazati selektovani pregled</h4>
+    <div class="dialog-btn" (click)="submit()"><p>Zakaži pregled</p></div>
+    <p class="status-message">{{statusMessage}}</p>
+  </div>
+</div>
 <div class="main-container">
   <div class="home-container">
     <div class="home-menu-container">
       <ul class="noselect">
         <li class="menu-active" routerLink="/home" routerLinkActive="active">Lista klinika</li>
         <li routerLink="/home/medical-record" routerLinkActive="active">Zdravstveni karton</li>
-        <li>Istorija pregleda</li>
+        <li routerLink="/home/patient/examination" routerLinkActive="active">Istorija pregleda</li>
       </ul>
     </div>
     <div class="content">
@@ -37,7 +46,8 @@
             <th >Cijena</th>
             <th >Popust</th>
           </tr>
-          <tr *ngFor="let m of medicalExamination; let i = index" [style.background-color]="(i%2==0)? 'transparent':'white'">
+          <tr *ngFor="let m of medicalExamination; let i = index" [style.background-color]="(i%2==0)? 'transparent':'white'"
+            (click)="reserve(m.id)">
             <td>{{m.dateTime}}</td>
             <td>{{m.duration}} min</td>
             <td>{{m.doctor.firstName}} {{m.doctor.lastName}}</td>
