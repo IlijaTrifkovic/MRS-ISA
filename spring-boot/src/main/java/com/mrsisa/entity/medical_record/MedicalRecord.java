@@ -1,4 +1,4 @@
-package com.mrsisa.entity;
+package com.mrsisa.entity.medical_record;
 
 import java.util.Date;
 
@@ -12,6 +12,7 @@ import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.mrsisa.entity.Patient;
 
 
 @Entity
@@ -85,7 +86,7 @@ public class MedicalRecord {
 	public BloodType getBloodType() {
 		return bloodType;
 	}
-
+ 
 	public void setBloodType(BloodType bloodType) {
 		this.bloodType = bloodType;
 	}

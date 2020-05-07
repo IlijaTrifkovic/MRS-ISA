@@ -10,7 +10,6 @@ import com.mrsisa.crud.AuthorityService;
 import com.mrsisa.crud.CRUDService;
 import com.mrsisa.dto.PatientUpdateDTO;
 import com.mrsisa.entity.Authority;
-import com.mrsisa.entity.MedicalRecord;
 import com.mrsisa.entity.Patient;
 import com.mrsisa.entity.UserAccount;
 import com.mrsisa.exception.ResourceNotFoundException;
@@ -82,9 +81,6 @@ public class PatientService extends CRUDService<Patient, Long> {
 		return super.save(p);
 	}
 	
-	/*
-	 * 
-	 * */
 	public UserAccount changePassword(String email, String oldPassword, String newPassword) throws ResourceNotFoundException {
 		UserAccount user = findByEmail(email);
 		if (!passwordEncoder.matches(oldPassword, user.getPassword()))
@@ -94,19 +90,8 @@ public class PatientService extends CRUDService<Patient, Long> {
 		return user;
 	}
 	
-	public MedicalRecord getMedicalRecord(long id) throws ResourceNotFoundException{
-		MedicalRecord medicalRecord=findOne(id).getMedicalRecord();
-		return medicalRecord;
-	}
-	
-	public MedicalRecord getMedicalRecordByEmail(String email) throws ResourceNotFoundException{
-		MedicalRecord medicalRecord=findByEmail(email).getMedicalRecord();
-		return medicalRecord;
-	}
-	
-	public void setMedicalRecord(long id,MedicalRecord medicalRecord) throws ResourceNotFoundException{
-		Patient patient=findOne(id);
-		patient.setMedicalRecord(medicalRecord);
+	public void saveMedicalRecord(Patient patient) {
 		super.save(patient);
 	}
+	
 }

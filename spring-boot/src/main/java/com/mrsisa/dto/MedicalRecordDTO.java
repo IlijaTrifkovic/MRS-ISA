@@ -3,13 +3,12 @@ package com.mrsisa.dto;
 import java.util.Date;
 
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 
 import org.springframework.format.annotation.NumberFormat;
 
-import com.mrsisa.entity.BloodType;
-import com.mrsisa.entity.Gender;
-import com.mrsisa.entity.MedicalRecord;
+import com.mrsisa.entity.medical_record.BloodType;
+import com.mrsisa.entity.medical_record.Gender;
+import com.mrsisa.entity.medical_record.MedicalRecord;
 
 public class MedicalRecordDTO {
 

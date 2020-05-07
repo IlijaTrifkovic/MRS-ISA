@@ -1,4 +1,4 @@
-package com.mrsisa.auth;
+package com.mrsisa.dto.auth;
 
 public class AuthenticationResponse {
 	private String token;

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mrsisa.entity.Clinic;
+import com.mrsisa.entity.clinic.Clinic;
 import com.mrsisa.exception.ResourceNotFoundException;
 import com.mrsisa.service.clinic.ClinicService;
 

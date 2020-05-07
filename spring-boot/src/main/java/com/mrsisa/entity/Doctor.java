@@ -8,69 +8,71 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mrsisa.entity.clinic.Clinic;
 import com.mrsisa.entity.examination.MedicalExamination;
 import com.mrsisa.entity.medical_record.MedicalRecord;
 
 @Entity
-@DiscriminatorValue("patient")
-public class Patient extends UserAccount{
-	
-	@Column(nullable = false, name="first_name")
+@DiscriminatorValue("doctor")
+public class Doctor extends UserAccount{
+	@Column(nullable = false, name = "first_name")
 	private String firstName;
-	
-	@Column(nullable = false, name="last_name")
+
+	@Column(nullable = false, name = "last_name")
 	private String lastName;
-	
-	@Column(nullable = true, name="phone_number")
+
+	@Column(nullable = true, name = "phone_number")
 	private String phoneNumber;
-	
-	@Column(nullable = false, name="address")
+
+	@Column(nullable = false, name = "address")
 	private String address;
-	
-	@Column(nullable = false, name="city")
+
+	@Column(nullable = false, name = "city")
 	private String city;
-	
-	@Column(nullable = false, name="country")
+
+	@Column(nullable = false, name = "country")
 	private String country;
-	
-	@Column(unique = true, nullable = false, length = 13, name="jmbg")
+
+	@JsonIgnore
+	@Column(unique = true, nullable = false, length = 13, name = "jmbg")
 	private String jmbg;
-	
-	@Column(unique = true, nullable = false, length = 11, name="lbo")
+	@JsonIgnore
+	@Column(unique = true, nullable = false, length = 11, name = "lbo")
 	private String lbo;
-	
-	@Column(unique = true, nullable = false, length = 11, name="zk")
+	@JsonIgnore
+	@Column(unique = true, nullable = false, length = 11, name = "zk")
 	private String zk;
-
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "medical_record_id", referencedColumnName = "id", unique = true)
-	private MedicalRecord medicalRecord;	
+	/****************************/
+	@ManyToOne
+	@JoinColumn
+	private Specialization specialization;
 	
-	/**********************/
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "patient")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "doctor")
 	private Set<MedicalExamination> medicalExamination;
+
+	@ManyToOne
+	@JoinColumn
+	private Clinic clinic;
 	
-	public Set<MedicalExamination> getMedicalExaminations() {
-		return medicalExamination;
-	}
+	/****************************/
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "medical_record_id", referencedColumnName = "id", unique = true)
+	private MedicalRecord medicalRecord;
 
-	public void setMedicalExaminations(Set<MedicalExamination> medicalExaminations) {
-		this.medicalExamination = medicalExaminations;
-	}
-
-	/**********************/
 	@JsonBackReference
 	public MedicalRecord getMedicalRecord() {
 		return medicalRecord;
 	}
-	
+
 	public void setMedicalRecord(MedicalRecord medicalRecord) {
-		if(this.medicalRecord==null)
-			this.medicalRecord=new MedicalRecord();
+		if (this.medicalRecord == null)
+			this.medicalRecord = new MedicalRecord();
 		this.medicalRecord.setBloodType(medicalRecord.getBloodType());
 		this.medicalRecord.setHeight(medicalRecord.getHeight());
 		this.medicalRecord.setWeight(medicalRecord.getWeight());
@@ -149,5 +151,32 @@ public class Patient extends UserAccount{
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
+	public Specialization getSpecialization() {
+		return specialization;
+	}
+
+	public void setSpecialization(Specialization specialization) {
+		this.specialization = specialization;
+	}
+
+	@JsonBackReference
+	public Set<MedicalExamination> getMedicalExamination() {
+		return medicalExamination;
+	}
+
+	public void setMedicalExamination(Set<MedicalExamination> medicalExamination) {
+		this.medicalExamination = medicalExamination;
+	}
+	
+	@JsonBackReference
+	public Clinic getClinic() {
+		return clinic;
+	}
+
+	public void setClinic(Clinic clinic) {
+		this.clinic = clinic;
+	}
+	
 	
 }

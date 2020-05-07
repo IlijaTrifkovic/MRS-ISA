@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mrsisa.auth.AuthenticationResponse;
 import com.mrsisa.dto.PasswordDTO;
 import com.mrsisa.dto.PatientUpdateDTO;
+import com.mrsisa.dto.auth.AuthenticationResponse;
 import com.mrsisa.entity.Patient;
 import com.mrsisa.entity.UserAccount;
 import com.mrsisa.exception.ResourceNotFoundException;

@@ -46,7 +46,7 @@ public abstract class UserAccount {
 	@Column(name="last_password_change_date")
 	protected Timestamp lastPasswordChangeDate;
 
-
+	@JsonIgnore
 	@CreationTimestamp
 	protected Date registrationDate;
 	

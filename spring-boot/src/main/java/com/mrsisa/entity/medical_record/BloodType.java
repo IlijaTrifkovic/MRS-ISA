@@ -1,4 +1,4 @@
-package com.mrsisa.entity;
+package com.mrsisa.entity.medical_record;
 
 public enum BloodType {
 	A,

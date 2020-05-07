@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mrsisa.dto.MedicalRecordDTO;
-import com.mrsisa.entity.MedicalRecord;
+import com.mrsisa.entity.medical_record.MedicalRecord;
 import com.mrsisa.exception.ResourceNotFoundException;
 import com.mrsisa.service.patient.MedicalRecordService;
 import com.mrsisa.service.patient.PatientService;
@@ -48,7 +48,7 @@ public class MedicalRecordController {
 	public ResponseEntity<MedicalRecord> getByUserId() throws ResourceNotFoundException{
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String email = auth.getName();
-		return new ResponseEntity<MedicalRecord>(patientService.getMedicalRecordByEmail(email), HttpStatus.OK);
+		return new ResponseEntity<MedicalRecord>(medicalRecordService.getMedicalRecordByEmail(email), HttpStatus.OK);
 	}
 	
 	
@@ -56,7 +56,7 @@ public class MedicalRecordController {
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE) 
 	public ResponseEntity<MedicalRecord> create (@PathVariable Integer id, @RequestBody @Valid MedicalRecordDTO medicalRecordDTO) throws ResourceNotFoundException{
 		MedicalRecord medicalRecord =medicalRecordDTO.getMedicalRecord();
-		patientService.setMedicalRecord(id, medicalRecord);
+		medicalRecordService.setMedicalRecord(id, medicalRecord);
 		return new ResponseEntity<MedicalRecord>(medicalRecord, HttpStatus.OK);
 	}
 }
