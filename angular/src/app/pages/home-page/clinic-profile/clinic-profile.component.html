@@ -22,6 +22,31 @@
           <li><b>Drzava:</b> {{clinicProfile.country}}</li>
         </ul>
       </div>
+      <br>
+      <div class="div-clinic-info" *ngIf="medicalExamination[0]!=null">
+        <table class="table-clinic">
+          <caption>
+            <h4>Lista unaprijed definisanih termina</h4>
+          </caption>
+          <tr>
+            <th >Datum i vreme</th>
+            <th >Trajanje</th>
+            <th >Doktor</th>
+            <th >Tip pregleda</th>
+            <th >Prostorija</th>
+            <th >Cijena</th>
+            <th >Popust</th>
+          </tr>
+          <tr *ngFor="let m of medicalExamination; let i = index" [style.background-color]="(i%2==0)? 'transparent':'white'">
+            <td>{{m.dateTime}}</td>
+            <td>{{m.duration}} min</td>
+            <td>{{m.doctor.firstName}} {{m.doctor.lastName}}</td>
+            <td>{{m.examinationType.name}}</td>
+            <td>{{m.room.name}}</td>
+            <td>{{m.price}} din</td>
+            <td>{{m.discount}} din</td>
+          </tr>
+        </table>
     </div>
   </div>
 </div>

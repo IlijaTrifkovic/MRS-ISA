@@ -50,6 +50,11 @@ h3{
     margin: 0;
 }
 
+h4{
+    text-align: center;
+    display: block;
+}
+
 .description{
     position: relative;
     display: block;
@@ -67,4 +72,35 @@ h3{
     .div-clinic-info{
         width: 100%;
     }
+}
+
+
+
+.table-clinic{
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+.table-clinic tr td{
+    padding: 4px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: none;
+}
+
+.table-clinic tr th{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.table-clinic tr{
+   overflow: hidden;
+   border-collapse: collapse;
+   background-color: white;
+   cursor:pointer;
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import * as decode from 'jwt-decode';
+import { ClinicListService } from './clinic-list.service';
 
 const TOKEN_KEY = 'AuthToken';
 const EMAIL_KEY = 'email';
@@ -14,7 +15,7 @@ export class TokenService {
   private email = new Subject<String>();
   public emailEmitter = this.email.asObservable();
 
-  constructor(public router: Router,) {
+  constructor(public router: Router, private clinicListService:ClinicListService) {
     // window.sessionStorage.clear();
   }
 
@@ -27,6 +28,7 @@ export class TokenService {
   signOut() {
     window.sessionStorage.clear();
     this.emailEmitChange(null);
+    this.clinicListService.setDefaultPageValue();
     this.router.navigate(["/login"]);
   }
 

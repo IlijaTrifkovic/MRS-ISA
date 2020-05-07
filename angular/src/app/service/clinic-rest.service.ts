@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class ClinicRestService {
   url = environment.baseUrl;
   clinicUrl= '/clinic';
-  medicalRecordUrl= "/medical-record"
+  medicalExamination= "/examination";
 
   constructor(private http: HttpClient) { }
   getClinic(pageNumber,pageSize,sortBy,sortType): Observable<any> {
@@ -19,6 +19,10 @@ export class ClinicRestService {
 
   getClinicById(id):Observable<any>{
     return this.http.get(this.url + this.clinicUrl+"/"+id);
+  }
+
+  getExamination(id):Observable<any>{
+    return this.http.get(this.url + this.medicalExamination+"/"+id);
   }
 
 }

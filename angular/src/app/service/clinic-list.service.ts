@@ -9,5 +9,12 @@ export class ClinicListService {
   sortBy="name";
   sortOrder:boolean=true;
 
+  setDefaultPageValue(){
+    this.currentPage=0;
+    this.pageSize=8;
+    this.sortBy="name";
+    this.sortOrder=true;
+  }
+
   constructor() { }
 }
