@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mrsisa.config.HtmlResponse;
 import com.mrsisa.dto.PatientDTO;
 import com.mrsisa.dto.auth.AuthenticationRequest;
 import com.mrsisa.dto.auth.AuthenticationResponse;
@@ -25,6 +24,7 @@ import com.mrsisa.exception.ResourceNotFoundException;
 import com.mrsisa.registration.OnRegistrationCompleteEvent;
 import com.mrsisa.exception.NotUniqueException;
 import com.mrsisa.service.auth.AuthService;
+import com.mrsisa.service.mail.HtmlResponse;
 import com.mrsisa.service.patient.PatientService;
 import com.mrsisa.userdetails.CustomUserDetailsService;
 

@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -68,6 +70,14 @@ public class PatientController {
 	public ResponseEntity<MedicalExamination> reserveMedicalExamination(@PathVariable Long id) throws ResourceNotFoundException{
 		MedicalExamination medicalExamination = patientService.reserveMedicalExamination(id);
 		return new ResponseEntity<MedicalExamination>(medicalExamination, HttpStatus.OK);
+	}
+	
+	
+	@PreAuthorize("hasAnyRole('PATIENT')")
+	@RequestMapping(value = "/patient/examination", method = RequestMethod.GET)
+	public ResponseEntity<Page<MedicalExamination>> getMedicalExamination(Pageable pageable) throws ResourceNotFoundException {
+		Page<MedicalExamination> page=patientService.getAllMedicalExamination(pageable);
+		return new ResponseEntity<Page<MedicalExamination>>(page, HttpStatus.OK);
 	}
 	
 }

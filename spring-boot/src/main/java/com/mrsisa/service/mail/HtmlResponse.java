@@ -1,4 +1,4 @@
-package com.mrsisa.config;
+package com.mrsisa.service.mail;
 
 public class HtmlResponse {
 public static final String CLIENT_URL="http://localhost:4445/";

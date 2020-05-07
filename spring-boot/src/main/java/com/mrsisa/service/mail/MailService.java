@@ -2,7 +2,6 @@ package com.mrsisa.service.mail;
 
 import org.springframework.stereotype.Service;
 
-import com.mrsisa.config.HtmlResponse;
 import com.mrsisa.registration.OnRegistrationCompleteEvent;
 
 import org.springframework.beans.factory.annotation.Autowired;

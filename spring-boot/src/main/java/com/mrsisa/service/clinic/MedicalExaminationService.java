@@ -44,7 +44,12 @@ public class MedicalExaminationService extends CRUDService<MedicalExamination, L
 		return super.save(medicalEx);
 	}
 
-
+	
+	public Page<MedicalExamination> findAllByPatientId(Pageable pageable, Long id) throws ResourceNotFoundException{
+		Page<MedicalExamination> page = ((MedicalExaminationRepository)repo).findByPatientId(pageable, id);
+		return page;
+	}
+	
 //	private MedicalExamination findById(Long id) throws ResourceNotFoundException{
 //		Optional<MedicalExamination> optional=((MedicalExaminationRepository)repo).findById(id);
 //		if(optional.isPresent())

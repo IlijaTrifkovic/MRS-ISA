@@ -1,6 +1,8 @@
 package com.mrsisa.service.patient;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -104,6 +106,14 @@ public class PatientService extends CRUDService<Patient, Long> {
 		String email=auth.getName();
 		Patient patient=findByEmail(email);
 		MedicalExamination medicalEx = medicalExaminationService.reserveMedicalExamination(examinationId, patient);
+		return medicalEx;
+	}
+	
+	public Page<MedicalExamination> getAllMedicalExamination(Pageable pageable) throws ResourceNotFoundException {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String email=auth.getName();
+		Long id=findByEmail(email).getId();
+		Page<MedicalExamination> medicalEx = medicalExaminationService.getMedicalExaminationByPatientId(pageable, id);
 		return medicalEx;
 	}
 	
