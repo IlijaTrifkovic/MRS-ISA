@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { PatientRestService } from 'src/app/service/patient-rest.service';
-import { PatientProfile } from 'src/app/model/PatientProfile';
+import { PatientProfile } from 'src/app/model/model.patient/PatientProfile';
 
 @Component({
   selector: 'app-profile-page',

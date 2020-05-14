@@ -11,14 +11,14 @@ import { ChangePasswordPageComponent } from './pages/home-page/change-password-p
 import { ListOfClinicsComponent } from './pages/home-page/list-of-clinics/list-of-clinics.component';
 import { ClinicProfileComponent } from './pages/home-page/clinic-profile/clinic-profile.component';
 import { MedicalRecordComponent } from './pages/home-page/medical-record/medical-record.component';
-import { ExaminationListComponent } from './pages/home-page/examination-list/examination-list.component';
+import { AppointmentListComponent } from './pages/home-page/appointment-list/appointment-list.component';
 
 
 const routes: Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
   {path:'home', component:HomePageComponent, canActivate: [RouteGuardService] ,children:[
     {path:'', component:ListOfClinicsComponent},
-    {path:'patient/examination', component:ExaminationListComponent},
+    {path:'patient/examination', component:AppointmentListComponent},
     {path:'clinic-profile/:id', component:ClinicProfileComponent},
     {path:'medical-record', component:MedicalRecordComponent},
     {path:'profile', component:ProfilePageComponent},

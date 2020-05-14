@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ClinicPage } from 'src/app/model/ClinicPage';
+import { ClinicPage } from 'src/app/model/model.clinic/ClinicPage';
 import { ActivatedRoute } from '@angular/router';
 import { ClinicRestService } from 'src/app/service/clinic-rest.service';
-import { MedicalExamination } from 'src/app/model/MedicalExamination';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MedicalAppointment } from 'src/app/model/model.clinic/MedicalAppointment';
 
 @Component({
   selector: 'app-clinic-profile',
@@ -14,45 +14,50 @@ export class ClinicProfileComponent implements OnInit {
 
   clinicId="";
   clinicProfile:ClinicPage=new ClinicPage();
-  medicalExamination:MedicalExamination[]=[];
-  medExamination:MedicalExamination= new MedicalExamination();
+  medicalAppointment:MedicalAppointment[]=[];
+  medAppointment:MedicalAppointment= new MedicalAppointment;
   examinationID:number=-1;
   submitReservatinForm:boolean=false;
   statusMessage:string="";
+  submitBtn:boolean=false;
 
   constructor(private route:ActivatedRoute, private clinicService:ClinicRestService) { }
 
   ngOnInit() {
-    this.submitReservatinForm=true;
+    this.submitReservatinForm=false;
     this.clinicId=this.route.snapshot.paramMap.get('id');
     this.clinicService.getClinicById(this.clinicId).subscribe(
       clinic => {       
         this.clinicProfile=clinic;  
       }
     );
-    this.clinicService.getExamination(this.clinicId).subscribe(
+    this.clinicService.getAppointment(this.clinicId).subscribe(
       data => {
-        this.medicalExamination=data.content;
+        this.medicalAppointment=data.content;
       }
     );
   }
 
-  reserve(id:number){
+  schedule(id:number){
     this.examinationID=id;
     this.submitReservatinForm=true;
   }
 
   submit(){
-    this.clinicService.reserveExamination(this.examinationID).subscribe(
+    this.submitBtn=true;
+    this.statusMessage="Slanje zahtjeva ...";
+    this.clinicService.scheduleAppointment(this.examinationID).subscribe(
       data => {
-        this.medExamination=data.content;
-        this.statusMessage="Pregled je rezervisan."
+        this.medAppointment=data.content;
+        this.statusMessage="Zahtjev za rezervaciju je poslat. Provjerite Vaš mail."
+        this.submitBtn=false;
       },
       (error:HttpErrorResponse) =>{
         if(!error.error.details)
            this.statusMessage="Greška, pokušajte ponovo.";
         else
-           this.statusMessage=error.error.details;
+           this.statusMessage="Zahtjev za rezervaciju je poslat. Provjerite Vaš mail."
+        this.submitBtn=false;
       }
     );
   }

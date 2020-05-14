@@ -1,4 +1,4 @@
-import { PatientProfile } from './PatientProfile';
+import { PatientProfile } from './model.patient/PatientProfile';
 
 export class MedicalRecord {
     id: number;

@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { MedicalExamination } from 'src/app/model/MedicalExamination';
+import { MedicalAppointment} from 'src/app/model/model.clinic/MedicalAppointment';
 import { ClinicRestService } from 'src/app/service/clinic-rest.service';
 import { Pageable } from 'src/app/model/Pageable';
 
 @Component({
-  selector: 'app-examination-list',
-  templateUrl: './examination-list.component.html',
-  styleUrls: ['./examination-list.component.css']
+  selector: 'app-appointment-list',
+  templateUrl: './appointment-list.component.html',
+  styleUrls: ['./appointment-list.component.css']
 })
-export class ExaminationListComponent implements OnInit {
+export class AppointmentListComponent implements OnInit {
   
   pageable:Pageable=new Pageable();
-  medicalExamination:MedicalExamination[]=[];
+  medicalAppointment:MedicalAppointment[]=[];
   currentPage=0;
   pageSize=8;
   sortBy="date_time";
@@ -24,18 +24,14 @@ export class ExaminationListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.clinicService.getPatientExamination(this.currentPage,this.pageSize,this.sortBy,this.getSortOrder()).subscribe(
-      data => {
-        this.medicalExamination=data.content;
-        this.pageable=data;
-      }
-    );
+    this.sortData();
   }
 
   sortData(){
-    this.clinicService.getPatientExamination(this.currentPage,this.pageSize,this.sortBy,this.getSortOrder()).subscribe(
+    this.clinicService.getPatientAppointment(this.currentPage,this.pageSize,this.sortBy,this.getSortOrder()).subscribe(
       data => {       
-        this.medicalExamination=data.content;
+        this.medicalAppointment=data.content;
+        this.pageable=data;
       }
     );
   }

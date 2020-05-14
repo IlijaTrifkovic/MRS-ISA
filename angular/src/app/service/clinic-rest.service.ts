@@ -9,9 +9,8 @@ import { Observable } from 'rxjs';
 export class ClinicRestService {
   url = environment.baseUrl;
   clinicUrl= '/clinic';
-  medicalExaminationUrl= "/examination";
-  reserveExaminationUrl= "/patient/examination";
-  examintaionUrl="/patient/examination";
+  medicalAppointmentUrl= "/appointment";
+  appointmentUrl="/patient/appointment";
 
   constructor(private http: HttpClient) { }
   getClinic(pageNumber,pageSize,sortBy,sortType): Observable<any> {
@@ -23,16 +22,16 @@ export class ClinicRestService {
     return this.http.get(this.url + this.clinicUrl+"/"+id);
   }
 
-  getExamination(id):Observable<any>{
-    return this.http.get(this.url + this.medicalExaminationUrl+"/"+id);
+  getAppointment(id):Observable<any>{
+    return this.http.get(this.url + this.medicalAppointmentUrl+"/"+id);
   }
 
-  reserveExamination(id):Observable<any>{
-    return this.http.get(this.url + this.reserveExaminationUrl+"/"+id);
+  scheduleAppointment(id):Observable<any>{
+    return this.http.get(this.url + this.appointmentUrl+"/"+id);
   }
 
-  getPatientExamination(pageNumber,pageSize,sortBy,sortType):Observable<any>{
-    return this.http.get(this.url + this.reserveExaminationUrl+"?page="+pageNumber+"&size="+pageSize+
+  getPatientAppointment(pageNumber,pageSize,sortBy,sortType):Observable<any>{
+    return this.http.get(this.url + this.appointmentUrl+"?page="+pageNumber+"&size="+pageSize+
     "&sort="+sortBy+","+sortType);
   }
 

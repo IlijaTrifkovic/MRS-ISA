@@ -21,7 +21,7 @@ import { ChangePasswordPageComponent } from './pages/home-page/change-password-p
 import { ListOfClinicsComponent } from './pages/home-page/list-of-clinics/list-of-clinics.component';
 import { ClinicProfileComponent } from './pages/home-page/clinic-profile/clinic-profile.component';
 import { MedicalRecordComponent } from './pages/home-page/medical-record/medical-record.component';
-import { ExaminationListComponent } from './pages/home-page/examination-list/examination-list.component';
+import { AppointmentListComponent } from './pages/home-page/appointment-list/appointment-list.component';
 
 
 @NgModule({
@@ -38,7 +38,7 @@ import { ExaminationListComponent } from './pages/home-page/examination-list/exa
     ListOfClinicsComponent,
     ClinicProfileComponent,
     MedicalRecordComponent,
-    ExaminationListComponent,
+    AppointmentListComponent,
   ],
   imports: [
     BrowserModule,

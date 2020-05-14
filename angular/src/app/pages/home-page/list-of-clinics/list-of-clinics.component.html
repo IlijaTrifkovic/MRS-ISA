@@ -36,7 +36,7 @@
         <span style="color: rgb(15, 146, 113); font-weight: bold;">)</span>
       </p>
       <div class="page-btn">
-        <p class="btn" (click)="prevPage()" [style.background-color]="(currentPage>0)? 'rgb(15, 146, 113)' : 'rgb(167, 167, 167)'">Prethodna strana</p>
+        <p class="btn" (click)="prevPage()" [style.background-color]="(currentPage>0)? 'rgb(15, 146, 113)' : 'rgb(167, 167, 167)'" >Prethodna strana</p>
         <p class="btn"(click)="nextPage()" [style.background-color]="(currentPage!=this.clinicPage.totalPages-1)? 'rgb(15, 146, 113)' : 'rgb(167, 167, 167)'">Sledeća strana</p>
       </div>
     </div>

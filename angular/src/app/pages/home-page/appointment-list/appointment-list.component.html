@@ -21,26 +21,25 @@
           <th (click)="sortDataBy('price')">Cijena</th>
           <th (click)="sortDataBy('discount')">Popust</th>
         </tr>
-        <tr *ngFor="let m of medicalExamination; let i = index" [style.background-color]="(i%2==0)? 'transparent':'white'"
-        (click)="reserve(m.id)">
+        <tr *ngFor="let m of medicalAppointment; let i = index" [style.background-color]="(i%2==0)? 'transparent':'white'">
           <td>{{m.dateTime}}</td>
           <td>{{m.duration}} min</td>
           <td>{{m.doctor.firstName}} {{m.doctor.lastName}}</td>
-          <td>{{m.examinationType.name}}</td>
+          <td>{{m.appointmentType.name}}</td>
           <td>{{m.room.name}}</td>
           <td>{{m.price}} din</td>
           <td>{{m.discount}} din</td>
         </tr>
       </table>
       
-      <p class="page-number">
+      <p class="page-number" *ngIf="pageable.totalElements>8">
         <span style="color: rgb(15, 146, 113); font-weight: bold;">(</span> 
         {{currentPage+1}} - {{this.pageable.totalPages}} 
         <span style="color: rgb(15, 146, 113); font-weight: bold;">)</span>
       </p>
-      <div class="page-btn">
+      <div class="page-btn" *ngIf="pageable.totalElements>8">
         <p class="btn" (click)="prevPage()" [style.background-color]="(currentPage>0)? 'rgb(15, 146, 113)' : 'rgb(167, 167, 167)'">Prethodna strana</p>
-        <p class="btn"(click)="nextPage()" [style.background-color]="(currentPage!=this.clinicPage.totalPages-1)? 'rgb(15, 146, 113)' : 'rgb(167, 167, 167)'">Sledeća strana</p>
+        <p class="btn" (click)="nextPage()" [style.background-color]="(currentPage!=this.pageable.totalPages-1)? 'rgb(15, 146, 113)' : 'rgb(167, 167, 167)'">Sledeća strana</p>
       </div>
     </div>
   </div>

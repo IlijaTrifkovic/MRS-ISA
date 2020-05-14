@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClinicRestService } from 'src/app/service/clinic-rest.service';
-import { Clinic } from 'src/app/model/Clinic';
-import { ClinicPage } from 'src/app/model/ClinicPage';
+import { Clinic } from 'src/app/model/model.clinic/Clinic';
+import { ClinicPage } from 'src/app/model/model.clinic/ClinicPage';
 import { Router } from '@angular/router';
 import { ClinicListService } from 'src/app/service/clinic-list.service';
 
