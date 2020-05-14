@@ -105,7 +105,7 @@ public class PatientController {
 	
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(value = "/patient/appointment/clinic-grade", method = RequestMethod.PUT)
-	public ResponseEntity<?> setClinicGrade(@RequestParam Long id, @RequestParam int grade){
+	public ResponseEntity<?> setClinicGrade(@RequestParam Long id, @RequestParam int grade) throws ResourceNotFoundException{
 		if(patientService.setClinicGrade(id, grade))
 			return new ResponseEntity<String>("{\"message\":\"Klinika je ocijenjena.\"}", HttpStatus.OK);
 		return new ResponseEntity<String>("{\"message\":\"Nije moguce ocijeniti kliniku.\"}", HttpStatus.OK);

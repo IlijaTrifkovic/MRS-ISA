@@ -154,8 +154,10 @@ public class PatientService extends CRUDService<Patient, Long> {
 		return false;
 	}
 	
-	public boolean setClinicGrade(Long id, int grade) {
-		
+	public boolean setClinicGrade(Long id, int grade) throws ResourceNotFoundException {
+		Long patientId=getPatIdFromAuth();
+		if(medicalAppointmentService.setClinicGrade(id, grade, patientId))
+			return true;
 		return false;
 	}
 	

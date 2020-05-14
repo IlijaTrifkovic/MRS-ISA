@@ -63,8 +63,15 @@ public class MedicalAppointmentService extends CRUDService<MedicalAppointment, L
 		return false;
 	}
 	
-	public boolean setClinicGrade(Long id, int grade, Long patientId) {
-		
+	public boolean setClinicGrade(Long id, int grade, Long patientId) throws ResourceNotFoundException {
+		MedicalAppointment medAppointment = findOne(id);
+		if(medAppointment.getAppointmentStatus()==AppointmentStatus.FINISHED) {
+			if(medAppointment.getPatient().getId()==patientId && medAppointment.getClinicGrade()==null) {
+				medAppointment.setClinicGrade(grade);
+				super.save(medAppointment);
+				return true;
+			}
+		}
 		return false;
 	}
 	
