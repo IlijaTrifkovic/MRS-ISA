@@ -102,17 +102,34 @@ export class AppointmentListComponent implements OnInit {
   }
 
   setDoctorGrade(grade:number){
+    if(this.mAppointment.doctorGrade==null)
     this.clinicService.setDoctorGrade(this.mAppointment.id,grade).subscribe(
       data=> {
         this.statusMessage=data.message+"";
-        this.medicalAppointment.forEach( medApp => {
-          this.mAppointment.doctorGrade=grade;
-        });
+        this.mAppointment.doctorGrade=grade;
+        for(var ma of this.medicalAppointment){
+          if(ma.id==this.mAppointment.id){
+            ma.doctorGrade=grade;
+            break;
+          }
+        }
       }
     );
   }
 
-  setClinicGrade(){
-
+  setClinicGrade(grade:number){
+    if(this.mAppointment.clinicGrade==null)
+    this.clinicService.setClinicGrade(this.mAppointment.id,grade).subscribe(
+      data=> {
+        this.statusMessage=data.message+"";
+        this.mAppointment.clinicGrade=grade;
+        for(var ma of this.medicalAppointment){
+          if(ma.id==this.mAppointment.id){
+            ma.clinicGrade=grade;
+            break;
+          }
+        }
+      }
+    );
   }
 }
