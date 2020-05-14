@@ -56,13 +56,14 @@ public class MedicalAppointmentService extends CRUDService<MedicalAppointment, L
 		Date date=medApp.getDateTime();
 		Date currentDate=new Date();
 		currentDate.setHours(currentDate.getHours()+24);
-		if(medApp.getPatient().getId()==patientId) {
-			if(currentDate.before(date)) {
-				medApp.setAppointmentStatus(AppointmentStatus.CANCELED);
-				medApp.setPatient(null);
-				return super.save(medApp);
+		if(medApp.getPatient()!=null)
+			if(medApp.getPatient().getId()==patientId) {
+				if(currentDate.before(date)) {
+					medApp.setAppointmentStatus(AppointmentStatus.CANCELED);
+					medApp.setPatient(null);
+					return super.save(medApp);
+				}
 			}
-		}
 		return null;
 	}
 

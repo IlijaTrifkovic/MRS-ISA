@@ -90,7 +90,7 @@ public class PatientController {
 	@RequestMapping(value = "/patient/appointment/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<?> cancelAppointment(@PathVariable Long id) throws ResourceNotFoundException, MessagingException, IOException{
 		if(patientService.cancelAppointment(id))
-			return new ResponseEntity<String>("Pregled je otkazan", HttpStatus.OK);
-		return new ResponseEntity<String>("{\"details\":\"Nije moguće otkazati termin.\"}", HttpStatus.OK);
+			return new ResponseEntity<String>("{\"message\":\"Pregled je otkazan.\"}", HttpStatus.OK);
+		return new ResponseEntity<String>("{\"message\":\"Nije moguce otkazati pregled.\"}", HttpStatus.OK);
 	}
 }
