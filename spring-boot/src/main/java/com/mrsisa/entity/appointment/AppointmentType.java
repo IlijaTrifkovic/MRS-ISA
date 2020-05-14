@@ -1,4 +1,4 @@
-package com.mrsisa.entity.examination;
+package com.mrsisa.entity.appointment;
 
 import java.util.Set;
 
@@ -13,32 +13,32 @@ import javax.persistence.SequenceGenerator;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-public class ExaminationType {
+public class AppointmentType {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "exam_type_generator")
 	@SequenceGenerator(name = "exam_type_generator", sequenceName = "exam_type_seq")
 	private Long id;
-	
+
 	@Column(nullable = false)
 	private String name;
-	
+
 	@Column
 	private String description;
-	
-	@OneToMany(mappedBy = "examinationType")
-	private Set<MedicalExamination> medicalExaminations;
+
+	@OneToMany(mappedBy = "appointmentType")
+	private Set<MedicalAppointment> medicalAppointments;
 
 	@JsonBackReference
-	public Set<MedicalExamination> getMedicalExaminations() {
-		return medicalExaminations;
-	}
-
-	public void setMedicalExaminations(Set<MedicalExamination> medicalExaminations) {
-		this.medicalExaminations = medicalExaminations;
+	public Set<MedicalAppointment> getMedicalAppointments() {
+		return medicalAppointments;
 	}
 
 	public Long getId() {
 		return id;
+	}
+
+	public void setMedicalAppointments(Set<MedicalAppointment> medicalAppointments) {
+		this.medicalAppointments = medicalAppointments;
 	}
 
 	public void setId(Long id) {
@@ -60,6 +60,4 @@ public class ExaminationType {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
 }

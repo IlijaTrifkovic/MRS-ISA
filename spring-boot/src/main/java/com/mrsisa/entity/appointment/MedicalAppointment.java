@@ -1,4 +1,4 @@
-package com.mrsisa.entity.examination;
+package com.mrsisa.entity.appointment;
 
 import java.util.Date;
 
@@ -21,45 +21,45 @@ import com.mrsisa.entity.clinic.Clinic;
 import com.mrsisa.entity.clinic.Room;
 
 @Entity
-public class MedicalExamination {
+public class MedicalAppointment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "exam_generator")
 	@SequenceGenerator(name = "exam_generator", sequenceName = "exam_seq")
 	private Long id;
-	
+
 	@Column
-	private MedicalExaminationStatus medicalExaminationStatus;
-	
+	private AppointmentStatus appointmentStatus;
+
 	@JsonFormat(pattern = "dd.MM.yyyy - HH:mm", timezone = "Europe/Belgrade")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateTime;
-	
-	@Column 
+
+	@Column
 	private int duration; //
 
 	@ManyToOne
 	@JoinColumn
 	private Clinic clinic;
-	
+
 	@ManyToOne
 	@JoinColumn
 	private Doctor doctor;
-	
+
 	@ManyToOne
 	@JoinColumn
 	private Patient patient;
-	
+
 	@ManyToOne
 	@JoinColumn
-	private ExaminationType examinationType;
-	
+	private AppointmentType appointmentType;
+
 	@ManyToOne
 	@JoinColumn
 	private Room room;
-	
+
 	@Column
 	private float price;
-	
+
 	@Column
 	private float discount;
 
@@ -69,14 +69,6 @@ public class MedicalExamination {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public MedicalExaminationStatus getMedicalExaminationStatus() {
-		return medicalExaminationStatus;
-	}
-
-	public void setMedicalExaminationStatus(MedicalExaminationStatus medicalExaminationStatus) {
-		this.medicalExaminationStatus = medicalExaminationStatus;
 	}
 
 	public Date getDateTime() {
@@ -102,7 +94,7 @@ public class MedicalExamination {
 	public void setClinic(Clinic clinic) {
 		this.clinic = clinic;
 	}
-	
+
 	public Doctor getDoctor() {
 		return doctor;
 	}
@@ -120,12 +112,20 @@ public class MedicalExamination {
 		this.patient = patient;
 	}
 
-	public ExaminationType getExaminationType() {
-		return examinationType;
+	public AppointmentStatus getAppointmentStatus() {
+		return appointmentStatus;
 	}
 
-	public void setExaminationType(ExaminationType examinationType) {
-		this.examinationType = examinationType;
+	public void setAppointmentStatus(AppointmentStatus appointmentStatus) {
+		this.appointmentStatus = appointmentStatus;
+	}
+
+	public AppointmentType getAppointmentType() {
+		return appointmentType;
+	}
+
+	public void setAppointmentType(AppointmentType appointmentType) {
+		this.appointmentType = appointmentType;
 	}
 
 	public Room getRoom() {
@@ -151,6 +151,4 @@ public class MedicalExamination {
 	public void setDiscount(float discount) {
 		this.discount = discount;
 	}
-	
-	
 }

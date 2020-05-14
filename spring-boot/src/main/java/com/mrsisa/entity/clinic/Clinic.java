@@ -16,7 +16,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.mrsisa.entity.Doctor;
-import com.mrsisa.entity.examination.MedicalExamination;
+import com.mrsisa.entity.appointment.MedicalAppointment;
 
 @Entity
 public class Clinic {
@@ -49,7 +49,7 @@ public class Clinic {
 	private Set<Doctor> doctor;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "clinic")
-	private Set<MedicalExamination> medicalExamination;
+	private Set<MedicalAppointment> medicalAppointment;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "clinic")
 	private Set<Room> room;
@@ -72,12 +72,12 @@ public class Clinic {
 	}
 
 	@JsonBackReference
-	public Set<MedicalExamination> getMedicalExaminations() {
-		return medicalExamination;
+	public Set<MedicalAppointment> getMedicalAppointments() {
+		return medicalAppointment;
 	}
 
-	public void setMedicalExaminations(Set<MedicalExamination> medicalExaminations) {
-		this.medicalExamination = medicalExaminations;
+	public void setMedicalAppointments(Set<MedicalAppointment> medicalAppointments) {
+		this.medicalAppointment = medicalAppointments;
 	}
 
 	@JsonBackReference
