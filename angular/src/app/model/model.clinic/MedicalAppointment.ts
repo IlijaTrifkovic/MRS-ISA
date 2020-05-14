@@ -10,6 +10,7 @@ export class MedicalAppointment{
     room:Room=new Room();
     price:number;
     discount:number;
+    appointmentStatus;
 }
 
 export class AppointmentType{

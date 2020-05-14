@@ -16,6 +16,12 @@ export class AppointmentListComponent implements OnInit {
   pageSize=8;
   sortBy="date_time";
   sortOrder:boolean=true; //true -> ASC 
+  message:string="";
+  messageDialog:boolean=false;
+  statusMessage:string="";
+  appontmentId:number=0;
+
+  dialogBtnSub:boolean=false;
   
   constructor(private clinicService:ClinicRestService) { }
  
@@ -54,5 +60,35 @@ export class AppointmentListComponent implements OnInit {
     this.sortOrder=!this.sortOrder;
     this.sortBy=sortBy;
     this.sortData();
+  }
+
+  cancelAppointment(){
+    this.clinicService.cancelAppointment(this.appontmentId).subscribe(
+      data=>{
+        this.dialogBtnSub=false;
+        this.message=data.message+"";
+        this.statusMessage=this.message;
+        this.sortData();
+      }
+    );
+  }
+
+  openDialog(medicalAppointment:MedicalAppointment){
+    this.appontmentId=medicalAppointment.id;
+    if(medicalAppointment.appointmentStatus=="SCHEDULED"){
+      this.messageDialog=true;
+    }
+  }
+
+  closeDialog(){
+    this.statusMessage="";
+    this.dialogBtnSub=false;
+    this.messageDialog=false;
+  }
+
+  submit(){
+    this.dialogBtnSub=true;
+    this.statusMessage="otkazivanje...";
+    this.cancelAppointment();
   }
 }

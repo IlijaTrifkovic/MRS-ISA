@@ -35,4 +35,8 @@ export class ClinicRestService {
     "&sort="+sortBy+","+sortType);
   }
 
+  cancelAppointment(id):Observable<any>{
+    return this.http.delete(this.url + this.appointmentUrl+"/"+id);
+  }
+
 }

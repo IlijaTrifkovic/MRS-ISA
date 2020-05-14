@@ -1,3 +1,13 @@
+<div class="message-dialog-box" *ngIf="messageDialog">
+  <div class="message-dialog">
+    <div class="dialog-btn-close" (click)="closeDialog()"><p>X</p></div>
+    <br><br>
+    <h4 style="color:rgb(77, 77, 77);">Da li želite otkazati selektovani pregled?</h4>
+    <div class="dialog-btn" *ngIf="!dialogBtnSub" (click)="submit()"><p>Otkaži pregled</p></div>
+    <div class="loader" *ngIf="dialogBtnSub"></div>
+    <p class="status-message">{{statusMessage}}</p>
+  </div>
+</div>
 <div class="main-container">
   <div class="home-container">
     <div class="home-menu-container">
@@ -21,7 +31,8 @@
           <th (click)="sortDataBy('price')">Cijena</th>
           <th (click)="sortDataBy('discount')">Popust</th>
         </tr>
-        <tr *ngFor="let m of medicalAppointment; let i = index" [style.background-color]="(i%2==0)? 'transparent':'white'">
+        <tr *ngFor="let m of medicalAppointment; let i = index" [style.background-color]="(i%2==0)? 'transparent':'white'"
+          (click)="openDialog(m);">
           <td>{{m.dateTime}}</td>
           <td>{{m.duration}} min</td>
           <td>{{m.doctor.firstName}} {{m.doctor.lastName}}</td>

@@ -31,6 +31,10 @@ export class ClinicProfileComponent implements OnInit {
         this.clinicProfile=clinic;  
       }
     );
+    this.getAppointment();
+  }
+
+  getAppointment(){
     this.clinicService.getAppointment(this.clinicId).subscribe(
       data => {
         this.medicalAppointment=data.content;
@@ -51,6 +55,7 @@ export class ClinicProfileComponent implements OnInit {
         this.medAppointment=data.content;
         this.statusMessage="Zahtjev za rezervaciju je poslat. Provjerite Vaš mail."
         this.submitBtn=false;
+        this.getAppointment();
       },
       (error:HttpErrorResponse) =>{
         if(!error.error.details)
