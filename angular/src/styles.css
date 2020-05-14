@@ -217,6 +217,7 @@ p{
     width: 100%;
     padding: 2px;
     text-align: center;
+    font-style: italic;
 }
 
 .message-dialog h4{

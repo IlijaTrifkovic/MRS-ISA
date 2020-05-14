@@ -1,10 +1,37 @@
-<div class="message-dialog-box" *ngIf="messageDialog">
+<div class="message-dialog-box" *ngIf="cancelDialog">
   <div class="message-dialog">
     <div class="dialog-btn-close" (click)="closeDialog()"><p>X</p></div>
     <br><br>
     <h4 style="color:rgb(77, 77, 77);">Da li želite otkazati selektovani pregled?</h4>
-    <div class="dialog-btn" *ngIf="!dialogBtnSub" (click)="submit()"><p>Otkaži pregled</p></div>
+    <div class="dialog-btn" *ngIf="!dialogBtnSub" (click)="cancelAppointment()"><p>Otkaži pregled</p></div>
     <div class="loader" *ngIf="dialogBtnSub"></div>
+    <p class="status-message">{{statusMessage}}</p>
+  </div>
+</div>
+<div class="message-dialog-box" *ngIf="gradeDialog">
+  <div class="message-dialog md2">
+    <div class="dialog-btn-close" (click)="closeDialog()"><p>X</p></div>
+    <br>
+    <h4 style="color:rgb(77, 77, 77);">Ocjene za selektovani pregled.</h4>
+    <p class="grade">Ocjena doktora</p>
+    <div class="star-grade">
+      <svg (click)="setDoctorGrade(1)" viewBox="0 0 30 30" preserveAspectRatio="none" [style.fill]="(mAppointment.doctorGrade>=1)? 'rgb(15, 146, 113)' : 'rgba(168, 168, 168, 0.952)'"><polygon class="cls-1" points="19.61 9.76 30 11.19 22.6 18.95 24.52 29.73 15.18 24.76 5.98 30 7.6 19.17 0 11.63 10.34 9.9 14.85 0 19.61 9.76"/></svg>
+      <svg (click)="setDoctorGrade(2)" viewBox="0 0 30 30" preserveAspectRatio="none" [style.fill]="(mAppointment.doctorGrade>=2)? 'rgb(15, 146, 113)' : 'rgba(168, 168, 168, 0.952)'"><polygon class="cls-1" points="19.61 9.76 30 11.19 22.6 18.95 24.52 29.73 15.18 24.76 5.98 30 7.6 19.17 0 11.63 10.34 9.9 14.85 0 19.61 9.76"/></svg>
+      <svg (click)="setDoctorGrade(3)" viewBox="0 0 30 30" preserveAspectRatio="none" [style.fill]="(mAppointment.doctorGrade>=3)? 'rgb(15, 146, 113)' : 'rgba(168, 168, 168, 0.952)'"><polygon class="cls-1" points="19.61 9.76 30 11.19 22.6 18.95 24.52 29.73 15.18 24.76 5.98 30 7.6 19.17 0 11.63 10.34 9.9 14.85 0 19.61 9.76"/></svg>
+      <svg (click)="setDoctorGrade(4)" viewBox="0 0 30 30" preserveAspectRatio="none" [style.fill]="(mAppointment.doctorGrade>=4)? 'rgb(15, 146, 113)' : 'rgba(168, 168, 168, 0.952)'"><polygon class="cls-1" points="19.61 9.76 30 11.19 22.6 18.95 24.52 29.73 15.18 24.76 5.98 30 7.6 19.17 0 11.63 10.34 9.9 14.85 0 19.61 9.76"/></svg>
+      <svg (click)="setDoctorGrade(5)" viewBox="0 0 30 30" preserveAspectRatio="none" [style.fill]="(mAppointment.doctorGrade>=5)? 'rgb(15, 146, 113)' : 'rgba(168, 168, 168, 0.952)'"><polygon class="cls-1" points="19.61 9.76 30 11.19 22.6 18.95 24.52 29.73 15.18 24.76 5.98 30 7.6 19.17 0 11.63 10.34 9.9 14.85 0 19.61 9.76"/></svg>
+    </div>
+    <p class="grade">Ocjena klinike</p>
+    <div class="star-grade">
+      <svg viewBox="0 0 30 30" preserveAspectRatio="none"><polygon class="cls-1" points="19.61 9.76 30 11.19 22.6 18.95 24.52 29.73 15.18 24.76 5.98 30 7.6 19.17 0 11.63 10.34 9.9 14.85 0 19.61 9.76"/></svg>
+      <svg viewBox="0 0 30 30" preserveAspectRatio="none"><polygon class="cls-1" points="19.61 9.76 30 11.19 22.6 18.95 24.52 29.73 15.18 24.76 5.98 30 7.6 19.17 0 11.63 10.34 9.9 14.85 0 19.61 9.76"/></svg>
+      <svg viewBox="0 0 30 30" preserveAspectRatio="none"><polygon class="cls-1" points="19.61 9.76 30 11.19 22.6 18.95 24.52 29.73 15.18 24.76 5.98 30 7.6 19.17 0 11.63 10.34 9.9 14.85 0 19.61 9.76"/></svg>
+      <svg viewBox="0 0 30 30" preserveAspectRatio="none"><polygon class="cls-1" points="19.61 9.76 30 11.19 22.6 18.95 24.52 29.73 15.18 24.76 5.98 30 7.6 19.17 0 11.63 10.34 9.9 14.85 0 19.61 9.76"/></svg>
+      <svg viewBox="0 0 30 30" preserveAspectRatio="none"><polygon class="cls-1" points="19.61 9.76 30 11.19 22.6 18.95 24.52 29.73 15.18 24.76 5.98 30 7.6 19.17 0 11.63 10.34 9.9 14.85 0 19.61 9.76"/></svg>
+    </div>
+    <br>
+    <!-- <div class="dialog-btn" *ngIf="!dialogBtnSub" (click)="setGrade()"><p>Sačuvaj</p></div>
+    <div class="loader" *ngIf="dialogBtnSub"></div> -->
     <p class="status-message">{{statusMessage}}</p>
   </div>
 </div>
@@ -30,9 +57,10 @@
           <th (click)="sortDataBy('room_id')">Prostorija</th>
           <th (click)="sortDataBy('price')">Cijena</th>
           <th (click)="sortDataBy('discount')">Popust</th>
+          <th> </th>
         </tr>
         <tr *ngFor="let m of medicalAppointment; let i = index" [style.background-color]="(i%2==0)? 'transparent':'white'"
-          (click)="openDialog(m);">
+        (click)="openDialog(m)">
           <td>{{m.dateTime}}</td>
           <td>{{m.duration}} min</td>
           <td>{{m.doctor.firstName}} {{m.doctor.lastName}}</td>
@@ -40,6 +68,7 @@
           <td>{{m.room.name}}</td>
           <td>{{m.price}} din</td>
           <td>{{m.discount}} din</td>
+          <td><span style="color: rgb(15, 146, 113);">{{m.appointmentStatus=="FINISHED"? "ocjena" : "otkaži"}}</span></td>
         </tr>
       </table>
       

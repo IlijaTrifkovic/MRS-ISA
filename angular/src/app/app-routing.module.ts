@@ -18,7 +18,7 @@ const routes: Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
   {path:'home', component:HomePageComponent, canActivate: [RouteGuardService] ,children:[
     {path:'', component:ListOfClinicsComponent},
-    {path:'patient/examination', component:AppointmentListComponent},
+    {path:'patient/appointment', component:AppointmentListComponent},
     {path:'clinic-profile/:id', component:ClinicProfileComponent},
     {path:'medical-record', component:MedicalRecordComponent},
     {path:'profile', component:ProfilePageComponent},

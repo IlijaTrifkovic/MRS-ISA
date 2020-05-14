@@ -15,11 +15,12 @@ export class AppointmentListComponent implements OnInit {
   currentPage=0;
   pageSize=8;
   sortBy="date_time";
-  sortOrder:boolean=true; //true -> ASC 
+  sortOrder:boolean=false; //true -> ASC 
   message:string="";
-  messageDialog:boolean=false;
+  cancelDialog:boolean=false;
   statusMessage:string="";
-  appontmentId:number=0;
+  gradeDialog:boolean;
+  mAppointment:MedicalAppointment=new MedicalAppointment();
 
   dialogBtnSub:boolean=false;
   
@@ -63,7 +64,9 @@ export class AppointmentListComponent implements OnInit {
   }
 
   cancelAppointment(){
-    this.clinicService.cancelAppointment(this.appontmentId).subscribe(
+    this.dialogBtnSub=true;
+    this.statusMessage="otkazivanje...";
+    this.clinicService.cancelAppointment(this.mAppointment.id).subscribe(
       data=>{
         this.dialogBtnSub=false;
         this.message=data.message+"";
@@ -73,22 +76,43 @@ export class AppointmentListComponent implements OnInit {
     );
   }
 
-  openDialog(medicalAppointment:MedicalAppointment){
-    this.appontmentId=medicalAppointment.id;
-    if(medicalAppointment.appointmentStatus=="SCHEDULED"){
-      this.messageDialog=true;
+  openDialog(mAppointment:MedicalAppointment){
+    this.mAppointment.id=mAppointment.id;
+    this.mAppointment.appointmentStatus=mAppointment.appointmentStatus;
+    if(mAppointment.appointmentStatus=="FINISHED"){
+      this.openGradeDialog(mAppointment);
+    }else{
+      this.cancelDialog=true;
     }
   }
 
   closeDialog(){
     this.statusMessage="";
     this.dialogBtnSub=false;
-    this.messageDialog=false;
+    this.cancelDialog=false;
+    this.gradeDialog=false;
   }
 
-  submit(){
-    this.dialogBtnSub=true;
-    this.statusMessage="otkazivanje...";
-    this.cancelAppointment();
+  openGradeDialog(mAppointment:MedicalAppointment){
+    this.gradeDialog=true;
+    this.mAppointment.doctorGrade=mAppointment.doctorGrade;
+    this.mAppointment.clinicGrade=mAppointment.clinicGrade;
+    if(mAppointment.appointmentStatus!="FINISHED")
+      this.statusMessage="Nije moguće dati ocjenu za termin koji se nije završio."
+  }
+
+  setDoctorGrade(grade:number){
+    this.clinicService.setDoctorGrade(this.mAppointment.id,grade).subscribe(
+      data=> {
+        this.statusMessage=data.message+"";
+        this.medicalAppointment.forEach( medApp => {
+          this.mAppointment.doctorGrade=grade;
+        });
+      }
+    );
+  }
+
+  setClinicGrade(){
+
   }
 }

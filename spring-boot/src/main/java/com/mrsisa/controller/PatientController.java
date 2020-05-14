@@ -98,16 +98,20 @@ public class PatientController {
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(value = "/patient/appointment/doctor-grade", method = RequestMethod.PUT)
 	public ResponseEntity<?> setDoctorGrade(@RequestParam Long id, @RequestParam int grade) throws ResourceNotFoundException{
+		if(grade<1 || grade>5 )
+			return new ResponseEntity<String>("{\"message\":\"Ocjena mora biti od 1 do 5.\"}", HttpStatus.BAD_REQUEST);
 		if(patientService.setDoctorGrade(id, grade))
 			return new ResponseEntity<String>("{\"message\":\"Doktor je ocijenjen.\"}", HttpStatus.OK);
-		return new ResponseEntity<String>("{\"message\":\"Nije moguce ocijeniti doktora.\"}", HttpStatus.OK);
+		return new ResponseEntity<String>("{\"message\":\"Nije moguce ocijeniti doktora.\"}", HttpStatus.BAD_REQUEST);
 	}
 	
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(value = "/patient/appointment/clinic-grade", method = RequestMethod.PUT)
 	public ResponseEntity<?> setClinicGrade(@RequestParam Long id, @RequestParam int grade) throws ResourceNotFoundException{
+		if(grade<1 || grade>5 )
+			return new ResponseEntity<String>("{\"message\":\"Ocjena mora biti od 1 do 5.\"}", HttpStatus.BAD_REQUEST);
 		if(patientService.setClinicGrade(id, grade))
 			return new ResponseEntity<String>("{\"message\":\"Klinika je ocijenjena.\"}", HttpStatus.OK);
-		return new ResponseEntity<String>("{\"message\":\"Nije moguce ocijeniti kliniku.\"}", HttpStatus.OK);
+		return new ResponseEntity<String>("{\"message\":\"Nije moguce ocijeniti kliniku.\"}", HttpStatus.BAD_REQUEST);
 	}
 }

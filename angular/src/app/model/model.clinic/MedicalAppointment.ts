@@ -11,6 +11,8 @@ export class MedicalAppointment{
     price:number;
     discount:number;
     appointmentStatus;
+    doctorGrade:number;
+    clinicGrade:number;
 }
 
 export class AppointmentType{

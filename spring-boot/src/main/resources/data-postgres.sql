@@ -247,7 +247,7 @@ VALUES (4, 0, null, null, '20-05-2020 13:15', 20, 51, 151, null, 4, 9, 2000.0, 3
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (5, 2, null, null, '15-05-2020 15:40', 20, 51, 251, 1, 4, 9, 2000.0, 300.0);
+VALUES (5, 2, null, null, '14-05-2020 15:40', 20, 51, 251, 1, 4, 9, 2000.0, 300.0);
 
 
 --test - infektilna -datum je prosao
