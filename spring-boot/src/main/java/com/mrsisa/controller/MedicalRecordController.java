@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mrsisa.dto.MedicalRecordDTO;
 import com.mrsisa.entity.medical_record.MedicalRecord;
 import com.mrsisa.exception.ResourceNotFoundException;
-import com.mrsisa.service.patient.MedicalRecordService;
+import com.mrsisa.service.clinic.MedicalRecordService;
 import com.mrsisa.service.patient.PatientService;
 
 @RestController

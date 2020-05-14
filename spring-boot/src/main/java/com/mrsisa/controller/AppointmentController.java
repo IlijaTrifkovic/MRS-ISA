@@ -11,31 +11,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mrsisa.entity.examination.MedicalExamination;
+import com.mrsisa.entity.appointment.MedicalAppointment;
 import com.mrsisa.exception.ResourceNotFoundException;
-import com.mrsisa.service.clinic.MedicalExaminationService;
+import com.mrsisa.service.appointment.MedicalAppointmentService;
 
 @RestController
-@RequestMapping("examination")
-public class MedicalExaminationController {
+@RequestMapping("appointment")
+public class AppointmentController {
 	@Autowired
-	private MedicalExaminationService medicalExaminationService;
+	private MedicalAppointmentService medicalAppointmentService;
 
 	//getAll
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ResponseEntity<Page<MedicalExamination>> getAll(Pageable pageable) {
-		Page<MedicalExamination> page = medicalExaminationService.findAll(pageable);
-		return new ResponseEntity<Page<MedicalExamination>>(page, HttpStatus.OK);
+	public ResponseEntity<Page<MedicalAppointment>> getAll(Pageable pageable) {
+		Page<MedicalAppointment> page = medicalAppointmentService.findAll(pageable);
+		return new ResponseEntity<Page<MedicalAppointment>>(page, HttpStatus.OK);
 	}
 	
 	
 	//getByClinicID
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Page<MedicalExamination>> getMedicalExamination(Pageable pageable,@PathVariable Long id) throws ResourceNotFoundException {
-		Page<MedicalExamination> page=medicalExaminationService.getFreeMedicalExaminationByClinicId(pageable, id);
-		return new ResponseEntity<Page<MedicalExamination>>(page, HttpStatus.OK);
+	public ResponseEntity<Page<MedicalAppointment>> getMedicalAppointment(Pageable pageable,@PathVariable Long id) throws ResourceNotFoundException {
+		Page<MedicalAppointment> page=medicalAppointmentService.getFreeAppointmentsByClinicId(pageable, id);
+		return new ResponseEntity<Page<MedicalAppointment>>(page, HttpStatus.OK);
 	}
-
 }

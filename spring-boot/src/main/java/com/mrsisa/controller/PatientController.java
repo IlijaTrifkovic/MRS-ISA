@@ -1,5 +1,8 @@
 package com.mrsisa.controller;
 
+import java.io.IOException;
+
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -22,7 +25,7 @@ import com.mrsisa.dto.PatientUpdateDTO;
 import com.mrsisa.dto.auth.AuthenticationResponse;
 import com.mrsisa.entity.Patient;
 import com.mrsisa.entity.UserAccount;
-import com.mrsisa.entity.examination.MedicalExamination;
+import com.mrsisa.entity.appointment.MedicalAppointment;
 import com.mrsisa.exception.ResourceNotFoundException;
 import com.mrsisa.service.auth.AuthService;
 import com.mrsisa.service.patient.PatientService;
@@ -34,50 +37,53 @@ public class PatientController {
 	private PatientService patientService;
 	@Autowired
 	private AuthService authService;
-	
+
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(value = "/patient/profile", method = RequestMethod.GET)
-	public ResponseEntity<Patient> getProfile() throws ResourceNotFoundException{
+	public ResponseEntity<Patient> getProfile() throws ResourceNotFoundException {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String email=auth.getName();
+		String email = auth.getName();
 		return new ResponseEntity<Patient>(patientService.findByEmail(email), HttpStatus.OK);
 	}
-	
-	
+
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(value = "/patient/profile", method = RequestMethod.POST)
-	public ResponseEntity<Patient> updateProfile(@RequestBody @Valid PatientUpdateDTO patientDTO) throws ResourceNotFoundException{
-		Patient updatePatient=patientService.updatePatient(patientDTO);
+	public ResponseEntity<Patient> updateProfile(@RequestBody @Valid PatientUpdateDTO patientDTO)
+			throws ResourceNotFoundException {
+		Patient updatePatient = patientService.updatePatient(patientDTO);
 		return new ResponseEntity<Patient>(updatePatient, HttpStatus.OK);
 	}
-	
+
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
-	public ResponseEntity<?> passwordChange(@RequestBody @Valid PasswordDTO passwordDTO, HttpServletRequest request) throws ResourceNotFoundException{
+	public ResponseEntity<?> passwordChange(@RequestBody @Valid PasswordDTO passwordDTO, HttpServletRequest request)
+			throws ResourceNotFoundException {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String email = auth.getName();
 
-		UserAccount user = patientService.changePassword(email, passwordDTO.getOldPassword(), passwordDTO.getNewPassword());
+		UserAccount user = patientService.changePassword(email, passwordDTO.getOldPassword(),
+				passwordDTO.getNewPassword());
 		if (user != null) {
 			String token = authService.generateToken(user, request);
 			return new ResponseEntity<AuthenticationResponse>(new AuthenticationResponse(token), HttpStatus.OK);
-		} else 
-		return new ResponseEntity<String>("{\"details\":\"Pogresna lozinka.\"}", HttpStatus.BAD_REQUEST);
+		} else
+			return new ResponseEntity<String>("{\"details\":\"Pogresna lozinka.\"}", HttpStatus.BAD_REQUEST);
 	}
-	
+
 	@PreAuthorize("hasAnyRole('PATIENT')")
-	@RequestMapping(value = "/patient/examination/{id}", method = RequestMethod.GET)
-	public ResponseEntity<MedicalExamination> reserveMedicalExamination(@PathVariable Long id) throws ResourceNotFoundException{
-		MedicalExamination medicalExamination = patientService.reserveMedicalExamination(id);
-		return new ResponseEntity<MedicalExamination>(medicalExamination, HttpStatus.OK);
+	@RequestMapping(value = "/patient/appointment/{id}", method = RequestMethod.GET)
+	public ResponseEntity<MedicalAppointment> scheduleAppointment(@PathVariable Long id)
+			throws ResourceNotFoundException, MessagingException, IOException {
+		MedicalAppointment medicalAppointment = patientService.scheduleAppointment(id);
+		return new ResponseEntity<MedicalAppointment>(medicalAppointment, HttpStatus.OK);
 	}
-	
-	
+
 	@PreAuthorize("hasAnyRole('PATIENT')")
-	@RequestMapping(value = "/patient/examination", method = RequestMethod.GET)
-	public ResponseEntity<Page<MedicalExamination>> getMedicalExamination(Pageable pageable) throws ResourceNotFoundException {
-		Page<MedicalExamination> page=patientService.getAllMedicalExamination(pageable);
-		return new ResponseEntity<Page<MedicalExamination>>(page, HttpStatus.OK);
+	@RequestMapping(value = "/patient/appointment", method = RequestMethod.GET)
+	public ResponseEntity<Page<MedicalAppointment>> getMedicalAppointment(Pageable pageable)
+			throws ResourceNotFoundException {
+		Page<MedicalAppointment> page = patientService.getAllMedicalAppointments(pageable);
+		return new ResponseEntity<Page<MedicalAppointment>>(page, HttpStatus.OK);
 	}
-	
+
 }

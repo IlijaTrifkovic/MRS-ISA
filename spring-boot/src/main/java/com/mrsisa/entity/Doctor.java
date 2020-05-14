@@ -14,8 +14,8 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mrsisa.entity.appointment.MedicalAppointment;
 import com.mrsisa.entity.clinic.Clinic;
-import com.mrsisa.entity.examination.MedicalExamination;
 import com.mrsisa.entity.medical_record.MedicalRecord;
 
 @Entity
@@ -54,7 +54,7 @@ public class Doctor extends UserAccount{
 	private Specialization specialization;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "doctor")
-	private Set<MedicalExamination> medicalExamination;
+	private Set<MedicalAppointment> medicalAppointment;
 
 	@ManyToOne
 	@JoinColumn
@@ -161,12 +161,12 @@ public class Doctor extends UserAccount{
 	}
 
 	@JsonBackReference
-	public Set<MedicalExamination> getMedicalExamination() {
-		return medicalExamination;
+	public Set<MedicalAppointment> getMedicalAppointment() {
+		return medicalAppointment;
 	}
 
-	public void setMedicalExamination(Set<MedicalExamination> medicalExamination) {
-		this.medicalExamination = medicalExamination;
+	public void setMedicalExamination(Set<MedicalAppointment> medicalAppointment) {
+		this.medicalAppointment = medicalAppointment;
 	}
 	
 	@JsonBackReference

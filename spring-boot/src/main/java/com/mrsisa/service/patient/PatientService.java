@@ -8,20 +8,25 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.mrsisa.crud.AuthorityService;
 import com.mrsisa.crud.CRUDService;
 import com.mrsisa.dto.PatientUpdateDTO;
 import com.mrsisa.entity.Authority;
 import com.mrsisa.entity.Patient;
 import com.mrsisa.entity.UserAccount;
-import com.mrsisa.entity.examination.MedicalExamination;
+import com.mrsisa.entity.appointment.MedicalAppointment;
 import com.mrsisa.exception.ResourceNotFoundException;
 import com.mrsisa.exception.NotUniqueException;
 import com.mrsisa.repository.PatientRepository;
 import com.mrsisa.repository.UserAccountRepository;
-import com.mrsisa.service.clinic.MedicalExaminationService;
+import com.mrsisa.service.appointment.MedicalAppointmentService;
+import com.mrsisa.service.auth.AuthorityService;
+import com.mrsisa.service.mail.MailService;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Optional;
+
+import javax.mail.MessagingException;
 
 @Service
 public class PatientService extends CRUDService<Patient, Long> {
@@ -34,7 +39,9 @@ public class PatientService extends CRUDService<Patient, Long> {
 	@Autowired
 	private UserAccountRepository userAccountRepository;
 	@Autowired
-	private MedicalExaminationService medicalExaminationService;
+	private MedicalAppointmentService medicalAppointmentService;
+	@Autowired
+	private MailService mailService;
 	
 	@Autowired
 	
@@ -101,19 +108,29 @@ public class PatientService extends CRUDService<Patient, Long> {
 		super.save(patient);
 	}
 	
-	public MedicalExamination reserveMedicalExamination(Long examinationId) throws ResourceNotFoundException {
+	public MedicalAppointment scheduleAppointment(Long examinationId) throws ResourceNotFoundException, MessagingException, IOException {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String email=auth.getName();
 		Patient patient=findByEmail(email);
-		MedicalExamination medicalEx = medicalExaminationService.reserveMedicalExamination(examinationId, patient);
+		MedicalAppointment medicalEx=null;
+		try {
+			medicalEx = medicalAppointmentService.scheduleAppointment(examinationId, patient);
+			String date=new SimpleDateFormat("dd.MM.yyyy").format(medicalEx.getDateTime());
+			String time=new SimpleDateFormat("HH:mm").format(medicalEx.getDateTime());
+			mailService.sendMessage(email, "Uspješno ste zakazali pregled za datum "+date
+					+ " u "+time+" h.<br> Za više detalja pogledajte istoriju pregleda na našem sajtu.");
+		}catch (Exception e) {
+			mailService.sendMessage(email, "Nije moguće izvršiti rezervaciju u traženom terminu.");
+			throw new ResourceNotFoundException(examinationId+"");
+		}
 		return medicalEx;
 	}
 	
-	public Page<MedicalExamination> getAllMedicalExamination(Pageable pageable) throws ResourceNotFoundException {
+	public Page<MedicalAppointment> getAllMedicalAppointments(Pageable pageable) throws ResourceNotFoundException {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String email=auth.getName();
 		Long id=findByEmail(email).getId();
-		Page<MedicalExamination> medicalEx = medicalExaminationService.getMedicalExaminationByPatientId(pageable, id);
+		Page<MedicalAppointment> medicalEx = medicalAppointmentService.getMedicalExaminationByPatientId(pageable, id);
 		return medicalEx;
 	}
 	

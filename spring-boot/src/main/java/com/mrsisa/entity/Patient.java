@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.mrsisa.entity.examination.MedicalExamination;
+import com.mrsisa.entity.appointment.MedicalAppointment;
 import com.mrsisa.entity.medical_record.MedicalRecord;
 
 @Entity
@@ -52,14 +52,14 @@ public class Patient extends UserAccount{
 	
 	/**********************/
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "patient")
-	private Set<MedicalExamination> medicalExamination;
+	private Set<MedicalAppointment> medicalAppointment;
 	
-	public Set<MedicalExamination> getMedicalExaminations() {
-		return medicalExamination;
+	public Set<MedicalAppointment> getMedicalAppointment() {
+		return medicalAppointment;
 	}
 
-	public void setMedicalExaminations(Set<MedicalExamination> medicalExaminations) {
-		this.medicalExamination = medicalExaminations;
+	public void setMedicalExaminations(Set<MedicalAppointment> medicalAppointment) {
+		this.medicalAppointment = medicalAppointment;
 	}
 
 	/**********************/

@@ -1,4 +1,4 @@
-package com.mrsisa.service.patient;
+package com.mrsisa.service.clinic;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +8,7 @@ import com.mrsisa.entity.Patient;
 import com.mrsisa.entity.medical_record.MedicalRecord;
 import com.mrsisa.exception.ResourceNotFoundException;
 import com.mrsisa.repository.MedicalRecordRepository;
+import com.mrsisa.service.patient.PatientService;
 
 @Service
 public class MedicalRecordService extends CRUDService<MedicalRecord, Integer> {
