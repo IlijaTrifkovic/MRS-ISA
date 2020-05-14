@@ -134,4 +134,21 @@ public class PatientService extends CRUDService<Patient, Long> {
 		return medicalEx;
 	}
 	
+	public boolean cancelAppointment(Long appointmentid) throws ResourceNotFoundException, MessagingException, IOException {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String email=auth.getName();
+		Long patientId=findByEmail(email).getId();
+		MedicalAppointment medicalAp = medicalAppointmentService.cancelAppointment(appointmentid, patientId);
+		if(medicalAp!=null) {
+			String date=new SimpleDateFormat("dd.MM.yyyy").format(medicalAp.getDateTime());
+			String time=new SimpleDateFormat("HH:mm").format(medicalAp.getDateTime());
+			mailService.sendMessage(email, "Uspješno ste otkazali pregled u klinici '"+medicalAp.getClinic().getName()+"'"
+					+ " za datum "+date+" u "+time+".");
+			return true;
+		}
+		mailService.sendMessage(email, "Pregled nije moguće otkazati");
+		return false;
+	}
+
+	
 }

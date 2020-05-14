@@ -9,14 +9,13 @@ import org.springframework.stereotype.Service;
 
 import com.mrsisa.crud.CRUDService;
 import com.mrsisa.entity.Patient;
+import com.mrsisa.entity.appointment.AppointmentStatus;
 import com.mrsisa.entity.appointment.MedicalAppointment;
 import com.mrsisa.exception.ResourceNotFoundException;
 import com.mrsisa.repository.MedicalAppointmentRepository;
 
 @Service
 public class MedicalAppointmentService extends CRUDService<MedicalAppointment, Long> {
-
-	private final int STATUS_FREE = 0;
 	
 	public MedicalAppointmentService(MedicalAppointmentRepository repo) {
 		super(repo);
@@ -38,16 +37,33 @@ public class MedicalAppointmentService extends CRUDService<MedicalAppointment, L
 		return page;
 	}
 
-	public MedicalAppointment scheduleAppointment(Long medExId, Patient patient)
+	public MedicalAppointment scheduleAppointment(Long medApId, Patient patient)
 			throws ResourceNotFoundException {
-		MedicalAppointment medicalEx = findFreeAppointmentById(medExId);
+		MedicalAppointment medicalEx = findFreeAppointmentById(medApId);
 		medicalEx.setPatient(patient);
+		medicalEx.setAppointmentStatus(AppointmentStatus.SCHEDULED);
 		return super.save(medicalEx);
 	}
 
 	public Page<MedicalAppointment> findAllByPatientId(Pageable pageable, Long id) throws ResourceNotFoundException {
 		Page<MedicalAppointment> page = ((MedicalAppointmentRepository) repo).findByPatientId(pageable, id);
 		return page;
+	}
+	
+	@SuppressWarnings("deprecation")
+	public MedicalAppointment cancelAppointment(Long medApId, Long patientId ) throws ResourceNotFoundException {
+		MedicalAppointment medApp= findOne(medApId);
+		Date date=medApp.getDateTime();
+		Date currentDate=new Date();
+		currentDate.setHours(currentDate.getHours()+24);
+		if(medApp.getPatient().getId()==patientId) {
+			if(currentDate.before(date)) {
+				medApp.setAppointmentStatus(AppointmentStatus.CANCELED);
+				medApp.setPatient(null);
+				return super.save(medApp);
+			}
+		}
+		return null;
 	}
 
 //	private MedicalExamination findById(Long id) throws ResourceNotFoundException{
@@ -61,7 +77,7 @@ public class MedicalAppointmentService extends CRUDService<MedicalAppointment, L
 	private MedicalAppointment findFreeAppointmentById(Long id) throws ResourceNotFoundException {
 		Date date = new Date();
 		date.setHours(date.getHours() + 24);
-		Optional<MedicalAppointment> optional = ((MedicalAppointmentRepository) repo).findById(id, date, STATUS_FREE);
+		Optional<MedicalAppointment> optional = ((MedicalAppointmentRepository) repo).findPreCreatedApp(id, date);
 		if (optional.isPresent())
 			return optional.get();
 		throw new ResourceNotFoundException(id + "");

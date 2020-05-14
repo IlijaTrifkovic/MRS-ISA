@@ -15,15 +15,16 @@ public interface MedicalAppointmentRepository extends JpaRepository<MedicalAppoi
 	Optional<MedicalAppointment> findById(Long id);
 
 	@Query(value = "SELECT * FROM medical_appointment me WHERE me.clinic_id = :clinic_id and "
-			+ "date_time > :date and me.patient_id IS NULL", nativeQuery = true)
+			+ "date_time > :date and (me.appointment_status = 0 OR me.appointment_status = 1)", nativeQuery = true)
 	Page<MedicalAppointment> findByClinicId(Pageable page, @Param("clinic_id") Long id, @Param("date") Date date);
 
 	@Query(value = "SELECT * FROM medical_appointment me WHERE me.patient_id = :patient_id", nativeQuery = true)
 	Page<MedicalAppointment> findByPatientId(Pageable page, @Param("patient_id") Long id);
 
 	@Query(value = "SELECT * FROM medical_appointment me WHERE id = :id and "
-			+ "me.appointment_status = :status and date_time > :date and "
+			+ "(me.appointment_status = 0 OR me.appointment_status = 1) and date_time > :date and "
 			+ "me.patient_id IS NULL", nativeQuery = true)
-	Optional<MedicalAppointment> findById(@Param("id") Long id, @Param("date") Date date, @Param("status") int status);
+	Optional<MedicalAppointment> findPreCreatedApp(@Param("id") Long id, @Param("date") Date date);
+	
 	
 }
