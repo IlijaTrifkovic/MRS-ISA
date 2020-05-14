@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mrsisa.dto.PasswordDTO;
@@ -92,5 +93,21 @@ public class PatientController {
 		if(patientService.cancelAppointment(id))
 			return new ResponseEntity<String>("{\"message\":\"Pregled je otkazan.\"}", HttpStatus.OK);
 		return new ResponseEntity<String>("{\"message\":\"Nije moguce otkazati pregled.\"}", HttpStatus.OK);
+	}
+	
+	@PreAuthorize("hasAnyRole('PATIENT')")
+	@RequestMapping(value = "/patient/appointment/doctor-grade", method = RequestMethod.PUT)
+	public ResponseEntity<?> setDoctorGrade(@RequestParam Long id, @RequestParam int grade) throws ResourceNotFoundException{
+		if(patientService.setDoctorGrade(id, grade))
+			return new ResponseEntity<String>("{\"message\":\"Doktor je ocijenjen.\"}", HttpStatus.OK);
+		return new ResponseEntity<String>("{\"message\":\"Nije moguce ocijeniti doktora.\"}", HttpStatus.OK);
+	}
+	
+	@PreAuthorize("hasAnyRole('PATIENT')")
+	@RequestMapping(value = "/patient/appointment/clinic-grade", method = RequestMethod.PUT)
+	public ResponseEntity<?> setClinicGrade(@RequestParam Long id, @RequestParam int grade){
+		if(patientService.setClinicGrade(id, grade))
+			return new ResponseEntity<String>("{\"message\":\"Klinika je ocijenjena.\"}", HttpStatus.OK);
+		return new ResponseEntity<String>("{\"message\":\"Nije moguce ocijeniti kliniku.\"}", HttpStatus.OK);
 	}
 }

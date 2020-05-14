@@ -127,17 +127,14 @@ public class PatientService extends CRUDService<Patient, Long> {
 	}
 	
 	public Page<MedicalAppointment> getAllMedicalAppointments(Pageable pageable) throws ResourceNotFoundException {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String email=auth.getName();
-		Long id=findByEmail(email).getId();
+		Long id=getPatIdFromAuth();
 		Page<MedicalAppointment> medicalEx = medicalAppointmentService.getMedicalExaminationByPatientId(pageable, id);
 		return medicalEx;
 	}
 	
 	public boolean cancelAppointment(Long appointmentid) throws ResourceNotFoundException, MessagingException, IOException {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String email=auth.getName();
-		Long patientId=findByEmail(email).getId();
+		Long patientId=getPatIdFromAuth();
+		String email=getPatEmailFromAuth();
 		MedicalAppointment medicalAp = medicalAppointmentService.cancelAppointment(appointmentid, patientId);
 		if(medicalAp!=null) {
 			String date=new SimpleDateFormat("dd.MM.yyyy").format(medicalAp.getDateTime());
@@ -150,5 +147,27 @@ public class PatientService extends CRUDService<Patient, Long> {
 		return false;
 	}
 
+	public boolean setDoctorGrade(Long id, int grade) throws ResourceNotFoundException {
+		Long patientId=getPatIdFromAuth();
+		if(medicalAppointmentService.setDoctorGrade(id, grade, patientId))
+			return true;
+		return false;
+	}
+	
+	public boolean setClinicGrade(Long id, int grade) {
+		
+		return false;
+	}
+	
+	public Long getPatIdFromAuth() throws ResourceNotFoundException {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String email=auth.getName();
+		return findByEmail(email).getId();
+	}
+	
+	public String getPatEmailFromAuth() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		return auth.getName();
+	}
 	
 }

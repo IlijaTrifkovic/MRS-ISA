@@ -35,7 +35,13 @@ public class MedicalAppointment {
 	private Date dateTime;
 
 	@Column
-	private int duration; //
+	private int duration;
+
+	@Column
+	private Integer doctorGrade;
+
+	@Column
+	private Integer clinicGrade;
 
 	@ManyToOne
 	@JoinColumn
@@ -151,4 +157,21 @@ public class MedicalAppointment {
 	public void setDiscount(float discount) {
 		this.discount = discount;
 	}
+
+	public Integer getDoctorGrade() {
+		return doctorGrade;
+	}
+
+	public void setDoctorGrade(Integer doctorGrade) {
+		this.doctorGrade = doctorGrade;
+	}
+
+	public Integer getClinicGrade() {
+		return clinicGrade;
+	}
+
+	public void setClinicGrade(Integer clinicGrade) {
+		this.clinicGrade = clinicGrade;
+	}
+
 }
