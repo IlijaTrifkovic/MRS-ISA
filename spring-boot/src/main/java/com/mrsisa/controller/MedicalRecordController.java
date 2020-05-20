@@ -31,17 +31,11 @@ public class MedicalRecordController {
 	@Autowired
 	PatientService patientService;
 	
-//	@PreAuthorize("hasAnyRole('')")
-//	@RequestMapping(value = "/{id}", method = RequestMethod.GET) 
-//	public ResponseEntity<MedicalRecord> getOne(@PathVariable Integer id) throws ResourceNotFoundException{		
-//		return new ResponseEntity<MedicalRecord>(medicalRecordService.findOne(id), HttpStatus.OK);
-//	}
-//	
-//	@PreAuthorize("hasAnyRole('')")
-//	@RequestMapping(value = "patient/{id}", method = RequestMethod.GET) 
-//	public ResponseEntity<MedicalRecord> getByUserId(@PathVariable Integer id) throws ResourceNotFoundException{		
-//		return new ResponseEntity<MedicalRecord>(patientService.getMedicalRecord(id), HttpStatus.OK);
-//	}
+	@PreAuthorize("hasAnyRole('')")
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET) 
+	public ResponseEntity<MedicalRecord> getOne(@PathVariable Integer id) throws ResourceNotFoundException{		
+		return new ResponseEntity<MedicalRecord>(medicalRecordService.findOne(id), HttpStatus.OK);
+	}
 	
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(value = "", method = RequestMethod.GET) 
