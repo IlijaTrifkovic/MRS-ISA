@@ -8,12 +8,18 @@ services:
 before_install:
   - chmod +x mvnw
 
+addons:
+  sonarcloud:
+  organization: <naziv_organizacije>
+  token: $SONAR_TOKEN
+
 script:
   - ./mvnw clean install -DskipTests=false -B
+  - ./mvnw sonar:sonar -Dsonar.projectKey=$PROJECT_KEY -Dsonar.organization=stojkovm-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
 
 dist: trusty
 
 deploy:
   provider: heroku
   api_key: $HEROKU_API_KEY
-  app: MRS-ISA/spring-boot
+  app: MRS-ISA
