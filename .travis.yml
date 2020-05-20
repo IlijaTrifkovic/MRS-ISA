@@ -11,12 +11,11 @@ before_install:
 addons:
   sonarcloud:
     organization: "ilijatrifkovic"
-    token:
-      secure: "**************************" # encrypted value of your token
+    token: $SONAR_TOKEN
 
 script:
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=IlijaTrifkovic_MRS-ISA
+  - ./mvnw clean install -DskipTests=false -B
+  - ./mvnw sonar:sonar -Dsonar.projectKey=$PROJECT_KEY -Dsonar.organization=ilijatrifkovic -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
   
 dist: trusty
 
