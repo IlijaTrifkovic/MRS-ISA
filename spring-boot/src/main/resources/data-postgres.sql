@@ -231,56 +231,56 @@ VALUES (5, 'TIP 5', 'OPIS 5');
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (1, 0, null, null,  '30-05-2020 12:12', 20, 1, 101, null, 1, 1, 1400.0, 200.0);
+VALUES (1, 0, null, null, TO_DATE('30-05-2020 12:12', 'DD-MM-YYYY HH24:MI'), 20, 1, 101, null, 1, 1, 1400.0, 200.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (2, 0, null, null, '30-05-2020 12:10', 20, 1, 101, null, 2, 1, 2000.0, 0.0);
+VALUES (2, 0, null, null, TO_DATE('30-05-2020 12:10', 'DD-MM-YYYY HH24:MI'), 20, 1, 101, null, 2, 1, 2000.0, 0.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (3, 0, null, null, '30-05-2020 13:12', 20, 51, 351, null, 3, 8, 3000.0, 550.0);
+VALUES (3, 0, null, null, TO_DATE('30-05-2020 13:12', 'DD-MM-YYYY HH24:MI'), 20, 51, 351, null, 3, 8, 3000.0, 550.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (4, 0, null, null, '30-05-2020 13:15', 20, 51, 151, null, 4, 9, 2000.0, 300.0);
+VALUES (4, 0, null, null, TO_DATE('30-05-2020 13:15', 'DD-MM-YYYY HH24:MI'), 20, 51, 151, null, 4, 9, 2000.0, 300.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (5, 2, null, null, '14-05-2020 15:40', 20, 51, 251, 1, 4, 9, 2000.0, 300.0);
+VALUES (5, 2, null, null, TO_DATE('14-05-2020 15:40', 'DD-MM-YYYY HH24:MI'), 20, 51, 251, 1, 4, 9, 2000.0, 300.0);
 
 
 --test - infektilna -datum je prosao
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (6, 0, null, null, '05-05-2020 12:12', 20, 1, 101, null, 1, 1, 1400.0, 200.0);
+VALUES (6, 0, null, null, TO_DATE('05-05-2020 12:12', 'DD-MM-YYYY HH24:MI'), 20, 1, 101, null, 1, 1, 1400.0, 200.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (7, 0, null, null, '05-05-2020 12:12', 20, 1, 101, null, 1, 1, 1400.0, 200.0);
+VALUES (7, 0, null, null, TO_DATE('05-05-2020 12:12', 'DD-MM-YYYY HH24:MI'), 20, 1, 101, null, 1, 1, 1400.0, 200.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (8, 0, null, null, '08-05-2020 12:55', 20, 1, 101, null, 1, 1, 1400.0, 200.0);
+VALUES (8, 0, null, null, TO_DATE('08-05-2020 12:55', 'DD-MM-YYYY HH24:MI'), 20, 1, 101, null, 1, 1, 1400.0, 200.0);
 
 
 
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (9, 2, null, null, '20-04-2019 15:10', 24, 51, 251, 1, 4, 9, 2000.0, 300.0);
+VALUES (9, 2, null, null, TO_DATE('20-04-2019 15:10', 'DD-MM-YYYY HH24:MI'), 24, 51, 251, 1, 4, 9, 2000.0, 300.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (10, 2, null, null, '24-04-2020 13:10', 22, 51, 251, 1, 4, 9, 2000.0, 300.0);
+VALUES (10, 2, null, null, TO_DATE('24-04-2020 13:10', 'DD-MM-YYYY HH24:MI'), 22, 51, 251, 1, 4, 9, 2000.0, 300.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (11, 2, null, null, '22-04-2020 13:10', 40, 51, 251, 1, 4, 9, 2000.0, 300.0);
+VALUES (11, 2, null, null, TO_DATE('22-04-2020 13:10', 'DD-MM-YYYY HH24:MI'), 40, 51, 251, 1, 4, 9, 2000.0, 300.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (12, 2, null, null, '23-04-2020 13:10', 30, 51, 251, 1, 4, 9, 2000.0, 300.0);
+VALUES (12, 2, null, null, TO_DATE('23-04-2020 13:10', 'DD-MM-YYYY HH24:MI'), 30, 51, 251, 1, 4, 9, 2000.0, 300.0);
 
 
 

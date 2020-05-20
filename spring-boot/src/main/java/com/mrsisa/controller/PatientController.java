@@ -1,8 +1,5 @@
 package com.mrsisa.controller;
 
-import java.io.IOException;
-
-import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -12,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,7 +19,6 @@ import com.mrsisa.dto.PatientUpdateDTO;
 import com.mrsisa.dto.auth.AuthenticationResponse;
 import com.mrsisa.entity.Patient;
 import com.mrsisa.entity.UserAccount;
-import com.mrsisa.entity.appointment.MedicalAppointment;
 import com.mrsisa.exception.ResourceNotFoundException;
 import com.mrsisa.service.auth.AuthService;
 import com.mrsisa.service.patient.PatientService;
