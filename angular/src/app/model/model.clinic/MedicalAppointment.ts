@@ -1,5 +1,6 @@
 import { Room } from './Room';
 import { Doctor } from '../model.doctor/Doctor';
+import { Clinic } from './Clinic';
 
 export class MedicalAppointment{
     id:number;

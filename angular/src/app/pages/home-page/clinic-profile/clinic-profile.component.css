@@ -17,14 +17,6 @@
     box-sizing: border-box;
 }
 
-.div-clinic-info{
-    position: relative;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-}
-
 .div-clinic-grade{
     position: absolute;
     right: 10px;
@@ -64,38 +56,7 @@ h3{
     .clinic-title{
         width: 100%;
     }
-    .div-clinic-info{
-        width: 100%;
-    }
 }
 
 
 
-.table-clinic{
-    padding: 20px;
-    width: 100%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    margin-top: 0px;
-}
-.table-clinic tr td{
-    padding: 4px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    border: none;
-}
-
-.table-clinic tr th{
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.table-clinic tr{
-   overflow: hidden;
-   border-collapse: collapse;
-   background-color: white;
-   cursor:pointer;
-}
