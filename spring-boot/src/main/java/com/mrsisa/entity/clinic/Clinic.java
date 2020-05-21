@@ -25,6 +25,8 @@ public class Clinic {
 	@SequenceGenerator(name = "clinic_generator", sequenceName = "clinic_seq")
 	private Long id;
 	
+	private Float grade;
+
 	@Column(nullable = false, name="name")
 	private String name;
 	
@@ -40,10 +42,6 @@ public class Clinic {
 	@Column(nullable = false, name="country")
 	private String country;
 	
-	@Column(nullable = false, name="grade")
-	private float grade;
-
-	
 	/******************************/
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "clinic")
 	private Set<Doctor> doctor;
@@ -58,10 +56,6 @@ public class Clinic {
 	@CreationTimestamp
 	private Date registrationDate;
 	
-	public float getGrade() {
-		return grade;
-	}
-
 	@JsonBackReference
 	public Set<Doctor> getDoctors() {
 		return doctor;
@@ -87,10 +81,6 @@ public class Clinic {
 
 	public void setRooms(Set<Room> rooms) {
 		this.room = rooms;
-	}
-
-	public void setGrade(float grade) {
-		this.grade = grade;
 	}
 
 	public Date getRegistrationDate() {
@@ -147,6 +137,14 @@ public class Clinic {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+	
+	public Float getGrade() {
+		return grade;
+	}
+
+	public void setGrade(Float grade) {
+		this.grade = grade;
 	}
 	
 	@Override

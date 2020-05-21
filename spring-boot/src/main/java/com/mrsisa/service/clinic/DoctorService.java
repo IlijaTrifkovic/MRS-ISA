@@ -1,5 +1,7 @@
 package com.mrsisa.service.clinic;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.mrsisa.crud.CRUDService;
@@ -13,5 +15,11 @@ public class DoctorService extends CRUDService<Doctor, Long>{
 		super(repo);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public Page<Doctor> getDoctorListByClinicId(Pageable pageable, Long id) {
+		Page<Doctor> page= ((DoctorRepository)repo).getByCliniId(pageable, id);
+		return page;
+	}
+	
+	
 }

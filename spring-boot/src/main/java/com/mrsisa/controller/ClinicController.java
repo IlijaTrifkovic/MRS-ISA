@@ -25,14 +25,14 @@ public class ClinicController {
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<Page<Clinic>> getAll(Pageable pageable){
-		Page<Clinic> page = clinicService.findAll(pageable);
+		Page<Clinic> page = clinicService.getAll(pageable);
 		return new ResponseEntity<Page<Clinic>>(page, HttpStatus.OK);
 	}
 	
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET) 
 	public ResponseEntity<Clinic> getOne(@PathVariable Long id) throws ResourceNotFoundException{		
-		return new ResponseEntity<Clinic>(clinicService.findOne(id), HttpStatus.OK);
+		return new ResponseEntity<Clinic>(clinicService.getOne(id), HttpStatus.OK);
 	}
 	
 	

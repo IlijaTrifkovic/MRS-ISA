@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,13 @@ public class DoctorController {
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<Page<Doctor>> getAll(Pageable pageable){
 		Page<Doctor> page = doctorService.findAll(pageable);
+		return new ResponseEntity<Page<Doctor>>(page, HttpStatus.OK);
+	}
+	
+	@PreAuthorize("hasAnyRole('PATIENT')")
+	@RequestMapping(value = "clinic/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Page<Doctor>> getAllByClinicId(Pageable pageable, @PathVariable Long id){
+		Page<Doctor> page = doctorService.getDoctorListByClinicId(pageable, id);
 		return new ResponseEntity<Page<Doctor>>(page, HttpStatus.OK);
 	}
 }

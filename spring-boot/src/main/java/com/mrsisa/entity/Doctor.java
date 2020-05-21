@@ -24,6 +24,8 @@ public class Doctor extends UserAccount{
 	@Column(nullable = false, name = "first_name")
 	private String firstName;
 
+	private Float grade;
+	
 	@Column(nullable = false, name = "last_name")
 	private String lastName;
 
@@ -178,5 +180,12 @@ public class Doctor extends UserAccount{
 		this.clinic = clinic;
 	}
 	
+	public Float getGrade() {
+		return this.grade;
+	}
+	
+	public void setGrade(Float grade) {
+		this.grade=grade;
+	}
 	
 }

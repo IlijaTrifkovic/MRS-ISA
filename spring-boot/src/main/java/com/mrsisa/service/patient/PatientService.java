@@ -118,7 +118,7 @@ public class PatientService extends CRUDService<Patient, Long> {
 			String date=new SimpleDateFormat("dd.MM.yyyy").format(medicalEx.getDateTime());
 			String time=new SimpleDateFormat("HH:mm").format(medicalEx.getDateTime());
 			mailService.sendMessage(email, "Uspješno ste zakazali pregled za datum "+date
-					+ " u "+time+" h.<br> Za više detalja pogledajte istoriju pregleda na našem sajtu.");
+					+ " u "+time+" h, klinika '"+medicalEx.getClinic().getName()+"'.<br>.");
 		}catch (Exception e) {
 			mailService.sendMessage(email, "Nije moguće izvršiti rezervaciju u traženom terminu.");
 			throw new ResourceNotFoundException(examinationId+"");
@@ -135,7 +135,7 @@ public class PatientService extends CRUDService<Patient, Long> {
 	public boolean cancelAppointment(Long appointmentid) throws ResourceNotFoundException, MessagingException, IOException {
 		Long patientId=getPatIdFromAuth();
 		String email=getPatEmailFromAuth();
-		MedicalAppointment medicalAp = medicalAppointmentService.cancelAppointment(appointmentid, patientId);
+		MedicalAppointment medicalAp = medicalAppointmentService.cancelAppointment(appointmentid, patientId, email);
 		if(medicalAp!=null) {
 			String date=new SimpleDateFormat("dd.MM.yyyy").format(medicalAp.getDateTime());
 			String time=new SimpleDateFormat("HH:mm").format(medicalAp.getDateTime());
@@ -143,7 +143,6 @@ public class PatientService extends CRUDService<Patient, Long> {
 					+ " za datum "+date+" u "+time+".");
 			return true;
 		}
-		mailService.sendMessage(email, "Pregled nije moguće otkazati");
 		return false;
 	}
 

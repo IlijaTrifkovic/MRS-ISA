@@ -37,41 +37,41 @@ VALUES (9, 'Specijalizacija 9', 'description text');
 
 --Dodavanje klinika
 
-INSERT INTO clinic (id, name, address, city, country, description, grade, registration_date)
-VALUES (nextval('clinic_seq'), 'Klinika za infektivne i tropske bolesti','address1', 'city1', 'country1', 'Klinika za infektilne i tropske bolesti nalazi se u sklopu KCS-a. Radi u zdanju koje ima oko 7.000 m2 raspoređenih u tri međusobom povezane zgrade. Funkcionalno je podeljena na poliklinički i stacionarni deo. Poliklinika ima jednu opštu/trijažnu ambulantu (amb. 1), koja je istovremeno i ambulanta za urgentna stanja, i još 11 specijalizovanih ambulanti.', '5.0', '2019-04-22 21:58:58.508-07');
+INSERT INTO clinic (id, name, address, city, country, description, registration_date)
+VALUES (nextval('clinic_seq'), 'Klinika za infektivne i tropske bolesti','address1', 'city1', 'country1', 'Klinika za infektilne i tropske bolesti nalazi se u sklopu KCS-a. Radi u zdanju koje ima oko 7.000 m2 raspoređenih u tri međusobom povezane zgrade. Funkcionalno je podeljena na poliklinički i stacionarni deo. Poliklinika ima jednu opštu/trijažnu ambulantu (amb. 1), koja je istovremeno i ambulanta za urgentna stanja, i još 11 specijalizovanih ambulanti.', '2019-04-22 21:58:58.508-07');
 
-INSERT INTO clinic (id, name, address, city, country, description, grade, registration_date)
-VALUES (nextval('clinic_seq'), 'Klinika za neurohirurgiju','address2', 'city2', 'country1', 'Klinika za neurologiju nalazi se u sklopu KCS-a. Radi u zdanju koje ima oko 7.000 m2 raspoređenih u tri međusobom povezane zgrade. Funkcionalno je podeljena na poliklinički i stacionarni deo. Poliklinika ima jednu opštu/trijažnu ambulantu (amb. 1), koja je istovremeno i ambulanta za urgentna stanja, i još 11 specijalizovanih ambulanti.', '4.1', '2019-04-22 21:58:58.508-07');
+INSERT INTO clinic (id, name, address, city, country, description, registration_date)
+VALUES (nextval('clinic_seq'), 'Klinika za neurohirurgiju','address2', 'city2', 'country1', 'Klinika za neurologiju nalazi se u sklopu KCS-a. Radi u zdanju koje ima oko 7.000 m2 raspoređenih u tri međusobom povezane zgrade. Funkcionalno je podeljena na poliklinički i stacionarni deo. Poliklinika ima jednu opštu/trijažnu ambulantu (amb. 1), koja je istovremeno i ambulanta za urgentna stanja, i još 11 specijalizovanih ambulanti.', '2019-04-22 21:58:58.508-07');
 	
-INSERT INTO clinic (id, name, address, city, country, description, grade, registration_date)
-VALUES (nextval('clinic_seq'), 'Klinika za hematologiju','address3', 'city1', 'country16', 'opis3', '2.0', '2019-04-22 21:58:58.508-07');
+INSERT INTO clinic (id, name, address, city, country, description, registration_date)
+VALUES (nextval('clinic_seq'), 'Klinika za hematologiju','address3', 'city1', 'country16', 'opis3', '2019-04-22 21:58:58.508-07');
 
-INSERT INTO clinic (id, name, address, city, country, description, grade, registration_date)
-VALUES (nextval('clinic_seq'), 'Klinika za kardiologiju', 'address4', 'city3', 'country1', 'opis4', '3.2', '2019-04-22 21:58:58.508-07');
+INSERT INTO clinic (id, name, address, city, country, description, registration_date)
+VALUES (nextval('clinic_seq'), 'Klinika za kardiologiju', 'address4', 'city3', 'country1', 'opis4', '2019-04-22 21:58:58.508-07');
 
-INSERT INTO clinic (id, name, address, city, country, description, grade, registration_date)
-VALUES (nextval('clinic_seq'), 'Klinika za kardiohirurgiju', 'address1', 'city1', 'country1', 'opis1', '5.0', '2019-04-22 21:58:58.508-07');
+INSERT INTO clinic (id, name, address, city, country, description, registration_date)
+VALUES (nextval('clinic_seq'), 'Klinika za kardiohirurgiju', 'address1', 'city1', 'country1', 'opis1', '2019-04-22 21:58:58.508-07');
 
-INSERT INTO clinic (id, name, address, city, country, description, grade, registration_date)
-VALUES (nextval('clinic_seq'), 'Klinika za vaskularnu hirurgiju', 'address2', 'city2', 'country3', 'opis2', '4.1', '2019-04-22 21:58:58.508-07');
+INSERT INTO clinic (id, name, address, city, country, description, registration_date)
+VALUES (nextval('clinic_seq'), 'Klinika za vaskularnu hirurgiju', 'address2', 'city2', 'country3', 'opis2', '2019-04-22 21:58:58.508-07');
 	
-INSERT INTO clinic (id, name, address, city, country, description, grade, registration_date)
-VALUES (nextval('clinic_seq'), 'Klinika za pulmologiju', 'address3', 'city1', 'country1', 'opis3', '2.0', '2019-04-22 21:58:58.508-07');
+INSERT INTO clinic (id, name, address, city, country, description, registration_date)
+VALUES (nextval('clinic_seq'), 'Klinika za pulmologiju', 'address3', 'city1', 'country1', 'opis3', '2019-04-22 21:58:58.508-07');
 
-INSERT INTO clinic (id, name, address, city, country, description, grade, registration_date)
-VALUES (nextval('clinic_seq'), 'Klinika za nefrologiju', 'address4', 'city3', 'country1', 'opis4', '3.2', '2019-04-22 21:58:58.508-07');
+INSERT INTO clinic (id, name, address, city, country, description, registration_date)
+VALUES (nextval('clinic_seq'), 'Klinika za nefrologiju', 'address4', 'city3', 'country1', 'opis4', '2019-04-22 21:58:58.508-07');
 
-INSERT INTO clinic (id, name, address, city, country, description, grade, registration_date)
-VALUES (nextval('clinic_seq'), 'Klinika za očne bolesti', 'Deligradska br. 30', 'Beograd', 'country1', 'Klinika za očne bolesti nalazi se u sklopu KCS-a. Radi u zdanju koje ima oko 7.000 m2 raspoređenih u tri međusobom povezane zgrade. Funkcionalno je podeljena na poliklinički i stacionarni deo. Poliklinika ima jednu opštu/trijažnu ambulantu (amb. 1), koja je istovremeno i ambulanta za urgentna stanja, i još 11 specijalizovanih ambulanti.', '5.0', '2019-04-22 21:58:58.508-07');
+INSERT INTO clinic (id, name, address, city, country, description, registration_date)
+VALUES (nextval('clinic_seq'), 'Klinika za očne bolesti', 'Deligradska br. 30', 'Beograd', 'country1', 'Klinika za očne bolesti nalazi se u sklopu KCS-a. Radi u zdanju koje ima oko 7.000 m2 raspoređenih u tri međusobom povezane zgrade. Funkcionalno je podeljena na poliklinički i stacionarni deo. Poliklinika ima jednu opštu/trijažnu ambulantu (amb. 1), koja je istovremeno i ambulanta za urgentna stanja, i još 11 specijalizovanih ambulanti.', '2019-04-22 21:58:58.508-07');
 
-INSERT INTO clinic (id, name, address, city, country, description, grade, registration_date)
-VALUES (nextval('clinic_seq'), 'Klinika za dermatovenerologiju', 'Deligradska br. 34', 'Beograd', 'Srbija', 'opis1', '4.1', '2019-04-22 21:58:58.508-07');
+INSERT INTO clinic (id, name, address, city, country, description, registration_date)
+VALUES (nextval('clinic_seq'), 'Klinika za dermatovenerologiju', 'Deligradska br. 34', 'Beograd', 'Srbija', 'opis1', '2019-04-22 21:58:58.508-07');
 	
-INSERT INTO clinic (id, name, address, city, country, description, grade, registration_date)
-VALUES (nextval('clinic_seq'), 'Klinika za ortopedsku hirurgiju i traumatologiju', 'Koste Todorovića 26', 'Beograd', 'Srbija', 'opis3', '2.0', '2019-04-22 21:58:58.508-07');
+INSERT INTO clinic (id, name, address, city, country, description, registration_date)
+VALUES (nextval('clinic_seq'), 'Klinika za ortopedsku hirurgiju i traumatologiju', 'Koste Todorovića 26', 'Beograd', 'Srbija', 'opis3', '2019-04-22 21:58:58.508-07');
 
-INSERT INTO clinic (id, name, address, city, country, description, grade, registration_date)
-VALUES (nextval('clinic_seq'), 'Klinika za alergologiju i imunologiju', 'Koste Todorovića 2', 'Beograd', 'Srbija', 'opis4', '3.2', '2019-04-22 21:58:58.508-07');
+INSERT INTO clinic (id, name, address, city, country, description, registration_date)
+VALUES (nextval('clinic_seq'), 'Klinika za alergologiju i imunologiju', 'Koste Todorovića 2', 'Beograd', 'Srbija', 'opis4', '2019-04-22 21:58:58.508-07');
 
 
 
@@ -131,6 +131,12 @@ SELECT 'patient', nextval('user_id_generator_seq'), 'Nikola', 'Nikolic','0078944
 WHERE 
 NOT EXISTS (
     SELECT 1 FROM user_account WHERE email = 'mail@mail.com'
+);
+INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date)
+SELECT 'patient', nextval('user_id_generator_seq'), 'Ilija', 'Trifkovic','0078944555111' ,'trifkovic69@gmail.com', '1231000231234', '12345670002', '12345000912', 'address 1', 'city1', 'country1', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07'
+WHERE 
+NOT EXISTS (
+    SELECT 1 FROM user_account WHERE email = 'trifkovic69@gmail.com'
 );
 --admin*******************************************************
 INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date)
@@ -195,13 +201,13 @@ NOT EXISTS (
     SELECT 1 FROM user_account WHERE email = 'petar@mail.com'
 );
 INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
-SELECT 'doctor', nextval('user_id_generator_seq'), 'Dragan', 'Dragovic','00385117761173' ,'dragan@mail.com', '1230001231251', '19990678914', '12343730912', 'Milosa Milosevica 12', 'Novi Sad', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 1, 3
+SELECT 'doctor', nextval('user_id_generator_seq'), 'Dragan', 'Dragovic','00385117761173' ,'dragan@mail.com', '1230001231251', '19990678914', '12343730912', 'Milosa Milosevica 12', 'Novi Sad', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 201, 3
 WHERE 
 NOT EXISTS (
     SELECT 1 FROM user_account WHERE email = 'dragan@mail.com'
 );
 INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
-SELECT 'doctor', nextval('user_id_generator_seq'), 'Ksenija', 'Milosevic','0038227771113' ,'ksenija@mail.com', '1231231412314', '17540678912', '12380033091', 'Adresa Neka 12', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 1, 2
+SELECT 'doctor', nextval('user_id_generator_seq'), 'Ksenija', 'Milosevic','0038227771113' ,'ksenija@mail.com', '1231231412314', '17540678912', '12380033091', 'Adresa Neka 12', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 151, 2
 WHERE 
 NOT EXISTS (
     SELECT 1 FROM user_account WHERE email = 'ksenija@mail.com'
@@ -231,63 +237,117 @@ VALUES (5, 'TIP 5', 'OPIS 5');
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (1, 0, null, null, TO_DATE('30-05-2020 12:12', 'DD-MM-YYYY HH24:MI'), 20, 1, 101, null, 1, 1, 1400.0, 200.0);
+VALUES (0, 0, null, null, '30-05-2020 12:12', 20, 1, 151, null, 1, 1, 1400.0, 200.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (2, 0, null, null, TO_DATE('30-05-2020 12:10', 'DD-MM-YYYY HH24:MI'), 20, 1, 101, null, 2, 1, 2000.0, 0.0);
+VALUES (2, 0, null, null, '30-05-2020 12:10', 20, 1, 151, null, 2, 1, 2000.0, 0.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (3, 0, null, null, TO_DATE('30-05-2020 13:12', 'DD-MM-YYYY HH24:MI'), 20, 51, 351, null, 3, 8, 3000.0, 550.0);
+VALUES (3, 0, null, null, '30-05-2020 13:12', 20, 51, 401, null, 3, 8, 3000.0, 550.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (4, 0, null, null, TO_DATE('30-05-2020 13:15', 'DD-MM-YYYY HH24:MI'), 20, 51, 151, null, 4, 9, 2000.0, 300.0);
+VALUES (4, 0, null, null, '30-05-2020 13:15', 20, 51, 201, null, 4, 9, 2000.0, 300.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (5, 2, null, null, TO_DATE('14-05-2020 15:40', 'DD-MM-YYYY HH24:MI'), 20, 51, 251, 1, 4, 9, 2000.0, 300.0);
+VALUES (5, 2, null, null, '14-05-2020 15:40', 20, 51, 301, 1, 4, 9, 2000.0, 300.0);
 
 
 --test - infektilna -datum je prosao
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (6, 0, null, null, TO_DATE('05-05-2020 12:12', 'DD-MM-YYYY HH24:MI'), 20, 1, 101, null, 1, 1, 1400.0, 200.0);
+VALUES (6, 0, null, null, '05-05-2020 12:12', 20, 1, 151, null, 1, 1, 1400.0, 200.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (7, 0, null, null, TO_DATE('05-05-2020 12:12', 'DD-MM-YYYY HH24:MI'), 20, 1, 101, null, 1, 1, 1400.0, 200.0);
+VALUES (7, 0, null, null, '05-05-2020 12:12', 20, 1, 151, null, 1, 1, 1400.0, 200.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (8, 0, null, null, TO_DATE('08-05-2020 12:55', 'DD-MM-YYYY HH24:MI'), 20, 1, 101, null, 1, 1, 1400.0, 200.0);
+VALUES (8, 0, null, null, '08-05-2020 12:55', 20, 1, 151, null, 1, 1, 1400.0, 200.0);
 
 
 
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (9, 2, null, null, TO_DATE('20-04-2019 15:10', 'DD-MM-YYYY HH24:MI'), 24, 51, 251, 1, 4, 9, 2000.0, 300.0);
+VALUES (9, 2, null, null, '20-04-2019 15:10', 24, 51, 301, 51, 4, 9, 2000.0, 300.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (10, 2, null, null, TO_DATE('24-04-2020 13:10', 'DD-MM-YYYY HH24:MI'), 22, 51, 251, 1, 4, 9, 2000.0, 300.0);
+VALUES (10, 2, null, null, '24-04-2020 13:10', 22, 51, 301, 51, 4, 9, 2000.0, 300.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (11, 2, null, null, TO_DATE('22-04-2020 13:10', 'DD-MM-YYYY HH24:MI'), 40, 51, 251, 1, 4, 9, 2000.0, 300.0);
+VALUES (11, 2, null, null, '22-04-2020 13:10', 40, 51, 301, 51, 4, 9, 2000.0, 300.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
 appointment_type_id, room_id, price, discount)
-VALUES (12, 2, null, null, TO_DATE('23-04-2020 13:10', 'DD-MM-YYYY HH24:MI'), 30, 51, 251, 1, 4, 9, 2000.0, 300.0);
+VALUES (12, 2, null, null, '23-04-2020 13:10', 30, 51, 301, 51, 4, 9, 2000.0, 300.0);
+
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (13, 2, null, null, '23-04-2020 13:20', 30, 1, 151, 51, 4, 9, 2000.0, 300.0);
+
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (14, 2, null, null, '23-04-2020 13:55', 30, 51, 201, 51, 4, 9, 2000.0, 300.0);
+
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (15, 2, null, null, '23-04-2020 14:10', 30, 51, 251, 51, 4, 9, 2000.0, 300.0);
+
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (16, 2, null, null, '23-04-2020 10:10', 30, 101, 351, 51, 4, 9, 2000.0, 300.0);
+
+
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (1, 3, null, null, '21-05-2020 16:12', 20, 1, 151, 51, 1, 1, 1400.0, 200.0);
 
 
 
 
-
-
-
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (17, 2, null, 5, '21-03-2020 16:12', 20, 1, 151, 1, 1, 1, 1400.0, 200.0);
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (18, 2, null, 2, '21-03-2020 16:12', 20, 51, 151, 1, 1, 1, 1400.0, 200.0);
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (19, 2, null, 2, '21-03-2020 16:12', 20, 101, 151, 1, 1, 1, 1400.0, 200.0);
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (20, 2, null, 4, '21-03-2020 16:12', 20, 151, 151, 1, 1, 1, 1400.0, 200.0);
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (21, 2, null, 5, '21-03-2020 16:12', 20, 201, 151, 1, 1, 1, 1400.0, 200.0);
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (22, 2, null, 5, '21-03-2020 16:12', 20, 251, 151, 1, 1, 1, 1400.0, 200.0);
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (23, 2, null, 3, '21-03-2020 16:12', 20, 301, 151, 1, 1, 1, 1400.0, 200.0);
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (24, 2, null, 4, '21-03-2020 16:12', 20, 351, 151, 1, 1, 1, 1400.0, 200.0);
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (25, 2, null, 4, '21-03-2020 16:12', 20, 401, 151, 1, 1, 1, 1400.0, 200.0);
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (26, 2, null, 5, '21-03-2020 16:12', 20, 451, 151, 1, 1, 1, 1400.0, 200.0);
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (27, 2, null, 3, '21-03-2020 16:12', 20, 501, 151, 1, 1, 1, 1400.0, 200.0);
+INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, duration, clinic_id, doctor_id, patient_id,
+appointment_type_id, room_id, price, discount)
+VALUES (28, 2, null, 5, '21-03-2020 16:12', 20, 551, 151, 1, 1, 1, 1400.0, 200.0);
 
 
 
@@ -318,6 +378,12 @@ INSERT INTO user_account_authorities(user_account_id, authorities_id)
 SELECT u.id, a.id
 FROM user_account u, authority a
 WHERE u.email = 'mail@mail.com' AND a.name = 'PATIENT' AND 
+NOT EXISTS ( SELECT 1 FROM user_account_authorities WHERE user_account_id = u.id );
+
+INSERT INTO user_account_authorities(user_account_id, authorities_id) 
+SELECT u.id, a.id
+FROM user_account u, authority a
+WHERE u.email = 'trifkovic69@gmail.com' AND a.name = 'PATIENT' AND 
 NOT EXISTS ( SELECT 1 FROM user_account_authorities WHERE user_account_id = u.id );
 
 --admin
