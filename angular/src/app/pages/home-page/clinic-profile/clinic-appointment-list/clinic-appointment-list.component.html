@@ -1,0 +1,36 @@
+<div class="message-dialog-box" *ngIf="submitReservatinForm">
+  <div class="message-dialog">
+    <div class="dialog-btn-close" (click)="closeDialog()"><p>X</p></div>
+    <br><br>
+    <h4 style="color:rgb(77, 77, 77);">Da li želite zakazati selektovani pregled</h4>
+    <div class="dialog-btn" *ngIf="!submitBtn" (click)="submit()"><p>Zakaži pregled</p></div>
+    <div class="loader" *ngIf="submitBtn"></div>
+    <p class="status-message">{{statusMessage}}</p>
+  </div>
+</div>
+<div class="div-clinic-info" *ngIf="medicalAppointment[0]!=null">
+  <table class="table">
+    <caption>
+      <h4>Lista unaprijed definisanih termina</h4>
+    </caption>
+    <tr>
+      <th >Datum i vreme</th>
+      <th >Trajanje</th>
+      <th >Doktor</th>
+      <th >Tip pregleda</th>
+      <th >Prostorija</th>
+      <th >Cijena</th>
+      <th >Popust</th>
+    </tr>
+    <tr *ngFor="let m of medicalAppointment; let i = index" [style.background-color]="(i%2==0)? 'transparent':'white'"
+        (click)="schedule(m.id)">
+      <td>{{m.dateTime}}</td>
+      <td>{{m.duration}} min</td>
+      <td>{{m.doctor.firstName}} {{m.doctor.lastName}}</td>
+      <td>{{m.appointmentType.name}}</td>
+      <td>{{m.room.name}}</td>
+      <td>{{m.price}} din</td>
+      <td>{{m.discount}} din</td>
+    </tr>
+  </table>
+</div>

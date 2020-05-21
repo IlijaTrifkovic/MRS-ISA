@@ -13,6 +13,7 @@ export class ClinicRestService {
   appointmentUrl="/patient/appointment";
   clinicGradeUrl="/clinic-grade";
   doctorGradeUrl="/doctor-grade";
+  doctorUrl="/doctor/clinic"
 
   constructor(private http: HttpClient) { }
   getClinic(pageNumber,pageSize,sortBy,sortType): Observable<any> {
@@ -47,5 +48,9 @@ export class ClinicRestService {
 
   setDoctorGrade(id,grade):Observable<any>{
     return this.http.put(this.url + this.appointmentUrl + this.doctorGradeUrl+ "?id="+id+"&grade="+grade, environment.httpOptions);
+  }
+
+  getDoctorList(id):Observable<any>{
+    return this.http.get(this.url+this.doctorUrl+"/"+id);
   }
 }

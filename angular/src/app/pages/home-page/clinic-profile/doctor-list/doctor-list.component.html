@@ -1,0 +1,17 @@
+<div class="div-clinic-info" *ngIf="doctorList[0]!=null">
+  <table class="table">
+    <caption>
+      <h4>Lista zaposlenih ljekara</h4>
+    </caption>
+    <tr>
+      <th >Ime i Prezime</th>
+      <th >Specijalizacija</th>
+      <th >Ocjena</th>
+    </tr>
+    <tr *ngFor="let drList of doctorList; let i = index" [style.background-color]="(i%2==0)? 'transparent':'white'">
+      <td>{{drList.firstName}} {{drList.lastName}}</td>
+      <td>{{drList.specialization.name}}</td>
+      <td>{{drList.grade==null? "n/a":drList.grade | number: '1.1-1'}}</td>
+    </tr>
+  </table>
+</div>

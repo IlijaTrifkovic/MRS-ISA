@@ -224,3 +224,52 @@ p{
     text-align: center;
     display: block;
 }
+
+
+/*TABLE*/
+
+.table{
+  padding: 20px;
+  width: 90%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+.table tr td{
+  padding: 4px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: none;
+}
+
+.table tr th{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.table tr{
+ overflow: hidden;
+ border-collapse: collapse;
+ background-color: white;
+ cursor:pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .table{
+      width: 100%;
+  }
+  .div-clinic-info{
+    width: 100%;
+  }
+}
+
+.div-clinic-info{
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
