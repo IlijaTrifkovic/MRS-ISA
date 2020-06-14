@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class Room {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "room_generator")
-	@SequenceGenerator(name = "room_generator", sequenceName = "room_seq")
+	@SequenceGenerator(name = "room_generator", sequenceName = "room_seq", initialValue = 100)
 	private Long id;
 	
 	@Column(nullable = false)

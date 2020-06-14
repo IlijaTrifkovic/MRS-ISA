@@ -1,10 +1,10 @@
 import { Room } from './Room';
 import { Doctor } from '../model.doctor/Doctor';
+import { Clinic } from './Clinic';
 
 export class MedicalAppointment{
     id:number;
     dateTime:string;
-    duration:number;
     doctor:Doctor=new Doctor();
     appointmentType:AppointmentType=new AppointmentType();
     room:Room=new Room();
@@ -19,6 +19,6 @@ export class AppointmentType{
     id: 1;
     name:string;
     description:string;
-
+    duration:number;
     constructor(){}
 }

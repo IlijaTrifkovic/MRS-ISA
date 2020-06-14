@@ -39,15 +39,15 @@ public class MedicalRecord {
 	private Date dateOfBirth;
 	
 	@OneToOne(mappedBy = "medicalRecord")
-	private Patient Patient;
+	private Patient patient;
 
 	@JsonManagedReference
 	public Patient getPatient() {
-		return Patient;
+		return patient;
 	}
 
 	public void setPatient(Patient patient) {
-		Patient = patient;
+		this.patient = patient;
 	}
 
 	public Gender getGender() {

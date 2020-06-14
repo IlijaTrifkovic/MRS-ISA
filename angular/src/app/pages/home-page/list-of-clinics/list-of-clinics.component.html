@@ -8,7 +8,7 @@
       </ul>
     </div>
     <div class="content">
-      <table class="table-clinic">
+      <table class="table">
         <caption style="background-color: rgb(15, 146, 113);">
           <h3 style="color: white;">Lista klinika</h3>
         </caption>
@@ -27,7 +27,7 @@
           <td>{{clinic.city}}</td>
           <td>{{clinic.country}}</td>
           <!-- <td>{{clinic.description}}</td> -->
-          <td>{{clinic.grade}}</td>
+          <td>{{clinic.grade==null? "n/a":clinic.grade | number: '1.1-1'}}</td>
         </tr>
       </table>
       <p class="page-number">

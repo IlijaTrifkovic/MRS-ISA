@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mrsisa.dto.ClinicDTO;
 import com.mrsisa.entity.clinic.Clinic;
 import com.mrsisa.exception.ResourceNotFoundException;
 import com.mrsisa.service.clinic.ClinicService;
@@ -24,15 +25,16 @@ public class ClinicController {
 	
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<Page<Clinic>> getAll(Pageable pageable){
+	public ResponseEntity<Page<ClinicDTO>> getAll(Pageable pageable){
 		Page<Clinic> page = clinicService.findAll(pageable);
-		return new ResponseEntity<Page<Clinic>>(page, HttpStatus.OK);
+		Page<ClinicDTO> pageDto = page.map(obj -> new ClinicDTO(obj));
+		return new ResponseEntity<Page<ClinicDTO>>(pageDto, HttpStatus.OK);
 	}
 	
 	@PreAuthorize("hasAnyRole('PATIENT')")
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET) 
-	public ResponseEntity<Clinic> getOne(@PathVariable Long id) throws ResourceNotFoundException{		
-		return new ResponseEntity<Clinic>(clinicService.findOne(id), HttpStatus.OK);
+	public ResponseEntity<ClinicDTO> getOne(@PathVariable Long id) throws ResourceNotFoundException{		
+		return new ResponseEntity<ClinicDTO>(new ClinicDTO(clinicService.findOne(id)), HttpStatus.OK);
 	}
 	
 	

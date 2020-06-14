@@ -22,6 +22,8 @@ import { ListOfClinicsComponent } from './pages/home-page/list-of-clinics/list-o
 import { ClinicProfileComponent } from './pages/home-page/clinic-profile/clinic-profile.component';
 import { MedicalRecordComponent } from './pages/home-page/medical-record/medical-record.component';
 import { AppointmentListComponent } from './pages/home-page/appointment-list/appointment-list.component';
+import { DoctorListComponent } from './pages/home-page/clinic-profile/doctor-list/doctor-list.component';
+import { ClinicAppointmentListComponent } from './pages/home-page/clinic-profile/clinic-appointment-list/clinic-appointment-list.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { AppointmentListComponent } from './pages/home-page/appointment-list/app
     ClinicProfileComponent,
     MedicalRecordComponent,
     AppointmentListComponent,
+    DoctorListComponent,
+    ClinicAppointmentListComponent,
   ],
   imports: [
     BrowserModule,
