@@ -14,10 +14,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.mrsisa.entity.Specialization;
 import com.mrsisa.entity.appointment.MedicalAppointment;
 import com.mrsisa.entity.clinic.Pricelist;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 public class AppointmentType {
 	@Id

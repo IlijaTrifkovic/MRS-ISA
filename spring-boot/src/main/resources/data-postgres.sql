@@ -49,62 +49,70 @@ VALUES (20, 'Specijalizacija 20', 'opis specijalizacije 20');
 
 
 --Dodavanje tipa pregleda-operacije***************************************************
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (1, 'TIP 1', 'OPIS 1', 20, 1, 0);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (2, 'TIP 2', 'OPIS 2', 35, 2, 0);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (3, 'TIP 3', 'OPIS 3', 20, 3, 0);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (4, 'TIP 4', 'OPIS 4', 30, 4, 0);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (5, 'TIP 5', 'OPIS 5', 40, 5, 0);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (6, 'TIP 6', 'OPIS 6', 35, 6, 0);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (7, 'TIP 7', 'OPIS 7', 50, 7, 0);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (8, 'TIP 8', 'OPIS 8', 20, 8, 0);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (9, 'TIP 9', 'OPIS 9', 35, 9, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (10, 'TIP 10', 'OPIS 10', 60, 10, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (11, 'TIP 11', 'OPIS 11', 30, 11, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (12, 'TIP 12', 'OPIS 12', 20, 12, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (13, 'TIP 13', 'OPIS 13', 40, 13, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (14, 'TIP 14', 'OPIS 14', 50, 14, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (15, 'TIP 15', 'OPIS 15', 70, 15, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (16, 'TIP 16', 'OPIS 16', 20, 9, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (17, 'TIP 17', 'OPIS 17', 25, 10, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (18, 'TIP 18', 'OPIS 18', 40, 11, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (19, 'TIP 19', 'OPIS 19', 20, 12, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (20, 'TIP 20', 'OPIS 20', 30, 13, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (21, 'TIP 21', 'OPIS 21', 30, 14, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (22, 'TIP 22', 'OPIS 22', 30, 15, 1);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (23, 'TIP 23', 'OPIS 23', 35, 16, 0);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (24, 'TIP 24', 'OPIS 24', 55, 17, 0);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (25, 'TIP 25', 'OPIS 25', 30, 18, 0);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (26, 'TIP 26', 'OPIS 26', 35, 19, 0);
-INSERT INTO appointment_type(id, name, description, duration, specialization_id, type) 
-VALUES (27, 'TIP 27', 'OPIS 27', 30, 20, 0);
-
-
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status) 
+VALUES (1, 'TIP 1', 'OPIS 1', 20, 1, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status) 
+VALUES (2, 'TIP 2', 'OPIS 2', 35, 2, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status) 
+VALUES (3, 'TIP 3', 'OPIS 3', 20, 3, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status) 
+VALUES (4, 'TIP 4', 'OPIS 4', 30, 4, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (5, 'TIP 5', 'OPIS 5', 40, 5, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (6, 'TIP 6', 'OPIS 6', 35, 6, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (7, 'TIP 7', 'OPIS 7', 50, 7, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (8, 'TIP 8', 'OPIS 8', 20, 8, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (9, 'TIP 9', 'OPIS 9', 35, 9, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (10, 'TIP 10', 'OPIS 10', 60, 10, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (11, 'TIP 11', 'OPIS 11', 30, 11, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (12, 'TIP 12', 'OPIS 12', 20, 12, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (13, 'TIP 13', 'OPIS 13', 40, 13, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (14, 'TIP 14', 'OPIS 14', 50, 14, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (15, 'TIP 15', 'OPIS 15', 70, 15, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (16, 'TIP 16', 'OPIS 16', 20, 9, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (17, 'TIP 17', 'OPIS 17', 25, 10, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (18, 'TIP 18', 'OPIS 18', 40, 11, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (19, 'TIP 19', 'OPIS 19', 20, 12, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (20, 'TIP 20', 'OPIS 20', 30, 13, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (21, 'TIP 21', 'OPIS 21', 30, 14, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (22, 'TIP 22', 'OPIS 22', 30, 15, 1, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (23, 'TIP 23', 'OPIS 23', 35, 16, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (24, 'TIP 24', 'OPIS 24', 55, 17, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (25, 'TIP 25', 'OPIS 25', 30, 18, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (26, 'TIP 26', 'OPIS 26', 35, 19, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (27, 'TIP 27', 'OPIS 27', 30, 20, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (28, 'TIP 28', 'OPIS 28', 35, 16, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (29, 'TIP 29', 'OPIS 29', 55, 17, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (30, 'TIP 30', 'OPIS 30', 30, 18, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (31, 'TIP 31', 'OPIS 31', 35, 19, 0, true);
+INSERT INTO appointment_type(id, name, description, duration, specialization_id, type, status)
+VALUES (32, 'TIP 32', 'OPIS 32', 30, 20, 0, true);
 
 --Dodavanje klinika****************************************************************
 INSERT INTO clinic (id, name, address, city, country, description, registration_date)
@@ -461,7 +469,7 @@ NOT EXISTS (
     SELECT 1 FROM user_account WHERE email = 'milica@mail.com'
 );
 INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
-SELECT 'doctor', 8, 'Jovana', 'Jovovic','00385667771113' ,'jovana@mail.com', '7771231231231', '77740678912', '99340000912', 'Milosa Milosevica 12', 'Novi Sad', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07',2, 6
+SELECT 'doctor', 8, 'Jovana', 'Jovovic','00385667771113' ,'jovana@mail.com', '7771231231231', '77740678912', '99340000912', 'Milosa Milosevica 12', 'Novi Sad', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07',1, 6
 WHERE 
 NOT EXISTS (
     SELECT 1 FROM user_account WHERE email = 'jovana@mail.com'
@@ -485,137 +493,152 @@ NOT EXISTS (
     SELECT 1 FROM user_account WHERE email = 'petar@mail.com'
 );
 INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
-SELECT 'doctor', 12, 'Dragan', 'Dragovic','00385117761173' ,'dragan@mail.com', '1230001231251', '19990678914', '12343730912', 'Milosa Milosevica 12', 'Novi Sad', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 3, 10
+SELECT 'doctor', 12, 'Dragan', 'Dragovic','00385117761173' ,'dragan@mail.com', '1230001231251', '19990678914', '12343730912', 'Milosa Milosevica 12', 'Novi Sad', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 2, 10
 WHERE 
 NOT EXISTS (
     SELECT 1 FROM user_account WHERE email = 'dragan@mail.com'
 );
 INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
-SELECT 'doctor', 13, 'Ksenija', 'Milosevic','0038227771113' ,'ksenija@mail.com', '1231231412314', '17540678912', '12380033091', 'Adresa Neka 12', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 3, 11
+SELECT 'doctor', 13, 'Ksenija', 'Milosevic','0038227771113' ,'ksenija@mail.com', '1231231412314', '17540678912', '12380033091', 'Adresa Neka 12', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 2, 11
 WHERE 
 NOT EXISTS (
     SELECT 1 FROM user_account WHERE email = 'ksenija@mail.com'
 );
 INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
-SELECT 'doctor', 14, 'Nemanja', 'Jovanovic','0038227771113' ,'nemanja@mail.com', '1231231419937', '17546445912', '12866133091', 'Nemanjina adresa 122', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 4, 12
+SELECT 'doctor', 14, 'Nemanja', 'Jovanovic','0038227771113' ,'nemanja@mail.com', '1231231419937', '17546445912', '12866133091', 'Nemanjina adresa 122', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 2, 12
 WHERE 
 NOT EXISTS (
     SELECT 1 FROM user_account WHERE email = 'nemanja@mail.com'
 );
 
 
+
+INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
+SELECT 'doctor', 15, 'Jelena', 'Simic','0038227771113' ,'jeca@mail.com', '1238331419137', '14446445962', '12261533091', 'Nemanjina adresa 122', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 3, 13
+WHERE 
+NOT EXISTS (
+    SELECT 1 FROM user_account WHERE email = 'jeca@mail.com'
+);
+
+INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
+SELECT 'doctor', 16, 'Nemanja', 'Nemanjic','0038223371113' ,'nemanja14@mail.com', '123125541937', '17511445912', '12844133091', 'Nemanjina adresa 122', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 3, 14
+WHERE 
+NOT EXISTS (
+    SELECT 1 FROM user_account WHERE email = 'nemanja14@mail.com'
+);
+
+INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
+SELECT 'doctor', 17, 'Pavle', 'Pavlovic','0038227771113' ,'pavle@mail.com', '1241251479937', '17546445914', '32826133091', 'Nemanjina adresa 122', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 3, 15
+WHERE 
+NOT EXISTS (
+    SELECT 1 FROM user_account WHERE email = 'pavle@mail.com'
+);
+
+INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
+SELECT 'doctor', 18, 'Biljana', 'Jovanovic','1382277271113' ,'biljana@mail.com', '1231231438647', '17541184912', '12876923091', 'Nemanjina adresa 122', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 3, 16
+WHERE 
+NOT EXISTS (
+    SELECT 1 FROM user_account WHERE email = 'biljana@mail.com'
+);
+
+INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
+SELECT 'doctor', 19, 'Simona', 'Petrovic','0038227771113' ,'simona@mail.com', '1234431119937', '07546441912', '12567123091', 'Nemanjina adresa 122', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 3, 17
+WHERE 
+NOT EXISTS (
+    SELECT 1 FROM user_account WHERE email = 'simona@mail.com'
+);
+
+INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
+SELECT 'doctor', 20, 'Strahinja', 'Stankovic','0038227771113' ,'strah@mail.com', '1132231412934', '17546555952', '14861123091', 'Nemanjina adresa 122', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 3, 18
+WHERE 
+NOT EXISTS (
+    SELECT 1 FROM user_account WHERE email = 'strah@mail.com'
+);
+
+INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
+SELECT 'doctor', 21, 'Slavisa', 'Jovanovic','0038227771113' ,'slavisa1@mail.com', '1231611419937', '27556447912', '42866183291', 'Nemanjina adresa 122', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 4, 19
+WHERE 
+NOT EXISTS (
+    SELECT 1 FROM user_account WHERE email = 'slavisa1@mail.com'
+);
+
+INSERT INTO user_account (type, id, first_name, last_name, phone_number, email, jmbg, lbo, zk, address, city, country, password, active, last_password_change_date, registration_date, clinic_id, specialization_id)
+SELECT 'doctor', 22, 'Nemanja', 'Jovancic','0038227771113' ,'nemanja2@mail.com', '1230031119337', '17164445912', '12466533691', 'Nemanjina adresa 122', 'Beograd', 'Srbija', '$2a$04$LgEy3/qIgUKxnOkoKZ/NQuxy4byrw1US9dRaL6L4aAh9ogUduj9lW', true, '2019-04-30 21:58:58.508-07', '2019-04-22 21:58:58.508-07', 4, 20
+WHERE 
+NOT EXISTS (
+    SELECT 1 FROM user_account WHERE email = 'nemanja2@mail.com'
+);
+
+
 --Dodavanje unaprijed definisanih pregleda**********************************************
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (0, 0, null, null, '2020-06-29 12:00',1, 3, null, 1, 1, 1400.0, 200.0);
+appointment_type_id, room_id, price_id, discount)
+VALUES (0, 0, null, null, '2020-06-29 12:00',1, 3, null, 1, 1, 1, 200.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (2, 0, null, null, '2020-06-29 12:20',1, 3, null, 1, 1, 2000.0, 0.0);
+appointment_type_id, room_id, price_id, discount)
+VALUES (2, 0, null, null, '2020-06-29 12:20',1, 3, null, 1, 1, 1, 0.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (3, 0, null, null, '2020-06-29 12:15',1, 4, null, 1, 8, 3000.0, 550.0);
+appointment_type_id, room_id, price_id, discount)
+VALUES (3, 0, null, null, '2020-06-29 12:15',1, 4, null, 1, 8, 1, 550.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (4, 0, null, null, '2020-06-29 11:45',1, 4, null, 1, 9, 2000.0, 300.0);
+appointment_type_id, room_id, price_id, discount)
+VALUES (4, 0, null, null, '2020-06-29 11:45',1, 4, null, 1, 9, 1, 300.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (5, 0, null, null, '2020-06-29 11:40',1, 5, null, 1, 9, 2000.0, 300.0);
+appointment_type_id, room_id, price_id, discount)
+VALUES (5, 0, null, null, '2020-06-29 11:40',1, 5, null, 1, 9, 1, 300.0);
 
 
 --test - infektilna -datum je prosao
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (6, 0, null, null, '2020-04-24 21:58:58.508-07', 1, 4, null, 1, 1, 1400.0, 200.0);
+appointment_type_id, room_id, price_id, discount)
+VALUES (6, 0, null, null, '2020-04-24 21:58:58.508-07', 1, 4, null, 1, 1, 1, 200.0);
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (7, 0, null, null, '2020-04-24 21:58:58.508-07', 1, 4, null, 1, 1, 1400.0, 200.0);
-
-
-
-INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (9, 2, null, null, '2020-04-24 21:58:58.508-07', 2, 4, 1, 4, 9, 2000.0, 300.0);
-
-INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (10, 2, null, null, '2020-04-24 21:58:58.508-07', 2, 3, 1, 4, 9, 2000.0, 300.0);
-
-INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (11, 2, null, null, '2020-04-24 21:58:58.508-07', 2, 3, 1, 4, 9, 2000.0, 300.0);
-
-INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (12, 2, null, null, '2020-04-24 21:58:58.508-07', 2, 3, 1, 4, 9, 2000.0, 300.0);
-
+appointment_type_id, room_id, price_id, discount)
+VALUES (7, 0, null, null, '2020-04-24 21:58:58.508-07', 1, 4, null, 1, 1, 1, 200.0);
 
 
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (13, 2, null, null, '2020-04-24 21:58:58.508-07', 2, 4, 1, 4, 9, 2000.0, 300.0);
-
+appointment_type_id, room_id, price_id, discount)
+VALUES (17, 2, null, 5, '2020-02-20 12:00:58.508-07', 1, 3, 1, 1, 1, 1, 200.0);
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (14, 2, null, null, '2020-04-24 21:58:58.508-07', 2, 3, 1, 4, 9, 2000.0, 300.0);
-
+appointment_type_id, room_id, price_id, discount)
+VALUES (18, 2, null, 2, '2020-02-24 13:00:58.508-07', 2, 3, 1, 1, 1, 1, 200.0);
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (15, 2, null, null, '2020-04-24 21:58:58.508-07', 2, 4, 1, 4, 9, 2000.0, 300.0);
-
+appointment_type_id, room_id, price_id, discount)
+VALUES (19, 2, null, 2, '2020-02-22 14:50:58.508-07', 3, 3, 1, 1, 1, 1, 200.0);
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (16, 2, null, null, '2020-04-24 21:58:58.508-07', 3, 5, 1, 4, 9, 2000.0, 300.0);
-
-
+appointment_type_id, room_id, price_id, discount)
+VALUES (20, 2, null, 4, '2019-04-24 14:00:58.508-07', 4, 3, 1, 1, 1, 1, 200.0);
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (1, 3, null, null, '2020-04-24 21:58:58.508-07', 1, 3, 1, 1, 1, 1400.0, 200.0);
-
-
-
-
+appointment_type_id, room_id, price_id, discount)
+VALUES (21, 2, null, 5, '2019-04-25 15:30:58.508-07', 5, 3, 1, 1, 1, 1, 200.0);
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (17, 2, null, 5, '2020-02-20 12:00:58.508-07', 1, 3, 1, 1, 1, 1400.0, 200.0);
+appointment_type_id, room_id, price_id, discount)
+VALUES (22, 2, null, 5, '2019-04-26 12:00:58.508-07', 6, 3, 1, 1, 1, 1, 200.0);
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (18, 2, null, 2, '2020-02-24 13:00:58.508-07', 2, 3, 1, 1, 1, 1400.0, 200.0);
+appointment_type_id, room_id, price_id, discount)
+VALUES (23, 2, null, 3, '2019-04-27 10:10:58.508-07', 7, 3, 1, 1, 1, 1, 200.0);
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (19, 2, null, 2, '2020-02-22 14:50:58.508-07', 3, 3, 1, 1, 1, 1400.0, 200.0);
+appointment_type_id, room_id, price_id, discount)
+VALUES (24, 2, null, 4, '2019-04-28 09:30:58.508-07', 8, 3, 1, 1, 1, 1, 200.0);
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (20, 2, null, 4, '2019-04-24 14:00:58.508-07', 4, 3, 1, 1, 1, 1400.0, 200.0);
+appointment_type_id, room_id, price_id, discount)
+VALUES (25, 2, null, 4, '2019-04-29 09:40:58.508-07', 9, 3, 1, 1, 1, 1, 200.0);
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (21, 2, null, 5, '2019-04-25 15:30:58.508-07', 5, 3, 1, 1, 1, 1400.0, 200.0);
+appointment_type_id, room_id, price_id, discount)
+VALUES (26, 2, null, 5, '2019-04-30 11:25:58.508-07', 10, 3, 1, 1, 1, 1, 200.0);
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (22, 2, null, 5, '2019-04-26 12:00:58.508-07', 6, 3, 1, 1, 1, 1400.0, 200.0);
+appointment_type_id, room_id, price_id, discount)
+VALUES (27, 2, null, 3, '2019-01-24 08:25:58.508-07', 11, 3, 1, 1, 1, 1, 200.0);
 INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (23, 2, null, 3, '2019-04-27 10:10:58.508-07', 7, 3, 1, 1, 1, 1400.0, 200.0);
-INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (24, 2, null, 4, '2019-04-28 09:30:58.508-07', 8, 3, 1, 1, 1, 1400.0, 200.0);
-INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (25, 2, null, 4, '2019-04-29 09:40:58.508-07', 9, 3, 1, 1, 1, 1400.0, 200.0);
-INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (26, 2, null, 5, '2019-04-30 11:25:58.508-07', 10, 3, 1, 1, 1, 1400.0, 200.0);
-INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (27, 2, null, 3, '2019-01-24 08:25:58.508-07', 11, 3, 1, 1, 1, 1400.0, 200.0);
-INSERT INTO medical_appointment (id, appointment_status, doctor_grade, clinic_grade, date_time, clinic_id, doctor_id, patient_id,
-appointment_type_id, room_id, price, discount)
-VALUES (28, 2, null, 5, '2019-01-25 08:20:58.508-07', 12, 3, 1, 1, 1, 1400.0, 200.0);
+appointment_type_id, room_id, price_id, discount)
+VALUES (28, 2, null, 5, '2019-01-25 08:20:58.508-07', 12, 3, 1, 1, 1, 1, 200.0);
 
 
 
@@ -648,11 +671,6 @@ FROM user_account u, authority a
 WHERE u.email = 'mail@mail.com' AND a.name = 'PATIENT' AND 
 NOT EXISTS ( SELECT 1 FROM user_account_authorities WHERE user_account_id = u.id );
 
---INSERT INTO user_account_authorities(user_account_id, authorities_id) 
---SELECT u.id, a.id
---FROM user_account u, authority a
---WHERE u.email = 'trifkovic69@gmail.com' AND a.name = 'PATIENT' AND 
---NOT EXISTS ( SELECT 1 FROM user_account_authorities WHERE user_account_id = u.id );
 
 --admin
 INSERT INTO user_account_authorities(user_account_id, authorities_id) 
