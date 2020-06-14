@@ -3,7 +3,6 @@ package com.mrsisa.service.clinic;
 import java.util.Set;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.mrsisa.crud.CRUDService;
@@ -16,16 +15,6 @@ public class ClinicService extends CRUDService<Clinic, Long>{
 
 	public ClinicService(ClinicRepository repo) {
 		super(repo);
-	}
-	
-	public Clinic getOne(Long id) {
-		Clinic clinic = ((ClinicRepository)repo).getOne(id);
-		return clinic;
-	}
-	
-	public Page<Clinic> getAll(Pageable pageable){
-		Page<Clinic> page = ((ClinicRepository)repo).getAll(pageable);
-		return page;
 	}
 
 	public void avgGrade(Page<Clinic> page) {

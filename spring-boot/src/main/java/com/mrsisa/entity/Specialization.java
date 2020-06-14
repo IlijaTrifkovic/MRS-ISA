@@ -12,12 +12,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.mrsisa.entity.appointment.type.AppointmentType;
 
 @Entity
 public class Specialization {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "spec_generator")
-	@SequenceGenerator(name = "spec_generator", sequenceName = "spec_seq", initialValue = 15)
+	@SequenceGenerator(name = "spec_generator", sequenceName = "spec_seq", initialValue = 20)
 	private Integer id;
 
 	@Column(nullable = false)
@@ -25,9 +26,12 @@ public class Specialization {
 
 	@Column
 	private String description;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "specialization")
 	private Set<Doctor> doctor;
+
+	@OneToMany(fetch = FetchType.LAZY)
+	private Set<AppointmentType> appointmentType;
 
 	@JsonBackReference
 	public Set<Doctor> getDoctor() {
@@ -36,6 +40,39 @@ public class Specialization {
 
 	public void setDoctor(Set<Doctor> doctor) {
 		this.doctor = doctor;
+	}
+
+	@JsonBackReference
+	public Set<AppointmentType> getAppointmentType() {
+		return appointmentType;
+	}
+
+	public void setAppointmentType(Set<AppointmentType> appointmentType) {
+		this.appointmentType = appointmentType;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	@Override
@@ -61,30 +98,6 @@ public class Specialization {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 }

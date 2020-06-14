@@ -22,7 +22,7 @@ import com.mrsisa.entity.appointment.MedicalAppointment;
 public class Clinic {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "clinic_generator")
-	@SequenceGenerator(name = "clinic_generator", sequenceName = "clinic_seq")
+	@SequenceGenerator(name = "clinic_generator", sequenceName = "clinic_seq", initialValue = 20)
 	private Long id;
 	
 	private Float grade;
@@ -51,6 +51,10 @@ public class Clinic {
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "clinic")
 	private Set<Room> room;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "clinic")
+	private Set<Pricelist> pricelist;
+	
 	/******************************/
 	
 	@CreationTimestamp
@@ -140,6 +144,18 @@ public class Clinic {
 	}
 	
 	public Float getGrade() {
+		medicalAppointment = getMedicalAppointments();
+		int sum=0;
+		int i=0;
+		for (MedicalAppointment appointment : medicalAppointment) {
+			Integer grade = appointment.getClinicGrade();
+			if(grade != null) {
+				sum += grade;
+				i++;
+			}
+		}
+		if(i>0)
+			grade = (float)sum/i;
 		return grade;
 	}
 

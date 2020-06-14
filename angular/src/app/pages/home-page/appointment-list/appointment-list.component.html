@@ -54,7 +54,7 @@
           <th (click)="sortDataBy('duration')">Trajanje</th>
           <th (click)="sortDataBy('doctor_id')">Doktor</th>
           <th (click)="sortDataBy('appointment_type_id')">Tip pregleda</th>
-          <th (click)="sortDataBy('room_id')">Prostorija</th>
+          <!-- <th (click)="sortDataBy('room_id')">Prostorija</th> -->
           <th (click)="sortDataBy('price')">Cijena</th>
           <th (click)="sortDataBy('discount')">Popust</th>
           <th> </th>
@@ -62,10 +62,10 @@
         <tr *ngFor="let m of medicalAppointment; let i = index" [style.background-color]="(i%2==0)? 'transparent':'white'"
         >
           <td>{{m.dateTime}}</td>
-          <td>{{m.duration}} min</td>
+          <td>{{m.appointmentType.duration}} min</td>
           <td>{{m.doctor.firstName}} {{m.doctor.lastName}}</td>
           <td>{{m.appointmentType.name}}</td>
-          <td>{{m.room.name}}</td>
+          <!-- <td>{{m.room.name}}</td> -->
           <td>{{m.price}} din</td>
           <td>{{m.discount}} din</td>
           <td (click)="openDialog(m)"><span style="color: rgb(15, 146, 113); ">{{m.appointmentStatus=="FINISHED"? "ocjena" : "otkaži"}}</span></td>

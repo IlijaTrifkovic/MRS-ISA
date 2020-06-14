@@ -9,12 +9,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.mrsisa.crud.CRUDService;
+import com.mrsisa.dto.MedicalAppointmentDTO;
 import com.mrsisa.dto.PatientUpdateDTO;
 import com.mrsisa.entity.Authority;
 import com.mrsisa.entity.Patient;
 import com.mrsisa.entity.UserAccount;
 import com.mrsisa.entity.appointment.MedicalAppointment;
 import com.mrsisa.exception.ResourceNotFoundException;
+import com.mrsisa.exception.CustomException;
 import com.mrsisa.exception.NotUniqueException;
 import com.mrsisa.repository.PatientRepository;
 import com.mrsisa.repository.UserAccountRepository;
@@ -108,7 +110,7 @@ public class PatientService extends CRUDService<Patient, Long> {
 		super.save(patient);
 	}
 	
-	public MedicalAppointment scheduleAppointment(Long examinationId) throws ResourceNotFoundException, MessagingException, IOException {
+	public MedicalAppointment scheduleAppointment(Long examinationId) throws ResourceNotFoundException, MessagingException, IOException, CustomException {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String email=auth.getName();
 		Patient patient=findByEmail(email);
@@ -119,16 +121,20 @@ public class PatientService extends CRUDService<Patient, Long> {
 			String time=new SimpleDateFormat("HH:mm").format(medicalEx.getDateTime());
 			mailService.sendMessage(email, "Uspješno ste zakazali pregled za datum "+date
 					+ " u "+time+" h, klinika '"+medicalEx.getClinic().getName()+"'.<br>.");
-		}catch (Exception e) {
+		}catch (CustomException ce) {
+			mailService.sendMessage(email, "Vas zahtjev za zakazivanje pregleda je odbijen. "+ce.getMessage());
+			throw new CustomException(ce.getMessage()+"");
+		}
+		catch (ResourceNotFoundException e) {
 			mailService.sendMessage(email, "Nije moguće izvršiti rezervaciju u traženom terminu.");
 			throw new ResourceNotFoundException(examinationId+"");
 		}
 		return medicalEx;
 	}
 	
-	public Page<MedicalAppointment> getAllMedicalAppointments(Pageable pageable) throws ResourceNotFoundException {
+	public Page<MedicalAppointmentDTO> getAllMedicalAppointments(Pageable pageable) throws ResourceNotFoundException {
 		Long id=getPatIdFromAuth();
-		Page<MedicalAppointment> medicalEx = medicalAppointmentService.getMedicalExaminationByPatientId(pageable, id);
+		Page<MedicalAppointmentDTO> medicalEx = medicalAppointmentService.getMedicalExaminationByPatientId(pageable, id);
 		return medicalEx;
 	}
 	

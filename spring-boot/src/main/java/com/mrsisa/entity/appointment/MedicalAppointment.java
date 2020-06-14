@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.mrsisa.entity.Doctor;
 import com.mrsisa.entity.Patient;
+import com.mrsisa.entity.appointment.type.AppointmentType;
 import com.mrsisa.entity.clinic.Clinic;
 import com.mrsisa.entity.clinic.Room;
 
@@ -24,7 +25,7 @@ import com.mrsisa.entity.clinic.Room;
 public class MedicalAppointment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "exam_generator")
-	@SequenceGenerator(name = "exam_generator", sequenceName = "exam_seq")
+	@SequenceGenerator(name = "exam_generator", sequenceName = "exam_seq", initialValue = 10)
 	private Long id;
 
 	@Column
@@ -35,14 +36,11 @@ public class MedicalAppointment {
 	private Date dateTime;
 
 	@Column
-	private int duration;
-
-	@Column
 	private Integer doctorGrade;
 
 	@Column
 	private Integer clinicGrade;
-
+	
 	@ManyToOne
 	@JoinColumn
 	private Clinic clinic;
@@ -62,10 +60,10 @@ public class MedicalAppointment {
 	@ManyToOne
 	@JoinColumn
 	private Room room;
-
+	
 	@Column
 	private float price;
-
+	
 	@Column
 	private float discount;
 
@@ -83,14 +81,6 @@ public class MedicalAppointment {
 
 	public void setDateTime(Date dateTime) {
 		this.dateTime = dateTime;
-	}
-
-	public int getDuration() {
-		return duration;
-	}
-
-	public void setDuration(int duration) {
-		this.duration = duration;
 	}
 
 	public Clinic getClinic() {

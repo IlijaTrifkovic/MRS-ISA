@@ -25,7 +25,7 @@
     <tr *ngFor="let m of medicalAppointment; let i = index" [style.background-color]="(i%2==0)? 'transparent':'white'"
         (click)="schedule(m.id)">
       <td>{{m.dateTime}}</td>
-      <td>{{m.duration}} min</td>
+      <td>{{m.appointmentType.duration}} min</td>
       <td>{{m.doctor.firstName}} {{m.doctor.lastName}}</td>
       <td>{{m.appointmentType.name}}</td>
       <td>{{m.room.name}}</td>
