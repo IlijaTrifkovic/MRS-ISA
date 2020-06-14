@@ -36,7 +36,7 @@ public class MedicalAppointmentDTO {
 		this.patient = medicalAppointment.getPatient();
 		this.appointmentType = medicalAppointment.getAppointmentType();
 		this.room = medicalAppointment.getRoom();
-		this.price = medicalAppointment.getPrice();
+		this.price = medicalAppointment.getPrice().getPrice();
 		this.discount = medicalAppointment.getDiscount();
 	}
 	

@@ -19,6 +19,7 @@ import com.mrsisa.entity.Doctor;
 import com.mrsisa.entity.Patient;
 import com.mrsisa.entity.appointment.type.AppointmentType;
 import com.mrsisa.entity.clinic.Clinic;
+import com.mrsisa.entity.clinic.Pricelist;
 import com.mrsisa.entity.clinic.Room;
 
 @Entity
@@ -61,8 +62,9 @@ public class MedicalAppointment {
 	@JoinColumn
 	private Room room;
 	
-	@Column
-	private float price;
+	@ManyToOne()
+	@JoinColumn
+	private Pricelist price;
 	
 	@Column
 	private float discount;
@@ -132,11 +134,11 @@ public class MedicalAppointment {
 		this.room = room;
 	}
 
-	public float getPrice() {
+	public Pricelist getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(Pricelist price) {
 		this.price = price;
 	}
 

@@ -1,6 +1,7 @@
 package com.mrsisa.entity.clinic;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,11 +11,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mrsisa.entity.appointment.MedicalAppointment;
 import com.mrsisa.entity.appointment.type.AppointmentType;
 
 @Entity
@@ -35,6 +38,9 @@ public class Pricelist {
 	@JoinColumn
 	private AppointmentType appointmentType;
 
+	@OneToMany(fetch = FetchType.LAZY)
+	private Set<MedicalAppointment> medicalAppointment;
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn
 	private Clinic clinic;
@@ -42,6 +48,14 @@ public class Pricelist {
 	@JsonIgnore
 	@CreationTimestamp
 	private Date registrationDate;
+
+	public Set<MedicalAppointment> getMedicalAppointment() {
+		return medicalAppointment;
+	}
+
+	public void setMedicalAppointment(Set<MedicalAppointment> medicalAppointment) {
+		this.medicalAppointment = medicalAppointment;
+	}
 
 	public Date getRegistrationDate() {
 		return registrationDate;

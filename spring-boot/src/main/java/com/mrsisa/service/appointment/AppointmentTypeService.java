@@ -13,6 +13,5 @@ public class AppointmentTypeService  extends CRUDService<AppointmentType, Long>{
 		super(repo);
 		// TODO Auto-generated constructor stub
 		
-		
 	}
 }
